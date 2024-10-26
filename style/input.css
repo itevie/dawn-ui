@@ -1,0 +1,131 @@
+input,
+select,
+textarea {
+  display: block;
+
+  width: 100%;
+
+  background-color: var(--dawn-control-background);
+  color: white;
+
+  border-style: solid;
+  border-color: var(--dawn-control-border);
+
+  transition: var(--dawn-hover-transition);
+
+  outline: none;
+}
+
+input[type="checkbox"] {
+  width: fit-content;
+
+  accent-color: var(--dawn-accent);
+
+  border-style: solid;
+  border-color: var(--dawn-control-border);
+  background-color: black;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+
+  height: 10px;
+
+  border-style: none;
+  border-radius: 10px;
+
+  background-color: var(--dawn-control-hover-background);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--dawn-accent);
+  cursor: pointer;
+  border-radius: 100px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: var(--dawn-accent);
+  cursor: pointer;
+  border-radius: 100px;
+}
+
+textarea {
+  transition: none;
+}
+
+input:hover,
+input:focus,
+select:hover,
+textarea:hover {
+  background-color: var(--dawn-control-hover-background);
+}
+
+select {
+  padding: 5px;
+}
+
+/* ----- Controls ----- */
+.dawn-button {
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--dawn-control-border);
+
+  padding: 5px 7px;
+
+  cursor: pointer;
+
+  color: var(--dawn-root-color);
+  background-color: var(--dawn-control-background);
+
+  transition: var(--dawn-hover-transition);
+}
+
+.dawn-link {
+  text-decoration: none;
+  color: var(--dawn-root-color);
+  cursor: pointer;
+}
+
+.dawn-button:hover {
+  background-color: var(--dawn-control-hover-background);
+}
+
+.dawn-button.dawn-danger:hover {
+  background-color: var(--dawn-control-hover-danger);
+}
+
+.dawn-button.dawn-success:hover {
+  background-color: var(--dawn-control-hover-success);
+}
+
+.dawn-danger {
+  background-color: var(--dawn-control-danger);
+}
+
+.dawn-success {
+  background-color: var(--dawn-control-success);
+  color: black;
+}
+
+.dawn-inherit {
+  background-color: transparent;
+  border: none;
+}
+
+.dawn-big-control {
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 1.2em;
+  padding: 10px;
+  margin: 10px 0px;
+  display: block;
+  text-align: center;
+}

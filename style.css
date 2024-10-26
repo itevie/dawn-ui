@@ -1,0 +1,177 @@
+:root {
+  --dawn-root-background: #222;
+  --dawn-root-color: #fff;
+
+  --dawn-control-background: #333;
+  --dawn-control-hover-background: #555;
+  --dawn-control-border: #444;
+
+  --dawn-control-danger: #770000;
+  --dawn-control-hover-danger: #cc0000;
+  --dawn-control-success: #00cc00;
+  --dawn-control-hover-success: #00ff00;
+  --dawn-control-link: #18e6f5;
+
+  --dawn-accent: #c3b1e1;
+
+  --dawn-hover-transition: 0.2s;
+  --dawn-border-radius: 20px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+
+  margin: 0;
+
+  background-color: var(--dawn-root-background);
+  color: var(--dawn-root-color);
+}
+
+/* ----- Flex ----- */
+.dawn-row {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.dawn-column {
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+  overflow-y: auto;
+}
+
+/* ----- Navbar ----- */
+.dawn-navbar {
+  position: sticky;
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 10px;
+
+  background-color: var(--dawn-control-background);
+
+  box-shadow: 2px 0px 5px 0px black;
+}
+
+.dawn-breadcrumb {
+  margin: 10px;
+}
+
+.dawn-navbar-below {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ----- Divs ----- */
+.dawn-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.dawn-content {
+  margin: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
+  box-sizing: border-box;
+}
+
+.dawn-page-content {
+  flex: 1;
+  overflow: auto;
+}
+
+.dawn-banner {
+  background-color: var(--dawn-control-background);
+
+  padding: 50px;
+  margin-top: 20px;
+
+  height: 200px;
+
+  border-radius: var(--dawn-border-radius);
+}
+
+.dawn-banner-image {
+  width: 200px;
+  height: 100%;
+  margin-top: -30px;
+  margin-right: -40px;
+
+  transition: var(--dawn-hover-transition);
+}
+
+.dawn-banner-image:hover {
+  transform: scale(1.1) rotate(10deg);
+}
+
+.full-page {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.page-center {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ----- Responsiveness ----- */
+@media only screen and (max-width: 700px) {
+  .dawn-banner-image {
+    display: none;
+  }
+
+  .dawn-page-content {
+    margin: 0;
+  }
+
+  .dawn-content {
+    margin: 5px;
+  }
+
+  .dawn-banner {
+    padding: 20px;
+    height: auto;
+  }
+}
+
+/* ----- Fullscreen ----- */
+.dawn-fullscreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #00000044;
+  z-index: 10;
+}
+
+.dawn-page-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ----- Visual ----- */
+.dawn-visual-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  font-size: 7em;
+  opacity: 0.5;
+}
+
+a {
+  color: var(--dawn-control-link);
+}

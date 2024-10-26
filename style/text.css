@@ -1,0 +1,38 @@
+.dawn-text {
+  margin-top: 7px;
+  margin-bottom: 7px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+.dawn-text-heading {
+  font-weight: bolder;
+  font-size: 1.4em;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.dawn-panel-title-text,
+.dawn-text-title {
+  font-weight: bolder;
+  font-size: 1.4em;
+  display: block;
+  margin: 10px;
+}
+
+.dawn-text-navbar {
+  font-weight: bold;
+  margin: 10px;
+}
+
+.dawn-text-page-title {
+  font-size: 3em;
+  display: block;
+  margin-bottom: 30px;
+}
+
+.dawn-highlight {
+  background-color: #00cc00aa;
+}
