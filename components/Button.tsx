@@ -1,4 +1,5 @@
 import { HTMLAttributes, ReactNode } from "react";
+import { combineClasses } from "../util";
 
 export interface ButtonProps {
   type?: ButtonType;
@@ -15,17 +16,15 @@ export default function Button(
     & HTMLAttributes<HTMLButtonElement>
     & HTMLAttributes<HTMLLinkElement>,
 ) {
-  const className = `dawn-button ${big && "dawn-big-control"} ${
-    type ? `dawn-${type}` : ""
-  }`;
+  const className = combineClasses("dawn-button", big ? "dawn-big-control" : "", type ? `dawn-${type}` : "", rest.className);
 
   return (
     href
       ? (
-        <a href={href} className={"dawn-link " + className} {...rest as any}>
+        <a {...rest as any} href={href} className={"dawn-link " + className}>
           {children}
         </a>
       )
-      : <button className={className} {...rest as any}>{children}</button>
+      : <button {...rest as any} className={className}>{children}</button>
   );
 }

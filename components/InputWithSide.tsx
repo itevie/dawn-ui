@@ -1,11 +1,11 @@
 import { ReactNode } from "react";
-import Column from "./Column";
+import Row from "./Row";
 
 export default function InputWithSide({children}: {children: [ReactNode, ReactNode]}) {
   return (
-    <Column style={{gap: "10px"}}>
+    <Row style={{gap: "10px"}}>
       {children[0]}
       {children[1]}
-    </Column>
+    </Row>
   )
 }
