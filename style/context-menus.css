@@ -1,0 +1,15 @@
+.dawn-context-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  padding: 10px;
+
+  border-radius: var(--dawn-control-border-radius);
+
+  background-color: var(--dawn-control-background);
+}
+
+.dawn-context-menu-button {
+  padding: 10px 30px;
+}
