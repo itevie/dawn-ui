@@ -29,7 +29,8 @@
   min-height: 100px;
 }
 
-.dawn-container:hover {
+.dawn-container-hover:hover {
+  cursor: pointer;
   background-color: var(--dawn-control-hover-background);
 }
 

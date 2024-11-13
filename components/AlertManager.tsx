@@ -19,9 +19,9 @@ interface ModelButton {
 }
 
 export let modelStack: Model[] = [];
-export let addModel: (data: Model) => void = () => { };
-export let closeModel: (id?: string) => void = () => { };
-export let updateModal: (id: string, newElement: ReactNode) => void = () => { };
+export let addModel: (data: Model) => void = () => {};
+export let closeModel: (id?: string) => void = () => {};
+export let updateModal: (id: string, newElement: ReactNode) => void = () => {};
 
 export default function AlertManager() {
   const [current, setCurrent] = useState<Model | null>(null);
@@ -66,7 +66,7 @@ export default function AlertManager() {
 
   return (
     current && (
-      <div className="dawn-fullscreen">
+      <div className="dawn-fullscreen" style={{ top: `${window.scrollY}px` }}>
         <div className="dawn-page-center">
           <div className="dawn-alert">
             {current.title && (
@@ -147,12 +147,11 @@ export function showLoadingAlert(): {
             <progress max={100} value={(amount * 100).toFixed(0)}></progress>
             <label>{(amount * 100).toFixed(2)}%</label>
           </div>
-        </div>,
+        </div>
       );
     },
   };
 }
-
 
 export function showInputModel(title: string): Promise<string | null> {
   return new Promise<string | null>((resolve) => {
@@ -160,20 +159,26 @@ export function showInputModel(title: string): Promise<string | null> {
 
     addModel({
       title,
-      body: <input onChange={e => current = e.currentTarget.value} />,
+      body: <input onChange={(e) => (current = e.currentTarget.value)} />,
       buttons: [
         {
           id: "close",
-          click: close => { close(); resolve(null); },
-          text: "Cancel"
+          click: (close) => {
+            close();
+            resolve(null);
+          },
+          text: "Cancel",
         },
         {
           id: "ok",
-          click: close => { close(); resolve(current); },
-          text: "OK!"
-        }
-      ]
-    })
+          click: (close) => {
+            close();
+            resolve(current);
+          },
+          text: "OK!",
+        },
+      ],
+    });
   });
 }
 
@@ -185,7 +190,7 @@ export function showConfirmModel(title: string, yesCb: () => void): void {
       {
         id: "no",
         text: "No",
-        click: c => c(),
+        click: (c) => c(),
       },
       {
         id: "yes",
@@ -193,8 +198,8 @@ export function showConfirmModel(title: string, yesCb: () => void): void {
         click: (c) => {
           c();
           yesCb();
-        }
-      }
-    ]
+        },
+      },
+    ],
   });
 }

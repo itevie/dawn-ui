@@ -3,10 +3,21 @@ import { combineClasses } from "../util";
 
 export default function Container({
   children,
+  hover,
   ...rest
-}: { children: ReactNode } & HTMLAttributes<HTMLDivElement>) {
+}: {
+  children: ReactNode;
+  hover?: boolean;
+} & HTMLAttributes<HTMLDivElement>) {
   return (
-    <div {...rest} className={combineClasses("dawn-container", rest.className)}>
+    <div
+      {...rest}
+      className={combineClasses(
+        "dawn-container",
+        hover ? "dawn-container-hover" : "",
+        rest.className
+      )}
+    >
       {children}
     </div>
   );

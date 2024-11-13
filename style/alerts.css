@@ -24,3 +24,7 @@
   margin-bottom: 20px;
   margin-top: 20px;
 }
+
+body:has(#root .dawn-fullscreen) {
+  overflow: hidden;
+}

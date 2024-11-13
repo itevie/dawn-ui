@@ -6,7 +6,8 @@ export type UtilClassNames =
   | "no-shrink"
   | "flex-grow"
   | "align-center"
-  | "justify-center";
+  | "justify-center"
+  | "no-select";
 
 export const client = axios.create({
   baseURL: window.location.host === "localhost" ? "http://localhost:3000" : "",
@@ -32,18 +33,12 @@ export function axiosWrapper<
     client[method](...args)
       .then((r) => {
         if (r.status !== 200) {
-          showErrorAlert(
-            `Request failed: ${r.status}: ${r.data?.message ?? "No Message"}`
-          );
+          showErrorAlert(makeErrorResponseMessage(r));
           reject();
         } else resolve(r);
       })
       .catch((r) => {
-        showErrorAlert(
-          `Request failed: ${r.status}: ${
-            r.response?.data?.message ?? "No Message"
-          }`
-        );
+        showErrorAlert(makeErrorResponseMessage(r.response));
         reject();
       })
       .finally(() => {
@@ -70,4 +65,20 @@ export function combineClasses(
     c += " " + (Array.isArray(part) ? part.join(" ") : part || "");
   }
   return c;
+}
+
+export function makeErrorResponseMessage(response: AxiosResponse): string {
+  console.log(response);
+  let serverMessage = response?.data?.message;
+
+  if (!serverMessage) {
+    serverMessage =
+      {
+        404: "The resource does not exist",
+      }[response.status] || `Failed to fetch data`;
+  }
+
+  return `${serverMessage} (${response.status} - ${
+    new URL(response.config.url as string)?.pathname
+  })`;
 }
