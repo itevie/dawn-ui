@@ -24,8 +24,8 @@
 .dawn-container {
   box-shadow: none;
   width: 100%;
-  box-sizing: border-box;
   padding: 30px;
+  margin: 10px;
   min-height: 100px;
 }
 

@@ -1,9 +1,13 @@
-import { ReactNode } from "react";
+import { HTMLAttributes, ReactNode } from "react";
+import { combineClasses } from "../util";
 
-export default function Container(props: { children: ReactNode }) {
+export default function Container({
+  children,
+  ...rest
+}: { children: ReactNode } & HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className="dawn-container">
-      {props.children}
+    <div {...rest} className={combineClasses("dawn-container", rest.className)}>
+      {children}
     </div>
   );
 }
