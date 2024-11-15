@@ -19,13 +19,13 @@ export default function Container({
   return (
     <div
       {...rest}
-      style={combineStyles(rest.style, small ? { width: "300px" } : null)}
       className={combineClasses(
         "dawn-container",
         hover ? "dawn-container-hover" : "",
         util,
         rest.className
       )}
+      style={combineStyles(rest.style, small ? { width: "300px" } : null)}
     >
       {title && <Words type="container-title">{title}</Words>}
       {children}

@@ -83,3 +83,6 @@ export function makeErrorResponseMessage(response: AxiosResponse): string {
     new URL(response.config.url as string)?.pathname
   })`;
 }
+
+export type ArrayElement<ArrayType extends readonly unknown[]> =
+  ArrayType extends readonly (infer ElementType)[] ? ElementType : never;
