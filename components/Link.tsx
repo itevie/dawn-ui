@@ -15,6 +15,9 @@ export default function Link({
     <a
       {...rest}
       href={link}
+      onClick={() => {
+        window.location.href = link;
+      }}
       className={combineClasses(
         "dawn-link",
         noHighlight ? "dawn-link-no-highlight" : ""
