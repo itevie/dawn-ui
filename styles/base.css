@@ -1,0 +1,56 @@
+:root {
+  /* ----- Colors ----- */
+  --dawn-root-background: #222;
+  --dawn-root-color: #fff;
+
+  --dawn-control-background: #333;
+  --dawn-control-hover-background: #555;
+  --dawn-control-border: #444;
+
+  --dawn-popup-background: #111;
+
+  --dawn-control-danger: #770000;
+  --dawn-control-hover-danger: #cc0000;
+  --dawn-control-success: #00a800;
+  --dawn-control-hover-success: #00ff00;
+  --dawn-control-link: #18e6f5;
+
+  --dawn-accent: #c3b1e1;
+
+  /* ----- Values ----- */
+  --dawn-hover-transition: 0.2s;
+  --dawn-border-radius: 20px;
+  --dawn-control-border-radius: 5px;
+  --dawn-flex-gap: 10px;
+  --dawn-page-width: 60%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+
+  margin: 0;
+
+  background-color: var(--dawn-root-background);
+  color: var(--dawn-root-color);
+}
+
+hr {
+  width: 90%;
+  border-style: solid;
+  border-color: var(--dawn-control-border);
+}
+
+label {
+  word-wrap: break-word;
+}
+
+/* ----- Utils ----- */
+.dawn-big {
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 1.2em;
+  padding: 10px;
+  margin: 10px 0px;
+  display: block;
+  text-align: center;
+}

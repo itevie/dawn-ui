@@ -1,30 +1,28 @@
 import { HTMLAttributes, ReactNode } from "react";
 import { combineClasses } from "../util";
 
-export interface ButtonProps {
+export type ButtonType = "accent" | "inherit" | "danger" | "success" | "normal";
+
+export default function Button({
+  type,
+  children,
+  big,
+  ...rest
+}: {
   type?: ButtonType;
   big?: boolean;
-  href?: string;
-}
-
-export type ButtonType = "success" | "danger" | "inherit" | "normal";
-
-export default function Button(
-  { type, big, href, children, ...rest }:
-    & ButtonProps
-    & { children: ReactNode }
-    & HTMLAttributes<HTMLButtonElement>
-    & HTMLAttributes<HTMLLinkElement>,
-) {
-  const className = combineClasses("dawn-button", big ? "dawn-big-control" : "", type ? `dawn-${type}` : "", rest.className);
-
+  children: ReactNode;
+} & HTMLAttributes<HTMLButtonElement>) {
   return (
-    href
-      ? (
-        <a {...rest as any} href={href} className={"dawn-link " + className}>
-          {children}
-        </a>
-      )
-      : <button {...rest as any} className={className}>{children}</button>
+    <button
+      {...rest}
+      className={combineClasses(
+        "dawn-button",
+        type && `dawn-${type}`,
+        big ? `dawn-big` : ""
+      )}
+    >
+      {children}
+    </button>
   );
 }

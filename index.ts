@@ -1,11 +1,12 @@
-import "./style.css";
-import "./style/containers.css";
-import "./style/input.css";
-import "./style/elements.css";
-import "./style/text.css";
-import "./style/alerts.css";
-import "./style/images.css";
-import "./style/util.css";
-import "./style/context-menus.css";
+import "./styles/base.css";
+import "./styles/containers.css";
+import "./styles/text.css";
+import "./styles/flex.css";
+import "./styles/inputs.css";
+import "./styles/util.css";
+import "./styles/navbar.css";
+import "./styles/alerts.css";
+import "./styles/context-menus.css";
+import "./styles/banner.css";
 
-export { default as Text } from "./components/Text";
+import "./styles/responsive.css";

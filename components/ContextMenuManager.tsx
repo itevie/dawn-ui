@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
+import Button, { ButtonType } from "./Button";
 import Column from "./Column";
-import Button from "./Button";
 
 export interface ContextMenu {
   event: React.MouseEvent<any, MouseEvent>;
@@ -16,7 +16,7 @@ export interface ContextButtonItem extends ContextMenuItemBase {
   label: string;
 
   disabled?: boolean;
-  scheme?: "danger" | "success";
+  scheme?: ButtonType;
 
   onClick: () => void;
 }
@@ -27,12 +27,17 @@ export interface ContextSeperatorItem extends ContextMenuItemBase {
 
 export type ContextMenuItem = ContextButtonItem | ContextSeperatorItem;
 
-export let showContextMenu: (cm: ContextMenu) => void = (cm) => {};
+export let showContextMenu: (cm: ContextMenu) => void = () => {};
 
 export default function ContextMenuManager() {
   const [contextMenu, setContextMenu] = useState<ContextMenu | null>(null);
 
   useEffect(() => {
+    document.addEventListener("click", (e) => {
+      e.preventDefault();
+      setContextMenu(null);
+    });
+
     showContextMenu = (cm) => {
       cm.event.preventDefault();
       setContextMenu(cm);
@@ -49,19 +54,21 @@ export default function ContextMenuManager() {
         }}
       >
         <Column>
-          {contextMenu &&
-            contextMenu.elements.map((element) => (
+          {contextMenu.elements.map((e) =>
+            e.type === "button" ? (
               <Button
-                onClick={() => {
-                  setContextMenu(null);
-                  if (element.type === "button") element.onClick();
-                }}
-                className="dawn-context-menu-button"
+                onClick={() => e.onClick()}
                 type="inherit"
+                className="dawn-context-menu-button"
               >
-                {(element as ContextButtonItem).label}
+                <label className={e.scheme && `dawn-color-${e.scheme}`}>
+                  {e.label}
+                </label>
               </Button>
-            ))}
+            ) : (
+              <hr />
+            )
+          )}
         </Column>
       </div>
     )

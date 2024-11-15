@@ -1,0 +1,129 @@
+/* ----- Buttons ----- */
+.dawn-button {
+  border-radius: var(--dawn-control-border-radius);
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--dawn-control-border);
+
+  padding: 5px 7px;
+
+  cursor: pointer;
+
+  color: white;
+  background-color: var(--dawn-control-background);
+
+  transition: var(--dawn-hover-transition);
+}
+
+.dawn-button:hover {
+  background-color: var(--dawn-control-hover-background);
+}
+
+.dawn-success {
+  background-color: var(--dawn-control-success);
+  color: black;
+}
+
+.dawn-button.dawn-success:hover {
+  background-color: var(--dawn-control-hover-success);
+}
+
+.dawn-danger {
+  background-color: var(--dawn-control-danger);
+}
+
+.dawn-button.dawn-danger:hover {
+  background-color: var(--dawn-control-hover-danger);
+}
+
+.dawn-inherit {
+  background-color: transparent;
+  border: none;
+}
+
+.dawn-accent {
+  background-color: var(--dawn-accent);
+}
+
+/* ----- Inputs ----- */
+/* These are on input directly cause 
+  react is a nerd and won't let be put 
+  refs on non native elements */
+input,
+textarea {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+
+  background-color: var(--dawn-control-background);
+  color: white;
+
+  border-style: solid;
+  border-color: var(--dawn-control-border);
+
+  transition: var(--dawn-hover-transition);
+
+  outline: none;
+}
+
+textarea {
+  min-height: 1em;
+  min-width: 10em;
+}
+
+input[type="checkbox"] {
+  display: inline;
+
+  width: fit-content;
+
+  accent-color: var(--dawn-accent);
+
+  border-style: solid;
+  border-color: var(--dawn-control-border);
+  background-color: black;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+
+  height: 10px;
+
+  border-style: none;
+  border-radius: 10px;
+
+  background-color: var(--dawn-control-hover-background);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+
+  width: 20px;
+  height: 20px;
+
+  background: var(--dawn-accent);
+
+  cursor: pointer;
+
+  border-radius: 100px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+
+  background: var(--dawn-accent);
+
+  cursor: pointer;
+
+  border-radius: 100px;
+}
+
+input:hover,
+input:focus,
+select:hover,
+textarea:hover {
+  background-color: var(--dawn-control-hover-background);
+}

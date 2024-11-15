@@ -1,21 +1,24 @@
 import { HTMLAttributes, ReactNode } from "react";
+import { combineClasses } from "../util";
 
 export default function Link({
-  children,
   href: link,
+  children,
+  noHighlight,
   ...rest
-}: { href: string; children: ReactNode } & HTMLAttributes<HTMLAnchorElement>) {
+}: {
+  href: string;
+  noHighlight?: boolean;
+  children: ReactNode;
+} & HTMLAttributes<HTMLAnchorElement>) {
   return (
     <a
-      href={link}
-      onClick={(e) => {
-        if (link.startsWith("?")) {
-          e.preventDefault();
-          window.location.search = link;
-        }
-      }}
-      className="dawn-link"
       {...rest}
+      href={link}
+      className={combineClasses(
+        "dawn-link",
+        noHighlight ? "dawn-link-no-highlight" : ""
+      )}
     >
       {children}
     </a>

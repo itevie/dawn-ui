@@ -1,54 +1,55 @@
 import { ReactNode, useEffect, useState } from "react";
 import Button, { ButtonType } from "./Button";
+import Container from "./Container";
 import Row from "./Row";
 import Loader from "react-spinners/PulseLoader";
+import DivUtil from "./DivUtil";
 
 interface Model {
   id?: string;
-  icon?: string;
   title?: string;
   body: ReactNode;
   buttons?: ModelButton[];
 }
 
 interface ModelButton {
-  id: string;
   text: string;
+  id: string;
   type?: ButtonType;
   click: (close: () => void) => void;
 }
 
-export let modelStack: Model[] = [];
-export let addModel: (data: Model) => void = () => {};
-export let closeModel: (id?: string) => void = () => {};
-export let updateModal: (id: string, newElement: ReactNode) => void = () => {};
+export let alertStack: Model[] = [];
+export let addAlert: (data: Model) => void = () => {};
+export let closeAlert: (id?: string) => void = () => {};
+export let updateAlert: (id: string, newElement: ReactNode) => void = () => {};
 
 export default function AlertManager() {
   const [current, setCurrent] = useState<Model | null>(null);
 
   useEffect(() => {
-    addModel = (model) => {
-      modelStack.push(model);
+    addAlert = (model) => {
+      alertStack.push(model);
       reload();
     };
 
-    closeModel = (id) => {
+    closeAlert = (id) => {
       if (id) {
-        const index = modelStack.findIndex((x) => x.id === id);
+        const index = alertStack.findIndex((x) => x.id === id);
         if (index < 0) return;
-        modelStack.splice(index, 1);
+        alertStack.splice(index, 1);
         reload();
       } else {
-        modelStack.pop();
+        alertStack.pop();
         reload();
       }
     };
 
-    updateModal = (id, el) => {
-      const index = modelStack.findIndex((x) => x.id === id);
+    updateAlert = (id, el) => {
+      const index = alertStack.findIndex((x) => x.id === id);
       if (index < 0) return;
-      modelStack[index] = {
-        ...modelStack[index],
+      alertStack[index] = {
+        ...alertStack[index],
         body: el,
       };
       reload();
@@ -56,11 +57,11 @@ export default function AlertManager() {
   }, []);
 
   function reload() {
-    setCurrent(modelStack[modelStack.length - 1]);
+    setCurrent(alertStack[alertStack.length - 1]);
   }
 
   function close() {
-    modelStack.pop();
+    alertStack.pop();
     reload();
   }
 
@@ -68,23 +69,19 @@ export default function AlertManager() {
     current && (
       <div className="dawn-fullscreen" style={{ top: `${window.scrollY}px` }}>
         <div className="dawn-page-center">
-          <div className="dawn-alert">
+          <Container className="dawn-alert">
             {current.title && (
-              <label className="dawn-alert-title">{current.title}</label>
+              <label className="dawn-text-alert-title">{current.title}</label>
             )}
             <div className="dawn-alert-content">{current.body}</div>
             <Row>
               {current.buttons?.map((button) => (
-                <Button
-                  key={button.id}
-                  big
-                  onClick={() => button.click(() => close())}
-                >
+                <Button key={button.id} big onClick={() => button.click(close)}>
                   {button.text}
                 </Button>
               ))}
             </Row>
-          </div>
+          </Container>
         </div>
       </div>
     )
@@ -92,22 +89,27 @@ export default function AlertManager() {
 }
 
 export function showErrorAlert(message: string) {
-  addModel({
-    title: "Error!",
-    body: <label>{message}</label>,
-    buttons: [
-      {
-        id: "ok",
-        text: "OK!",
-        click: (close) => close(),
-      },
-    ],
+  return new Promise<void>((resolve) => {
+    addAlert({
+      title: "Error!",
+      body: <label>{message}</label>,
+      buttons: [
+        {
+          id: "ok",
+          text: "OK!",
+          click: (close) => {
+            close();
+            resolve();
+          },
+        },
+      ],
+    });
   });
 }
 
-export function showInformation(message: string) {
+export function showInfoAlert(message: string) {
   return new Promise<void>((resolve) => {
-    addModel({
+    addAlert({
       title: "Information",
       body: <label>{message}</label>,
       buttons: [
@@ -130,60 +132,31 @@ export function showLoadingAlert(): {
 } {
   const id = Math.random().toString();
 
-  addModel({
+  addAlert({
     id,
     body: <Loader color="white" />,
   });
 
   return {
-    stop: () => closeModel(id),
+    stop: () => closeAlert(id),
     progress: (amount) => {
-      console.log(amount);
-      updateModal(
+      updateAlert(
         id,
-        <div>
+
+        <DivUtil util={["align-center", "justify-center"]}>
           <Loader color="white" />
           <div>
             <progress max={100} value={(amount * 100).toFixed(0)}></progress>
             <label>{(amount * 100).toFixed(2)}%</label>
           </div>
-        </div>
+        </DivUtil>
       );
     },
   };
 }
 
-export function showInputModel(title: string): Promise<string | null> {
-  return new Promise<string | null>((resolve) => {
-    let current: string | null = null;
-
-    addModel({
-      title,
-      body: <input onChange={(e) => (current = e.currentTarget.value)} />,
-      buttons: [
-        {
-          id: "close",
-          click: (close) => {
-            close();
-            resolve(null);
-          },
-          text: "Cancel",
-        },
-        {
-          id: "ok",
-          click: (close) => {
-            close();
-            resolve(current);
-          },
-          text: "OK!",
-        },
-      ],
-    });
-  });
-}
-
 export function showConfirmModel(title: string, yesCb: () => void): void {
-  addModel({
+  addAlert({
     title: "Confirm",
     body: <label>{title}</label>,
     buttons: [

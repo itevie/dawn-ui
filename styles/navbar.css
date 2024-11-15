@@ -1,0 +1,37 @@
+.dawn-navbar {
+  position: sticky;
+
+  width: 100%;
+  max-width: 100%;
+  min-height: 32px;
+
+  padding: 10px;
+
+  box-sizing: border-box;
+
+  background-color: var(--dawn-control-background);
+
+  box-shadow: 2px 0px 5px 0px black;
+}
+
+.dawn-navbar-below {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dawn-navbar-content {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
+.dawn-navbar-page-align {
+  width: var(--dawn-page-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dawn-breadcrumb {
+  margin: 10px;
+}

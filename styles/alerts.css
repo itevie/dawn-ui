@@ -1,20 +1,16 @@
 .dawn-alert {
   background-color: var(--dawn-control-background);
-  padding: 10px 30px;
+
+  padding: 20px 30px;
+
   border-radius: var(--dawn-border-radius);
+
   min-width: 300px;
   max-width: 500px;
+  min-height: 100px;
+
   display: flex;
   flex-direction: column;
-}
-
-.dawn-alert-title {
-  font-weight: bold;
-  font-size: 2em;
-  display: block;
-  text-align: center;
-  margin-bottom: 20px;
-  margin-top: 20px;
 }
 
 .dawn-alert-content {
@@ -23,8 +19,4 @@
   text-align: center;
   margin-bottom: 20px;
   margin-top: 20px;
-}
-
-body:has(#root .dawn-fullscreen) {
-  overflow: hidden;
 }

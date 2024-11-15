@@ -1,0 +1,36 @@
+/* ----- Contents ----- */
+.dawn-content {
+  margin: 10px;
+}
+
+.dawn-page {
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.dawn-page-content {
+  width: var(--dawn-page-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ----- Containers ----- */
+.dawn-container {
+  width: 100%;
+  padding: 30px;
+
+  box-sizing: border-box;
+
+  background-position: calc(100% + 40px) calc(100% + 40px);
+  background-size: 150px;
+  background-repeat: no-repeat;
+
+  border-radius: var(--dawn-border-radius);
+  background-color: var(--dawn-control-background);
+  transition: var(--dawn-hover-transition);
+}
+
+.dawn-container-hover:hover {
+  cursor: pointer;
+  background-color: var(--dawn-control-hover-background);
+}

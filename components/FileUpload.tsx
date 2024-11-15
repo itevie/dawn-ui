@@ -1,13 +1,17 @@
 import { ReactNode, useState } from "react";
 import { showErrorAlert } from "./AlertManager";
 
-export default function UploadFile(
-  { children, filter, onChange }: {
-    children: ReactNode;
-    filter?: string;
-    onChange: (dataUrl: string) => void;
-  },
-) {
+export default function UploadFile({
+  children,
+  filter,
+  noLabel,
+  onChange,
+}: {
+  children: ReactNode;
+  filter?: string;
+  noLabel?: boolean;
+  onChange: (dataUrl: string) => void;
+}) {
   const [fileName, setFileName] = useState<string>("");
 
   function uploadFile() {
@@ -42,7 +46,7 @@ export default function UploadFile(
   return (
     <div onClick={uploadFile}>
       {children}
-      <label>{fileName}</label>
+      {!noLabel && <label>{fileName}</label>}
     </div>
   );
 }

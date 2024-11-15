@@ -1,12 +1,19 @@
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import Link from "./Link";
+import { combineClasses } from "../util";
 
-export default function Breadcrumb() {
+export default function Breadcrumb({
+  url,
+  noPage,
+}: {
+  noPage?: boolean;
+  url: URL;
+}) {
   const parts = useMemo(() => {
-    const segments = window.location.pathname.split("/");
+    const segments = url.pathname.split("/");
     segments.shift();
 
-    let parts: [string, string][] = [[window.location.hostname, "/"]];
+    let parts: [string, string][] = [[url.hostname, "/"]];
     let current = "";
 
     for (const segment of segments) {
@@ -20,14 +27,18 @@ export default function Breadcrumb() {
     }
 
     return parts;
-  }, []);
+  }, [url]);
 
   return (
-    <div className="dawn-breadcrumb">
+    <div
+      className={combineClasses(
+        "dawn-breadcrumb",
+        noPage ? "dawn-breadcrumb-no-align" : ""
+      )}
+    >
       {parts.map((segment) => (
         <label key={segment[1]}>
-          <Link href={segment[1]}>{segment[0]}</Link>{" "}
-          <small style={{ color: "gray" }}>/{" "}</small>
+          <Link href={segment[1]}>{segment[0]}</Link> <small> / </small>
         </label>
       ))}
     </div>

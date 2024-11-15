@@ -1,13 +1,34 @@
-import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
-import { showErrorAlert, showLoadingAlert } from "./components/AlertManager";
 import { HTMLAttributes } from "react";
+import { showErrorAlert, showLoadingAlert } from "./components/AlertManager";
+import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 
 export type UtilClassNames =
   | "no-shrink"
   | "flex-grow"
   | "align-center"
   | "justify-center"
-  | "no-select";
+  | "no-select"
+  | "flex-wrap";
+
+export function combineStyles<T>(
+  before: HTMLAttributes<T>["style"] | null,
+  after: HTMLAttributes<T>["style"] | null
+): HTMLAttributes<T>["style"] {
+  return {
+    ...(before ?? {}),
+    ...(after ?? {}),
+  };
+}
+
+export function combineClasses(
+  ...things: (string | undefined | null | string[])[]
+): string {
+  let c = "";
+  for (const part of things) {
+    c += " " + (Array.isArray(part) ? part.join(" ") : part || "");
+  }
+  return c.trim();
+}
 
 export const client = axios.create({
   baseURL: window.location.host === "localhost" ? "http://localhost:3000" : "",
@@ -45,26 +66,6 @@ export function axiosWrapper<
         loader.stop();
       });
   });
-}
-
-export function combineStyles<T>(
-  before: HTMLAttributes<T>["style"] | null,
-  after: HTMLAttributes<T>["style"] | null
-): HTMLAttributes<T>["style"] {
-  return {
-    ...(before ?? {}),
-    ...(after ?? {}),
-  };
-}
-
-export function combineClasses(
-  ...things: (string | undefined | null | string[])[]
-): string {
-  let c = "";
-  for (const part of things) {
-    c += " " + (Array.isArray(part) ? part.join(" ") : part || "");
-  }
-  return c;
 }
 
 export function makeErrorResponseMessage(response: AxiosResponse): string {

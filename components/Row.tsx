@@ -1,14 +1,18 @@
 import { HTMLAttributes, ReactNode } from "react";
-import { combineClasses, UtilClassNames } from "../util";
+import { UtilClassNames } from "../util";
+import DivUtil from "./DivUtil";
 
-export default function Row({ 
-  children,
+export default function Row({
   util,
-  ...rest 
-}: { util?: UtilClassNames[], children: ReactNode } & HTMLAttributes<HTMLDivElement>) {
+  children,
+  ...rest
+}: {
+  util?: UtilClassNames[];
+  children: ReactNode;
+} & HTMLAttributes<HTMLDivElement>) {
   return (
-    <div {...rest} className={combineClasses("dawn-row", rest.className, util)}>
+    <DivUtil {...rest} className="dawn-row" util={util}>
       {children}
-    </div>
+    </DivUtil>
   );
 }

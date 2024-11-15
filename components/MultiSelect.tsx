@@ -1,10 +1,14 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import Button from "./Button";
 import Row from "./Row";
 
-export default function MultiSelect(
-  props: { elements: string[]; onChange: (values: string[]) => void, selected: string[], updateSelectedKey: number },
-) {
+export default function MultiSelect(props: {
+  elements: string[];
+  onChange: (values: string[]) => void;
+  selected: string[];
+  updateSelectedKey: number;
+}) {
   const [selected, setSelected] = useState<string[]>([]);
 
   function setElementSelected(element: string) {
@@ -21,7 +25,7 @@ export default function MultiSelect(
 
   useEffect(() => {
     setSelected(props.selected);
-  }, [props.updateSelectedKey])
+  }, [props.updateSelectedKey]);
 
   useEffect(() => {
     props.onChange([...selected]);
@@ -33,7 +37,7 @@ export default function MultiSelect(
         <Button
           key={x}
           onClick={() => setElementSelected(x)}
-          type={selected.includes(x) ? "success" : "normal"}
+          type={selected.includes(x) ? "accent" : "normal"}
         >
           {x}
         </Button>

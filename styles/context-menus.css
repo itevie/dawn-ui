@@ -1,7 +1,10 @@
 .dawn-context-menu {
   position: absolute;
+
   top: 0;
   left: 0;
+
+  width: 150px;
 
   padding: 10px;
 

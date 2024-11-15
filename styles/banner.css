@@ -1,0 +1,29 @@
+.dawn-banner {
+  background-color: var(--dawn-control-background);
+
+  padding: 50px;
+  margin-top: 20px;
+
+  min-height: 250px;
+  width: 100%;
+
+  box-sizing: border-box;
+
+  border-radius: var(--dawn-border-radius);
+}
+
+.dawn-banner-image {
+  height: 100%;
+  width: 150px;
+
+  margin-top: -30px;
+  margin-right: -40px;
+
+  align-self: center;
+
+  transition: var(--dawn-hover-transition);
+}
+
+.dawn-banner-image:hover {
+  transform: scale(1.1) rotate(10deg);
+}
