@@ -5,9 +5,11 @@ export default function Link({
   href: link,
   children,
   noHighlight,
+  forceReload,
   ...rest
 }: {
   href: string;
+  forceReload?: boolean;
   noHighlight?: boolean;
   children: ReactNode;
 } & HTMLAttributes<HTMLAnchorElement>) {
@@ -17,6 +19,10 @@ export default function Link({
       href={link}
       onClick={() => {
         window.location.href = link;
+        if (forceReload)
+          setTimeout(() => {
+            window.location.reload();
+          }, 10);
       }}
       className={combineClasses(
         "dawn-link",

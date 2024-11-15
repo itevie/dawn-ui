@@ -1,4 +1,5 @@
-import { ReactNode } from "react";
+import { HTMLAttributes, ReactNode } from "react";
+import { combineClasses } from "../util";
 
 export type TextType =
   | "heading"
@@ -10,9 +11,20 @@ export type TextType =
 export default function Words({
   type,
   children,
+  ...rest
 }: {
   type?: TextType;
   children: ReactNode;
-}) {
-  return <label className={`dawn-text-${type ?? "normal"}`}>{children}</label>;
+} & HTMLAttributes<HTMLLabelElement>) {
+  return (
+    <label
+      {...rest}
+      className={combineClasses(
+        `dawn-text-${type ?? "normal"}`,
+        rest.className
+      )}
+    >
+      {children}
+    </label>
+  );
 }

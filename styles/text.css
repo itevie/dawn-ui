@@ -19,7 +19,12 @@
 .dawn-text-navbar {
   display: block;
 
-  font-size: 1.5em;
+  max-width: 500px;
+  width: fit-content;
+  word-wrap: normal;
+  white-space: nowrap;
+
+  font-size: 1.3em;
   font-weight: bold;
 }
 
@@ -38,6 +43,10 @@
   font-weight: bolder;
 }
 
+.dawn-text-heading {
+  font-weight: bolder;
+}
+
 small {
   color: gray;
   font-size: 0.8em;
@@ -45,12 +54,24 @@ small {
 
 /* ----- Links ----- */
 .dawn-link {
-  color: var(--dawn-control-link);
+  color: var(--dawn-accent);
+}
+
+.dawn-link:visited {
+  color: var(--dawn-accent);
 }
 
 .dawn-link-no-highlight {
   color: var(--dawn-root-color);
   text-decoration: none;
 
+  cursor: pointer;
+}
+
+.dawn-link-no-highlight:visited {
+  color: var(--dawn-root-color);
+}
+
+.dawn-link > * {
   cursor: pointer;
 }

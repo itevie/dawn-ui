@@ -1,6 +1,7 @@
 /* ----- Contents ----- */
 .dawn-content {
-  margin: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 .dawn-page {
@@ -17,6 +18,7 @@
 /* ----- Containers ----- */
 .dawn-container {
   width: 100%;
+  min-height: 150px;
   padding: 30px;
 
   box-sizing: border-box;
@@ -33,4 +35,8 @@
 .dawn-container-hover:hover {
   cursor: pointer;
   background-color: var(--dawn-control-hover-background);
+}
+
+.dawn-link > .dawn-container {
+  height: 100%;
 }

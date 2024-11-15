@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import Words from "./Words";
 import { combineClasses } from "../util";
 import Breadcrumb from "./Breadcrumb";
+import Link from "./Link";
 
 export default function Navbar({
   children,
@@ -9,12 +10,14 @@ export default function Navbar({
   title,
   noPage,
   breadcrumb,
+  link,
 }: {
-  pageTitle?: ReactNode;
-  title?: string;
+  pageTitle?: string;
+  title?: ReactNode;
   breadcrumb?: boolean;
   noPage?: boolean;
   children?: ReactNode;
+  link?: string;
 }) {
   return (
     <>
@@ -25,7 +28,9 @@ export default function Navbar({
             !noPage ? "dawn-navbar-page-align" : ""
           )}
         >
-          <Words type="navbar">{title}</Words>
+          <Link style={{ color: "white" }} noHighlight href={link ?? "#"}>
+            <Words type="navbar">{title}</Words>
+          </Link>
           {children}
         </div>
       </div>
@@ -36,7 +41,11 @@ export default function Navbar({
             !noPage ? "dawn-navbar-page-align" : ""
           )}
         >
-          {pageTitle ?? <div></div>}
+          {pageTitle ? (
+            <Words type="page-title">{pageTitle}</Words>
+          ) : (
+            <div></div>
+          )}
           {breadcrumb && (
             <Breadcrumb url={new URL(window.location.toString())} />
           )}

@@ -5,6 +5,7 @@
 }
 
 .dawn-row {
+  width: 100%;
   display: flex;
   flex-direction: row;
   gap: var(--dawn-flex-gap);

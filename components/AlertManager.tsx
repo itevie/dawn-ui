@@ -176,3 +176,7 @@ export function showConfirmModel(title: string, yesCb: () => void): void {
     ],
   });
 }
+
+export function showInputAlert(query: string): any {
+  return;
+}
