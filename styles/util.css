@@ -68,3 +68,8 @@ body:has(#root .dawn-fullscreen) {
 .dawn-color-danger {
   color: var(--dawn-control-hover-danger);
 }
+
+.dawn-highlight {
+  background-color: var(--dawn-accent);
+  color: var(--dawn-accent-text);
+}
