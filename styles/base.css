@@ -11,8 +11,10 @@
 
   --dawn-control-danger: #770000;
   --dawn-control-hover-danger: #cc0000;
+  --dawn-text-danger: #ff0000;
   --dawn-control-success: #00a800;
   --dawn-control-hover-success: #00ff00;
+  --dawn-text-success: #00ff00;
   --dawn-control-link: #18e6f5;
 
   --dawn-accent: #c3b1e1;

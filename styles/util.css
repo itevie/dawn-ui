@@ -27,6 +27,10 @@
   user-select: none;
 }
 
+.no-gap {
+  gap: 0px;
+}
+
 ::-webkit-scrollbar {
   width: 4px;
 }

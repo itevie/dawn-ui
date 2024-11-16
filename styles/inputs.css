@@ -15,11 +15,12 @@
   transition: var(--dawn-hover-transition);
 }
 
-.dawn-button:hover {
+.dawn-button:hover,
+.dawn-button.dawn-active {
   background-color: var(--dawn-control-hover-background);
 }
 
-.dawn-success {
+.dawn-button.dawn-success {
   background-color: var(--dawn-control-success);
   color: black;
 }
@@ -28,7 +29,7 @@
   background-color: var(--dawn-control-hover-success);
 }
 
-.dawn-danger {
+.dawn-button.dawn-danger {
   background-color: var(--dawn-control-danger);
 }
 
@@ -36,12 +37,12 @@
   background-color: var(--dawn-control-hover-danger);
 }
 
-.dawn-inherit {
+.dawn-button.dawn-inherit {
   background-color: transparent;
   border: none;
 }
 
-.dawn-accent {
+.dawn-button.dawn-accent {
   background-color: var(--dawn-accent);
 }
 
@@ -65,6 +66,16 @@ textarea {
   transition: var(--dawn-hover-transition);
 
   outline: none;
+}
+
+select {
+  background-color: var(--dawn-control-background);
+  color: white;
+
+  border-style: solid;
+  border-color: var(--dawn-control-border);
+
+  height: fit-content;
 }
 
 textarea {
@@ -126,4 +137,17 @@ input:focus,
 select:hover,
 textarea:hover {
   background-color: var(--dawn-control-hover-background);
+}
+
+.dawn-button.dawn-big {
+  padding: 10px;
+}
+
+input.dawn-big {
+  text-align: left;
+}
+
+select.dawn-big {
+  width: fit-content;
+  box-sizing: border-box;
 }

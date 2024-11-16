@@ -8,6 +8,7 @@ export type UtilClassNames =
   | "align-center"
   | "justify-center"
   | "no-select"
+  | "no-gap"
   | "flex-wrap";
 
 export function combineStyles<T>(
@@ -25,7 +26,7 @@ export function combineClasses(
 ): string {
   let c = "";
   for (const part of things) {
-    c += " " + (Array.isArray(part) ? part.join(" ") : part || "");
+    c = c.trim() + " " + (Array.isArray(part) ? part.join(" ") : part || "");
   }
   return c.trim();
 }
