@@ -32,7 +32,7 @@ export default function MultiSelect(props: {
   }, [selected]);
 
   return (
-    <Row>
+    <Row util={["flex-wrap"]}>
       {props.elements.map((x) => (
         <Button
           key={x}
