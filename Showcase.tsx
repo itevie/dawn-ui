@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "./components/Button";
+import Button, { ButtonType } from "./components/Button";
 import Column from "./components/Column";
 import Container from "./components/Container";
 import Link from "./components/Link";
@@ -20,6 +20,7 @@ import GoogleMatieralIcon from "./components/GoogleMaterialIcon";
 import Breadcrumb from "./components/Breadcrumb";
 import UploadFile from "./components/FileUpload";
 import Banner from "./components/Banner";
+import Tabbed from "./components/Tabbed";
 
 export default function Showcase() {
   const [multiSelected, setMultiSelected] = useState<string[]>([]);
@@ -106,6 +107,19 @@ export default function Showcase() {
             </Button>
             <small>small</small>
           </Container>
+          {["danger", "success", "accent"].map((x) => (
+            <Container title={`Elements, but all ${x}`} className={`dawn-${x}`}>
+              <Button type={x as ButtonType}>Button</Button>
+              <Button big type={x as ButtonType}>
+                Button Big
+              </Button>
+              <Words className={`dawn-${x}`}>Words</Words>
+              <Words type="page-title" className={`dawn-${x}`}>
+                page-title words
+              </Words>
+            </Container>
+          ))}
+
           <Container>
             <Words type="container-title">Other Controls</Words>
             <Link href="#">Link</Link>
@@ -194,6 +208,15 @@ export default function Showcase() {
             </table>
             <label>Big textarea:</label>
             <textarea></textarea>
+          </Container>
+          <Container title="Tabs">
+            <Tabbed>
+              {{
+                test: "Test Tab!",
+                test2: "Test Tab 2!",
+                test3: <Button>Test Tab 3!</Button>,
+              }}
+            </Tabbed>
           </Container>
           <Container>
             <Words type="container-title">Alerts</Words>

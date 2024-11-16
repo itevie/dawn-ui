@@ -52,6 +52,19 @@ small {
   font-size: 0.8em;
 }
 
+/* ----- Coloring ----- */
+.dawn-text.dawn-danger {
+  color: var(--dawn-text-danger);
+}
+
+.dawn-text.dawn-success {
+  color: var(--dawn-text-success);
+}
+
+.dawn-text.dawn-accent {
+  color: var(--dawn-accent);
+}
+
 /* ----- Links ----- */
 .dawn-link {
   color: var(--dawn-accent);

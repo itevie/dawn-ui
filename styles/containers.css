@@ -40,3 +40,28 @@
 .dawn-link > .dawn-container {
   height: 100%;
 }
+
+.dawn-tab-tabs > button {
+  margin-bottom: 0px !important;
+  border-radius: 0px;
+}
+
+.dawn-tab-contents {
+  border-width: 1px;
+  border-color: var(--dawn-control-border);
+  border-style: solid;
+  padding: 10px;
+}
+
+/* ----- Custom ----- */
+.dawn-container.dawn-danger {
+  box-shadow: 0px 0px 5px 0px var(--dawn-control-danger);
+}
+
+.dawn-container.dawn-success {
+  box-shadow: 0px 0px 5px 0px var(--dawn-control-success);
+}
+
+.dawn-container.dawn-accent {
+  box-shadow: 0px 0px 5px 0px var(--dawn-accent);
+}
