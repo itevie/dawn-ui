@@ -177,6 +177,31 @@ export function showConfirmModel(title: string, yesCb: () => void): void {
   });
 }
 
-export function showInputAlert(query: string): any {
-  return;
+export function showInputAlert(title: string): Promise<string | null> {
+  return new Promise<string | null>((resolve) => {
+    let current: string | null = null;
+
+    addAlert({
+      title,
+      body: <input onChange={(e) => (current = e.currentTarget.value)} />,
+      buttons: [
+        {
+          id: "close",
+          click: (close) => {
+            close();
+            resolve(null);
+          },
+          text: "Cancel",
+        },
+        {
+          id: "ok",
+          click: (close) => {
+            close();
+            resolve(current);
+          },
+          text: "OK!",
+        },
+      ],
+    });
+  });
 }
