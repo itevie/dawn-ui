@@ -77,12 +77,10 @@ export function makeErrorResponseMessage(response: AxiosResponse): string {
     serverMessage =
       {
         404: "The resource does not exist",
-      }[response.status] || `Failed to fetch data`;
+      }[response?.status] || `Failed to fetch data`;
   }
 
-  return `${serverMessage} (${response.status} - ${
-    new URL(response.config.url as string)?.pathname
-  })`;
+  return `${serverMessage} (${response?.status} - ${response.config?.url})`;
 }
 
 export type ArrayElement<ArrayType extends readonly unknown[]> =
