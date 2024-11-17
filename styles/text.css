@@ -47,6 +47,10 @@
   font-weight: bolder;
 }
 
+.dawn-text {
+  color: var(--dawn-root-color);
+}
+
 small {
   color: gray;
   font-size: 0.8em;

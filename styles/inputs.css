@@ -11,6 +11,7 @@
 
   color: white;
   background-color: var(--dawn-control-background);
+  color: var(--dawn-root-color);
 
   transition: var(--dawn-hover-transition);
 }
@@ -22,7 +23,7 @@
 
 .dawn-button.dawn-success {
   background-color: var(--dawn-control-success);
-  color: black;
+  color: var(--dawn-control-text-success);
 }
 
 .dawn-button.dawn-success:hover {
@@ -31,6 +32,7 @@
 
 .dawn-button.dawn-danger {
   background-color: var(--dawn-control-danger);
+  color: var(--dawn-control-text-danger);
 }
 
 .dawn-button.dawn-danger:hover {
@@ -44,6 +46,7 @@
 
 .dawn-button.dawn-accent {
   background-color: var(--dawn-accent);
+  color: var(--dawn-accent-text);
 }
 
 /* ----- Inputs ----- */
@@ -58,7 +61,7 @@ textarea {
   max-width: 100%;
 
   background-color: var(--dawn-control-background);
-  color: white;
+  color: var(--dawn-root-color);
 
   border-style: solid;
   border-color: var(--dawn-control-border);
@@ -70,7 +73,7 @@ textarea {
 
 select {
   background-color: var(--dawn-control-background);
-  color: white;
+  color: var(--dawn-root-color);
 
   border-style: solid;
   border-color: var(--dawn-control-border);

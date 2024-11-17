@@ -9,38 +9,41 @@ import "./styles/alerts.css";
 import "./styles/context-menus.css";
 import "./styles/banner.css";
 import "./styles/responsive.css";
-import "./themes/light.css"
-import {useMediaQuery} from "react-responsive";
-import {useEffect} from "react";
+import "./themes/light.css";
+import { useMediaQuery } from "react-responsive";
+import { useEffect } from "react";
 
-const lightThemeSheet = document.styleSheets[document.styleSheets.length - 1]
+export const themes = ["dark", "light"] as const;
+export type Theme = (typeof themes)[number];
+export let currentTheme: Theme = "dark";
 
-export const swapThemes = () => {
-    lightThemeSheet.disabled = !lightThemeSheet.disabled;
-}
+export const setTheme = (theme: Theme) => {
+  for (const theme of themes)
+    document.body.classList.remove(`dawn-theme-${theme}`);
+  document.body.classList.add(`dawn-theme-${theme}`);
+  currentTheme = theme;
+  localStorage.setItem("dawn_ui-theme", theme);
+};
 
-export const setDisabled = (val: boolean) => {
-    lightThemeSheet.disabled = val;
-}
-
-export const getDisabled = () => {
-    return lightThemeSheet.disabled;
-}
+export const loadTheme = () => {
+  if (localStorage.getItem("dawn_ui-theme"))
+    setTheme(localStorage.getItem("dawn_ui-theme") as Theme);
+};
 
 export const useAutomaticTheme = () => {
-    const isDefaultDark: boolean = useMediaQuery(
-        {
-            query: "(prefers-color-scheme: dark)",
-        },
-        undefined,
-        (isSystemDark: boolean) => {
-            console.log("called from mediaquery" + isSystemDark)
-            setDisabled(isSystemDark);
-        }
-    );
+  const isDefaultDark: boolean = useMediaQuery(
+    {
+      query: "(prefers-color-scheme: dark)",
+    },
+    undefined,
+    (isSystemDark: boolean) => {
+      setTheme(isSystemDark ? "dark" : "light");
+    }
+  );
 
-    useEffect(() => {
-        console.log("called from useffect" + isDefaultDark)
-        setDisabled(isDefaultDark);
-    }, [isDefaultDark]);
-}
+  useEffect(() => {
+    if (localStorage.getItem("dawn_ui-theme"))
+      setTheme(localStorage.getItem("dawn_ui-theme") as Theme);
+    else setTheme(isDefaultDark ? "dark" : "light");
+  }, [isDefaultDark]);
+};

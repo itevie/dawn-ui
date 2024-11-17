@@ -10,15 +10,19 @@
   --dawn-popup-background: #111;
 
   --dawn-control-danger: #770000;
+  --dawn-control-text-danger: white;
   --dawn-control-hover-danger: #cc0000;
   --dawn-text-danger: #ff0000;
+
   --dawn-control-success: #00a800;
+  --dawn-control-text-success: black;
   --dawn-control-hover-success: #00ff00;
   --dawn-text-success: #00ff00;
+
   --dawn-control-link: #18e6f5;
 
   --dawn-accent: #c3b1e1;
-  --dawn-accent-text: black;
+  --dawn-accent-text: white;
 
   /* ----- Values ----- */
   --dawn-hover-transition: 0.2s;

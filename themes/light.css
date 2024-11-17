@@ -1,57 +1,57 @@
-:root {
-    /* ----- Colors ----- */
-    --dawn-root-background: #eee;
-    --dawn-root-color: #222;
+body.dawn-theme-light {
+  /* ----- Colors ----- */
+  --dawn-root-background: #eee;
+  --dawn-root-color: #222;
 
-    --dawn-control-background: #ddd;
-    --dawn-control-hover-background: #bbb;
-    --dawn-control-border: #ccc;
+  --dawn-control-background: #ddd;
+  --dawn-control-hover-background: #bbb;
+  --dawn-control-border: #ccc;
 
-    --dawn-popup-background: #fff;
+  --dawn-popup-background: #fff;
 
-    --dawn-control-danger: #770000;
-    --dawn-control-hover-danger: #cc0000;
-    --dawn-control-success: #00a800;
-    --dawn-control-hover-success: #00ff00;
-    --dawn-control-link: #18e6f5;
+  --dawn-control-danger: #770000;
+  --dawn-control-hover-danger: #cc0000;
+  --dawn-control-success: #00a800;
+  --dawn-control-hover-success: #00ff00;
+  --dawn-control-link: #18e6f5;
 
-    --dawn-accent: #a361b1;
-    --dawn-accent-text: white;
+  --dawn-accent: #a361b1;
+  --dawn-accent-text: white;
 
-    /* ----- Values ----- */
-    --dawn-hover-transition: 0.2s;
-    --dawn-border-radius: 20px;
-    --dawn-control-border-radius: 5px;
-    --dawn-flex-gap: 20px;
-    --dawn-page-width: 60%;
+  /* ----- Values ----- */
+  --dawn-hover-transition: 0.2s;
+  --dawn-border-radius: 20px;
+  --dawn-control-border-radius: 5px;
+  --dawn-flex-gap: 20px;
+  --dawn-page-width: 60%;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
-    margin: 0;
+  margin: 0;
 
-    background-color: var(--dawn-root-background);
-    color: var(--dawn-root-color);
+  background-color: var(--dawn-root-background);
+  color: var(--dawn-root-color);
 }
 
 hr {
-    width: 90%;
-    border-style: solid;
-    border-color: var(--dawn-control-border);
+  width: 90%;
+  border-style: solid;
+  border-color: var(--dawn-control-border);
 }
 
 label {
-    word-wrap: break-word;
+  word-wrap: break-word;
 }
 
 /* ----- Utils ----- */
 .dawn-big {
-    box-sizing: border-box;
-    width: 100%;
-    font-size: 1.2em;
-    padding: 10px;
-    margin: 10px 0px;
-    display: block;
-    text-align: center;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 1.2em;
+  padding: 10px;
+  margin: 10px 0px;
+  display: block;
+  text-align: center;
 }

@@ -3,6 +3,8 @@ import Words from "./Words";
 import { combineClasses } from "../util";
 import Breadcrumb from "./Breadcrumb";
 import Link from "./Link";
+import ThemeButton from "./ThemeButton";
+import Row from "./Row";
 
 export default function Navbar({
   children,
@@ -31,7 +33,10 @@ export default function Navbar({
           <Link style={{ color: "white" }} noHighlight href={link ?? "#"}>
             <Words type="navbar">{title}</Words>
           </Link>
-          {children}
+          <Row util={["no-gap"]}>
+            {children}
+            <ThemeButton style={{ alignItems: "flex-end" }} />
+          </Row>
         </div>
       </div>
       {pageTitle || breadcrumb ? (
