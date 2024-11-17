@@ -54,7 +54,7 @@ export function axiosWrapper<
     // @ts-ignore
     client[method](...args)
       .then((r) => {
-        if (r.status !== 200) {
+        if (!r.status.toString().startsWith("2")) {
           showErrorAlert(makeErrorResponseMessage(r));
           reject();
         } else resolve(r);
