@@ -30,7 +30,7 @@ export default function Navbar({
             !noPage ? "dawn-navbar-page-align" : ""
           )}
         >
-          <Link style={{ color: "white" }} noHighlight href={link ?? "#"}>
+          <Link style={{ color: "white" }} noHighlight href={link ?? "/"}>
             <Words type="navbar">{title}</Words>
           </Link>
           <Row util={["no-gap"]}>
