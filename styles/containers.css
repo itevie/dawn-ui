@@ -15,6 +15,10 @@
   margin-right: auto;
 }
 
+.dawn-content {
+  margin: 15px;
+}
+
 /* ----- Containers ----- */
 .dawn-container {
   width: 100%;
@@ -47,6 +51,7 @@
 }
 
 .dawn-tab-contents {
+  box-sizing: border-box;
   border-width: 1px;
   border-color: var(--dawn-control-border);
   border-style: solid;

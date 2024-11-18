@@ -31,6 +31,11 @@
   gap: 0px;
 }
 
+.full-page {
+  width: 100%;
+  height: 100%;
+}
+
 ::-webkit-scrollbar {
   width: 4px;
 }
@@ -76,4 +81,18 @@ body:has(#root .dawn-fullscreen) {
 .dawn-highlight {
   background-color: var(--dawn-accent);
   color: var(--dawn-accent-text);
+}
+
+.dawn-hoverable {
+  border-radius: var(--dawn-border-radius);
+  transition: var(--dawn-hover-transition);
+}
+
+.dawn-hoverable,
+.dawn-hoverable > * > * {
+  cursor: pointer;
+}
+
+.dawn-hoverable:hover {
+  background-color: var(--dawn-control-hover-background);
 }

@@ -10,19 +10,20 @@ import "./styles/context-menus.css";
 import "./styles/banner.css";
 import "./styles/responsive.css";
 import "./themes/light.css";
+import "./themes/transparent.css";
 import { useMediaQuery } from "react-responsive";
 import { useEffect } from "react";
 
-export const themes = ["dark", "light"] as const;
+export const themes = ["dark", "light", "transparent"] as const;
 export type Theme = (typeof themes)[number];
 export let currentTheme: Theme = "dark";
 
-export const setTheme = (theme: Theme) => {
+export const setTheme = (theme: Theme, noStore: boolean = false) => {
   for (const theme of themes)
     document.body.classList.remove(`dawn-theme-${theme}`);
   document.body.classList.add(`dawn-theme-${theme}`);
   currentTheme = theme;
-  localStorage.setItem("dawn_ui-theme", theme);
+  if (!noStore) localStorage.setItem("dawn_ui-theme", theme);
 };
 
 export const loadTheme = () => {

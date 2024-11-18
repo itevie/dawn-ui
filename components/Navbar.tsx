@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { HTMLAttributes, ReactNode } from "react";
 import Words from "./Words";
 import { combineClasses } from "../util";
 import Breadcrumb from "./Breadcrumb";
@@ -13,6 +13,7 @@ export default function Navbar({
   noPage,
   breadcrumb,
   link,
+  ...rest
 }: {
   pageTitle?: string;
   title?: ReactNode;
@@ -20,10 +21,10 @@ export default function Navbar({
   noPage?: boolean;
   children?: ReactNode;
   link?: string;
-}) {
+} & HTMLAttributes<HTMLDivElement>) {
   return (
     <>
-      <div className="dawn-navbar">
+      <div {...rest} className="dawn-navbar">
         <div
           className={combineClasses(
             "dawn-navbar-content",
