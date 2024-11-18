@@ -1,13 +1,13 @@
-:root {
+body.dawn-theme-transparent {
   /* ----- Colors ----- */
   --dawn-root-background: #222;
   --dawn-root-color: #fff;
 
-  --dawn-control-background: #333;
-  --dawn-control-hover-background: #555;
-  --dawn-control-border: #444;
+  --dawn-control-background: #333333aa;
+  --dawn-control-hover-background: #555555aa;
+  --dawn-control-border: #444444;
 
-  --dawn-control-background-2: #2a2a2a;
+  --dawn-control-background-2: #2a2a2aaa;
 
   --dawn-popup-background: #111;
 
@@ -32,34 +32,8 @@
   --dawn-control-border-radius: 5px;
   --dawn-flex-gap: 20px;
   --dawn-page-width: 60%;
-}
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-
-  margin: 0;
-
-  background-color: var(--dawn-root-background);
-  color: var(--dawn-root-color);
-}
-
-hr {
-  width: 90%;
-  border-style: solid;
-  border-color: var(--dawn-control-border);
-}
-
-label {
-  word-wrap: break-word;
-}
-
-/* ----- Utils ----- */
-.dawn-big {
-  box-sizing: border-box;
-  width: 100%;
-  font-size: 1.2em;
-  padding: 10px;
-  margin: 10px 0px;
-  display: block;
-  text-align: center;
+  .dawn-alert {
+    --dawn-control-background: #333333;
+  }
 }
