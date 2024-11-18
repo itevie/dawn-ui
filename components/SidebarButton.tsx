@@ -13,7 +13,7 @@ export default function SidebarButton({
 }) {
   return (
     <Hoverable onClick={onClick}>
-      <Row util={["align-center"]} style={{ padding: "3px 10px" }}>
+      <Row util={["align-center"]} style={{ padding: "3px 10px", gap: "7px" }}>
         <GoogleMatieralIcon size="32px" name={icon} />
         <label>{label}</label>
       </Row>
