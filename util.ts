@@ -48,8 +48,8 @@ export class AxiosWrapper {
     url: string,
     data?: T extends "get" ? never : any,
     config?: AxiosRequestConfig
-  ): Promise<AxiosResponse> {
-    return new Promise<AxiosResponse>((resolve, reject) => {
+  ): Promise<AxiosResponse<D>> {
+    return new Promise<AxiosResponse<D>>((resolve, reject) => {
       let loader: ReturnType<typeof showLoadingAlert> | null = null;
       if (this.showLoader) loader = showLoadingAlert();
 
