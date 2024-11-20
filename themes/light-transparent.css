@@ -1,0 +1,15 @@
+body.dawn-theme-light-transparent {
+  /* ----- Colors ----- */
+  --dawn-root-background: #eee;
+  --dawn-root-color: #222;
+
+  --dawn-control-background: #dddddd55;
+  --dawn-control-hover-background: #bbbbbb55;
+  --dawn-control-border: #cccccc55;
+
+  --dawn-input: #acacac;
+  --dawn-input-hover: #bbb;
+  --dawn-input-focus: #ccc;
+
+  --dawn-control-background-2: #cacacaaa;
+}

@@ -7,6 +7,10 @@ body.dawn-theme-light {
   --dawn-control-hover-background: #bbb;
   --dawn-control-border: #ccc;
 
+  --dawn-input: #acacac;
+  --dawn-input-hover: #bbb;
+  --dawn-input-focus: #ccc;
+
   --dawn-control-background-2: #cacaca;
 
   --dawn-popup-background: #fff;

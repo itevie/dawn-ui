@@ -1,4 +1,7 @@
 :root {
+  background-repeat: no-repeat;
+  background-size: cover;
+
   /* ----- Colors ----- */
   --dawn-root-background: #222;
   --dawn-root-color: #fff;

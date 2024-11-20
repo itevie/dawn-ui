@@ -56,3 +56,21 @@
 .dawn-sidebar-collapsed > .dawn-hoverable > .dawn-row > .material-icons {
   margin-left: -3px;
 }
+
+.dawn-sidebar-toggle {
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 10px;
+
+  border-radius: 100px;
+}
+
+.dawn-sidebar-mobile {
+  width: 100vw;
+}
+
+.dawn-row:has(.dawn-sidebar-mobile) {
+  overflow: hidden;
+  height: 100vh;
+}

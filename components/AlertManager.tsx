@@ -3,7 +3,6 @@ import Button, { ButtonType } from "./Button";
 import Container from "./Container";
 import Row from "./Row";
 import Loader from "react-spinners/PulseLoader";
-import DivUtil from "./DivUtil";
 import Column from "./Column";
 
 interface Model {
@@ -19,6 +18,7 @@ interface ModelButton {
   id: string;
   type?: ButtonType;
   click: (close: () => void) => void;
+  enterKey?: boolean;
 }
 
 export let alertStack: Model[] = [];
@@ -104,6 +104,7 @@ export function showErrorAlert(message: string) {
         {
           id: "ok",
           text: "OK!",
+          enterKey: true,
           click: (close) => {
             close();
             resolve();
@@ -124,6 +125,7 @@ export function showInfoAlert(message: string) {
         {
           id: "ok",
           text: "OK!",
+          enterKey: true,
           click: (close) => {
             close();
             resolve();
@@ -176,6 +178,7 @@ export function showConfirmModel(title: string, yesCb: () => void): void {
       {
         id: "yes",
         text: "Yes",
+        enterKey: true,
         click: (c) => {
           c();
           yesCb();
@@ -193,6 +196,7 @@ export function showInputAlert(title: string): Promise<string | null> {
       title,
       body: (
         <input
+          autoFocus
           className="dawn-big"
           onChange={(e) => (current = e.currentTarget.value)}
         />
@@ -208,6 +212,7 @@ export function showInputAlert(title: string): Promise<string | null> {
         },
         {
           id: "ok",
+          enterKey: true,
           click: (close) => {
             close();
             resolve(current);

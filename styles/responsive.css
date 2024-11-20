@@ -39,7 +39,8 @@
   }
 
   .dawn-alert {
-    width: 100vw;
+    width: 100vw !important;
     max-width: 100vw;
+    min-width: 0;
   }
 }

@@ -35,6 +35,15 @@ export class DawnTime {
     }
   }
 
+  public toMs() {
+    let result = 0;
+    for (const i in this.units) {
+      result +=
+        units[i as keyof typeof units] * this.units[i as keyof typeof units];
+    }
+    return result;
+  }
+
   get biggestUnit(): keyof typeof units | null {
     for (const i in this.units) {
       if (this.units[i as keyof typeof units] !== 0)

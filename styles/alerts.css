@@ -12,6 +12,8 @@
   display: flex;
   flex-direction: column;
 
+  box-sizing: border-box;
+
   animation: alert-popin forwards 0.3s;
 }
 

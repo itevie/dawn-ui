@@ -65,7 +65,7 @@ export default function Showcase() {
                 <Button
                   type="inherit"
                   onClick={() => {
-                    setTheme("transparent", true);
+                    setTheme("dark-transparent", true);
                   }}
                 >
                   Apply Transparent Theme
@@ -527,7 +527,7 @@ export default function Showcase() {
                   <Button
                     type="inherit"
                     onClick={() => {
-                      setTheme("transparent", true);
+                      setTheme("dark-transparent", true);
                     }}
                   >
                     Apply Transparent Theme

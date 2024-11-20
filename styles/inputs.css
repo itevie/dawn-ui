@@ -50,7 +50,7 @@
 }
 
 .dawn-fab {
-  position: absolute;
+  position: fixed;
 
   bottom: 0;
   right: 0;
@@ -87,13 +87,15 @@ textarea {
 }
 
 select {
-  background-color: var(--dawn-control-background);
+  background-color: var(--dawn-input);
   color: var(--dawn-root-color);
 
   border-style: solid;
   border-color: var(--dawn-control-border);
 
   height: fit-content;
+
+  outline: none;
 }
 
 textarea {

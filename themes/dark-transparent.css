@@ -1,0 +1,12 @@
+body.dawn-theme-dark-transparent {
+  /* ----- Colors ----- */
+  --dawn-control-background: #333333aa;
+  --dawn-control-hover-background: #555555aa;
+  --dawn-control-border: #444444;
+
+  --dawn-control-background-2: #2a2a2aaa;
+
+  .dawn-alert {
+    --dawn-control-background: #333333;
+  }
+}
