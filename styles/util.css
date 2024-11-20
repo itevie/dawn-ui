@@ -101,3 +101,7 @@ body:has(#root .dawn-fullscreen) {
 .dawn-hoverable:hover {
   background-color: var(--dawn-control-hover-background) !important;
 }
+
+.dawn-selected {
+  background-color: var(--dawn-control-hover-background);
+}

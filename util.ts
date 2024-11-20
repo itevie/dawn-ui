@@ -43,6 +43,44 @@ export class AxiosWrapper {
   public showLoader: boolean = false;
   public noReject: boolean = false;
 
+  public get<D extends any = any>(
+    url: string,
+    config?: AxiosRequestConfig
+  ): Promise<AxiosResponse<D>> {
+    return this.wrapper<"get", D>("get", url, undefined, config);
+  }
+
+  public delete<D extends any = any>(
+    url: string,
+    config?: AxiosRequestConfig
+  ): Promise<AxiosResponse<D>> {
+    return this.wrapper<"delete", D>("delete", url, undefined, config);
+  }
+
+  public post<D extends any = any>(
+    url: string,
+    data: any,
+    config?: AxiosRequestConfig
+  ): Promise<AxiosResponse<D>> {
+    return this.wrapper<"post", D>("post", url, data, config);
+  }
+
+  public patch<D extends any = any>(
+    url: string,
+    data: any,
+    config?: AxiosRequestConfig
+  ): Promise<AxiosResponse<D>> {
+    return this.wrapper<"patch", D>("patch", url, data, config);
+  }
+
+  public put<D extends any = any>(
+    url: string,
+    data: any,
+    config?: AxiosRequestConfig
+  ): Promise<AxiosResponse<D>> {
+    return this.wrapper<"put", D>("put", url, data, config);
+  }
+
   public wrapper<T extends HTTPMethod, D extends any = any>(
     method: T,
     url: string,
