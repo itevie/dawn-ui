@@ -53,13 +53,13 @@ export default function ContextMenuManager() {
           top: `${contextMenu?.event.pageY}px`,
         }}
       >
-        <Column>
+        <Column util={["no-gap"]}>
           {contextMenu.elements.map((e) =>
             e.type === "button" ? (
               <Button
                 onClick={() => e.onClick()}
                 type="inherit"
-                className="dawn-context-menu-button"
+                className={`dawn-context-menu-button dawn-context-menu-button-${e.scheme}`}
               >
                 <label className={e.scheme && `dawn-color-${e.scheme}`}>
                   {e.label}

@@ -13,6 +13,7 @@ import {
   showConfirmModel as showConfirmAlert,
   showErrorAlert,
   showInfoAlert,
+  showInputAlert,
   showLoadingAlert,
 } from "./components/AlertManager";
 import { showContextMenu } from "./components/ContextMenuManager";
@@ -27,7 +28,6 @@ import wallpaper from "./images/wallpaper.jpg";
 import Sidebar from "./components/Sidebar";
 import FullPage from "./components/FullPage";
 import Content from "./components/Content";
-import Hoverable from "./components/Hoverable";
 import SidebarButton from "./components/SidebarButton";
 
 export default function Showcase() {
@@ -165,6 +165,14 @@ export default function Showcase() {
                     </Container>
                   ))}
 
+                  <Container title="Progress Bars">
+                    <Column>
+                      <progress />
+                      <progress value="10" />
+                      <progress value="10" max="100" />
+                    </Column>
+                  </Container>
+
                   <Container>
                     <Words type="container-title">Other Controls</Words>
                     <Link href="#">Link</Link>
@@ -181,8 +189,8 @@ export default function Showcase() {
                           <td>
                             <input type="checkbox" />
                             <input type="checkbox" />
-                            <input type="checkbox" />
-                            <input type="checkbox" />
+                            <input type="checkbox" checked />
+                            <input type="checkbox" checked />
                           </td>
                         </tr>
                         <tr>
@@ -339,6 +347,14 @@ export default function Showcase() {
                     >
                       Confirm
                     </Button>
+                    <Button
+                      onClick={async () => {
+                        let result = await showInputAlert("Enter Data");
+                        showInfoAlert(result ?? "");
+                      }}
+                    >
+                      Input
+                    </Button>
                   </Container>
                   <Container title="Context Menus">
                     <p>(Right click them)</p>
@@ -360,6 +376,27 @@ export default function Showcase() {
                             {
                               type: "button",
                               label: "Copy Text",
+                              onClick() {
+                                showInfoAlert("Copy Text");
+                              },
+                            },
+                            {
+                              type: "button",
+                              label: "Copy Text",
+                              onClick() {
+                                showInfoAlert("Copy Text");
+                              },
+                            },
+                            {
+                              type: "button",
+                              label: "Copy Text Test",
+                              onClick() {
+                                showInfoAlert("Copy Text");
+                              },
+                            },
+                            {
+                              type: "button",
+                              label: "Copy Text Tet Test",
                               onClick() {
                                 showInfoAlert("Copy Text");
                               },

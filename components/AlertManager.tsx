@@ -4,12 +4,14 @@ import Container from "./Container";
 import Row from "./Row";
 import Loader from "react-spinners/PulseLoader";
 import DivUtil from "./DivUtil";
+import Column from "./Column";
 
 interface Model {
   id?: string;
   title?: string;
   body: ReactNode;
   buttons?: ModelButton[];
+  allowOutsideClose?: boolean;
 }
 
 interface ModelButton {
@@ -67,7 +69,11 @@ export default function AlertManager() {
 
   return (
     current && (
-      <div className="dawn-fullscreen" style={{ top: `${window.scrollY}px` }}>
+      <div
+        className="dawn-fullscreen"
+        style={{ top: `${window.scrollY}px` }}
+        onClick={() => current.allowOutsideClose && close()}
+      >
         <div className="dawn-page-center">
           <Container className="dawn-alert">
             {current.title && (
@@ -93,6 +99,7 @@ export function showErrorAlert(message: string) {
     addAlert({
       title: "Error!",
       body: <label>{message}</label>,
+      allowOutsideClose: true,
       buttons: [
         {
           id: "ok",
@@ -111,6 +118,7 @@ export function showInfoAlert(message: string) {
   return new Promise<void>((resolve) => {
     addAlert({
       title: "Information",
+      allowOutsideClose: true,
       body: <label>{message}</label>,
       buttons: [
         {
@@ -143,13 +151,13 @@ export function showLoadingAlert(): {
       updateAlert(
         id,
 
-        <DivUtil util={["align-center", "justify-center"]}>
+        <Column util={["align-center", "justify-center"]}>
           <Loader color="white" />
           <div>
             <progress max={100} value={(amount * 100).toFixed(0)}></progress>
             <label>{(amount * 100).toFixed(2)}%</label>
           </div>
-        </DivUtil>
+        </Column>
       );
     },
   };
@@ -183,7 +191,12 @@ export function showInputAlert(title: string): Promise<string | null> {
 
     addAlert({
       title,
-      body: <input onChange={(e) => (current = e.currentTarget.value)} />,
+      body: (
+        <input
+          className="dawn-big"
+          onChange={(e) => (current = e.currentTarget.value)}
+        />
+      ),
       buttons: [
         {
           id: "close",

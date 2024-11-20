@@ -75,7 +75,7 @@ textarea {
   width: 100%;
   max-width: 100%;
 
-  background-color: var(--dawn-control-background);
+  background-color: var(--dawn-input);
   color: var(--dawn-root-color);
 
   border-style: solid;
@@ -154,7 +154,14 @@ input:hover,
 input:focus,
 select:hover,
 textarea:hover {
-  background-color: var(--dawn-control-hover-background);
+  background-color: var(--dawn-input-hover);
+}
+
+input:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  background-color: var(--dawn-input-focus);
 }
 
 .dawn-button.dawn-big {
@@ -163,9 +170,26 @@ textarea:hover {
 
 input.dawn-big {
   text-align: left;
+  padding: 10px;
+  margin: 0px;
 }
 
 select.dawn-big {
   width: fit-content;
   box-sizing: border-box;
+}
+
+progress {
+  border-radius: 7px;
+}
+progress::-webkit-progress-bar {
+  border-style: solid;
+  border-color: var(--dawn-control-border);
+  border-radius: var(--dawn-border-radius);
+  border-width: 1px;
+  background-color: var(--dawn-input);
+}
+progress::-webkit-progress-value {
+  background-color: var(--dawn-accent);
+  border-radius: var(--dawn-border-radius);
 }
