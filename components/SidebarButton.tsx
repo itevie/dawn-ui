@@ -5,15 +5,17 @@ import Row from "./Row";
 export default function SidebarButton({
   onClick,
   icon,
+  selected,
   label,
 }: {
   icon: string;
+  selected?: boolean;
   onClick?: () => void;
   label: string;
 }) {
   return (
-    <Hoverable onClick={onClick}>
-      <Row util={["align-center"]} style={{ padding: "px 10px", gap: "10px" }}>
+    <Hoverable onClick={onClick} className={selected ? "dawn-selected" : ""}>
+      <Row util={["align-center"]} style={{ padding: "3px 3px", gap: "10px" }}>
         <GoogleMatieralIcon size="32px" name={icon} />
         <label>{label}</label>
       </Row>
