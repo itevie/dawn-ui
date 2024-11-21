@@ -35,8 +35,10 @@ export default function ContextMenuManager() {
   const [xy, setXy] = useState<[number, number]>([0, 0]);
 
   useEffect(() => {
-    document.addEventListener("click", (e) => {
-      e.preventDefault();
+    document.addEventListener("click", (event) => {
+      if (event.target instanceof HTMLInputElement) {
+        return;
+      }
       setContextMenu(null);
     });
 
