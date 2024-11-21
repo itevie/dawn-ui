@@ -1,7 +1,4 @@
 :root {
-  background-repeat: no-repeat;
-  background-size: cover;
-
   /* ----- Colors ----- */
   --dawn-root-background: #222;
   --dawn-root-color: #fff;
@@ -42,6 +39,10 @@
 }
 
 body {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
   font-family: Arial, Helvetica, sans-serif;
 
   margin: 0;

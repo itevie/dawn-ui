@@ -176,6 +176,11 @@ input.dawn-big {
   margin: 0px;
 }
 
+textarea.dawn-big {
+  text-align: left;
+  margin: 0px;
+}
+
 select.dawn-big {
   width: fit-content;
   box-sizing: border-box;

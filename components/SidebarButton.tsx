@@ -15,8 +15,8 @@ export default function SidebarButton({
 }) {
   return (
     <Hoverable onClick={onClick} className={selected ? "dawn-selected" : ""}>
-      <Row util={["align-center"]} style={{ padding: "3px 3px", gap: "10px" }}>
-        <GoogleMatieralIcon size="32px" name={icon} />
+      <Row util={["align-center"]} style={{ padding: "7px", gap: "10px" }}>
+        <GoogleMatieralIcon size="24px" name={icon} />
         <label>{label}</label>
       </Row>
     </Hoverable>
