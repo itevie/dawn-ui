@@ -170,6 +170,11 @@ textarea:focus {
   padding: 10px;
 }
 
+.dawn-page-input {
+  background-color: var(--dawn-control-background);
+  border-radius: var(--dawn-border-radius);
+}
+
 input.dawn-big {
   text-align: left;
   padding: 10px;

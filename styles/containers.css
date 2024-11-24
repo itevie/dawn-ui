@@ -60,7 +60,7 @@
 
 /* ----- Custom ----- */
 .dawn-container.dawn-danger {
-  box-shadow: 0px 0px 5px 0px var(--dawn-control-danger);
+  box-shadow: 0px 0px 5px 0px var(--dawn-control-hover-danger);
 }
 
 .dawn-container.dawn-success {

@@ -1,22 +1,20 @@
-import { HTMLAttributes, ReactNode } from "react";
+import { forwardRef, HTMLAttributes, ReactNode } from "react";
 import { combineClasses } from "../util";
 
 export type ButtonType = "accent" | "inherit" | "danger" | "success" | "normal";
 
-export default function Button({
-  type,
-  children,
-  big,
-  disabled,
-  ...rest
-}: {
-  disabled?: boolean;
-  type?: ButtonType;
-  big?: boolean;
-  children: ReactNode;
-} & HTMLAttributes<HTMLButtonElement>) {
+const Button = forwardRef<
+  HTMLButtonElement,
+  {
+    disabled?: boolean;
+    type?: ButtonType;
+    big?: boolean;
+    children: ReactNode;
+  } & HTMLAttributes<HTMLButtonElement>
+>(({ type, children, big, disabled, ...rest }, ref) => {
   return (
     <button
+      ref={ref}
       disabled={disabled}
       {...rest}
       className={combineClasses(
@@ -29,4 +27,6 @@ export default function Button({
       {children}
     </button>
   );
-}
+});
+
+export default Button;

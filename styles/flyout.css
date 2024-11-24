@@ -1,0 +1,16 @@
+.dawn-flyout {
+  position: absolute;
+
+  top: 100px;
+  left: 100px;
+
+  padding: 10px;
+
+  border-radius: var(--dawn-border-radius);
+
+  z-index: 100;
+
+  transform: translate(-50%);
+
+  background-color: var(--dawn-popup-background);
+}

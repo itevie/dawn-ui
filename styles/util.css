@@ -75,6 +75,32 @@
   transform: translate(-50%, -50%);
 }
 
+.clickable:hover {
+  cursor: pointer;
+}
+
+.round {
+  border-radius: 100px;
+}
+
+.lift-up {
+  position: relative;
+}
+
+.lift-up:hover {
+  animation: ease-up 0.1s linear forwards;
+}
+
+@keyframes ease-up {
+  0% {
+    top: 0px;
+  }
+
+  100% {
+    top: -10px;
+  }
+}
+
 body:has(#root .dawn-fullscreen) {
   overflow: hidden;
 }
@@ -102,6 +128,7 @@ body:has(#root .dawn-fullscreen) {
   background-color: var(--dawn-control-hover-background) !important;
 }
 
-.dawn-selected {
+.dawn-selected,
+.selected {
   background-color: var(--dawn-control-hover-background);
 }

@@ -12,6 +12,11 @@ export type UtilClassNames =
   | "no-select"
   | "no-gap"
   | "no-min"
+  | "clickable"
+  | "lift-up"
+  | "selected"
+  | "giraffe"
+  | "round"
   | "flex-wrap";
 
 export function combineStyles<T>(
