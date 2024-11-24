@@ -1,3 +1,5 @@
+import { leftPad } from "./util";
+
 export const units = {
   day: 8.64e7,
   hour: 3.6e6,
@@ -58,6 +60,23 @@ export class DawnTime {
       if (this.units[i as Unit] !== 0) return i as Unit;
     }
     return null;
+  }
+
+  public static formatDateString(time: Date, format: string): string {
+    format = format.replace("YYYY", time.getFullYear().toString());
+    format = format.replace("MM", leftPad(time.getMonth().toString(), "0", 2));
+    format = format.replace("DD", leftPad(time.getDate().toString(), "0", 2));
+    format = format.replace("hh", leftPad(time.getHours().toString(), "0", 2));
+    format = format.replace(
+      "mm",
+      leftPad(time.getMinutes().toString(), "0", 2)
+    );
+    format = format.replace(
+      "ss",
+      leftPad(time.getSeconds().toString(), "0", 2)
+    );
+
+    return format;
   }
 
   public static fromString(timeString: string): DawnTime | null {

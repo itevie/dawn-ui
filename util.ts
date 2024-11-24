@@ -174,3 +174,7 @@ export function makeErrorResponseMessage(response: AxiosResponse): string {
 
 export type ArrayElement<ArrayType extends readonly unknown[]> =
   ArrayType extends readonly (infer ElementType)[] ? ElementType : never;
+
+export function leftPad(what: string, w: string, length: number) {
+  return w.repeat(length - what.length || 0) + what;
+}
