@@ -1,5 +1,3 @@
-import { leftPad } from "./util";
-
 export const units = {
   day: 8.64e7,
   hour: 3.6e6,
@@ -64,16 +62,16 @@ export class DawnTime {
 
   public static formatDateString(time: Date, format: string): string {
     format = format.replace("YYYY", time.getFullYear().toString());
-    format = format.replace("MM", leftPad(time.getMonth().toString(), "0", 2));
-    format = format.replace("DD", leftPad(time.getDate().toString(), "0", 2));
-    format = format.replace("hh", leftPad(time.getHours().toString(), "0", 2));
+    format = format.replace("MM", time.getMonth().toString().padStart(2, "0"));
+    format = format.replace("DD", time.getDate().toString().padStart(2, "0"));
+    format = format.replace("hh", time.getHours().toString().padStart(2, "0"));
     format = format.replace(
       "mm",
-      leftPad(time.getMinutes().toString(), "0", 2)
+      time.getMinutes().toString().padStart(2, "0")
     );
     format = format.replace(
       "ss",
-      leftPad(time.getSeconds().toString(), "0", 2)
+      time.getSeconds().toString().padStart(2, "0")
     );
 
     return format;
