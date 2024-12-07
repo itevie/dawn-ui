@@ -18,6 +18,10 @@
   flex-wrap: wrap;
 }
 
+.no-gap {
+  gap: 0px;
+}
+
 .no-select {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -72,4 +76,10 @@ body:has(#root .dawn-fullscreen) {
 .dawn-highlight {
   background-color: var(--dawn-accent);
   color: var(--dawn-accent-text);
+}
+
+.dawn-full-page {
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
 }

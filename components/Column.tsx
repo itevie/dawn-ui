@@ -1,6 +1,5 @@
 import { HTMLAttributes, ReactNode } from "react";
-import { UtilClassNames } from "../util";
-import DivUtil from "./DivUtil";
+import { combineClasses, UtilClassNames } from "../util";
 
 export default function Column({
   util,
@@ -11,8 +10,11 @@ export default function Column({
   children: ReactNode;
 } & HTMLAttributes<HTMLDivElement>) {
   return (
-    <DivUtil {...rest} className="dawn-column" util={util}>
+    <div
+      {...rest}
+      className={combineClasses("dawn-column", util, rest.className)}
+    >
       {children}
-    </DivUtil>
+    </div>
   );
 }

@@ -8,6 +8,7 @@ export type UtilClassNames =
   | "align-center"
   | "justify-center"
   | "no-select"
+  | "no-gap"
   | "flex-wrap";
 
 export function combineStyles<T>(
@@ -36,7 +37,7 @@ export const client = axios.create({
 
 export function axiosWrapper<
   T extends "get" | "post" | "patch",
-  D extends any = any
+  D extends any = any,
 >(
   method: T,
   ...args: Parameters<(typeof axios)[T]>
