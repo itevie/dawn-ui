@@ -7,16 +7,28 @@
   --dawn-control-hover-background: #555;
   --dawn-control-border: #444;
 
+  --dawn-input: #3c3c3c;
+  --dawn-input-hover: #444;
+  --dawn-input-focus: #555;
+
+  --dawn-control-background-2: #2a2a2a;
+
   --dawn-popup-background: #111;
 
   --dawn-control-danger: #770000;
+  --dawn-control-text-danger: white;
   --dawn-control-hover-danger: #cc0000;
+  --dawn-text-danger: #ff0000;
+
   --dawn-control-success: #00a800;
+  --dawn-control-text-success: black;
   --dawn-control-hover-success: #00ff00;
+  --dawn-text-success: #00ff00;
+
   --dawn-control-link: #18e6f5;
 
   --dawn-accent: #c3b1e1;
-  --dawn-accent-text: black;
+  --dawn-accent-text: white;
 
   /* ----- Values ----- */
   --dawn-hover-transition: 0.2s;
@@ -27,6 +39,10 @@
 }
 
 body {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
   font-family: Arial, Helvetica, sans-serif;
 
   margin: 0;

@@ -5,6 +5,7 @@
   font-size: 1.5em;
 
   margin: 10px;
+  margin-left: 0px;
 }
 
 .dawn-text-container-title {
@@ -47,9 +48,26 @@
   font-weight: bolder;
 }
 
+.dawn-text {
+  color: var(--dawn-root-color);
+}
+
 small {
   color: gray;
   font-size: 0.8em;
+}
+
+/* ----- Coloring ----- */
+.dawn-text.dawn-danger {
+  color: var(--dawn-text-danger);
+}
+
+.dawn-text.dawn-success {
+  color: var(--dawn-text-success);
+}
+
+.dawn-text.dawn-accent {
+  color: var(--dawn-accent);
 }
 
 /* ----- Links ----- */

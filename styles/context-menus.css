@@ -4,7 +4,11 @@
   top: 0;
   left: 0;
 
-  width: 150px;
+  z-index: 100;
+
+  min-width: 100px;
+  width: fit-content;
+  max-width: 200px;
 
   padding: 10px;
 
@@ -15,4 +19,16 @@
 
 .dawn-context-menu-button {
   padding: 10px 30px;
+}
+
+.dawn-context-menu-button:hover {
+  background-color: var(--dawn-control-hover-background);
+}
+
+.dawn-context-menu-button-danger:hover {
+  background-color: var(--dawn-control-hover-danger);
+}
+
+.dawn-context-menu-button-danger:hover > label {
+  color: var(--dawn-control-text-danger);
 }

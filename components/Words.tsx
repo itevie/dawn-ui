@@ -20,7 +20,7 @@ export default function Words({
     <label
       {...rest}
       className={combineClasses(
-        `dawn-text-${type ?? "normal"}`,
+        `dawn-text dawn-text-${type ?? "normal"}`,
         rest.className
       )}
     >

@@ -1,0 +1,33 @@
+body.dawn-theme-light {
+  /* ----- Colors ----- */
+  --dawn-root-background: #eee;
+  --dawn-root-color: #222;
+
+  --dawn-control-background: #ddd;
+  --dawn-control-hover-background: #bbb;
+  --dawn-control-border: #ccc;
+
+  --dawn-input: #acacac;
+  --dawn-input-hover: #bbb;
+  --dawn-input-focus: #ccc;
+
+  --dawn-control-background-2: #cacaca;
+
+  --dawn-popup-background: #fff;
+
+  --dawn-control-danger: #770000;
+  --dawn-control-hover-danger: #cc0000;
+  --dawn-control-success: #00a800;
+  --dawn-control-hover-success: #00ff00;
+  --dawn-control-link: #18e6f5;
+
+  --dawn-accent: #a361b1;
+  --dawn-accent-text: white;
+
+  /* ----- Values ----- */
+  --dawn-hover-transition: 0.2s;
+  --dawn-border-radius: 20px;
+  --dawn-control-border-radius: 5px;
+  --dawn-flex-gap: 20px;
+  --dawn-page-width: 60%;
+}

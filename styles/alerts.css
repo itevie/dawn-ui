@@ -5,12 +5,16 @@
 
   border-radius: var(--dawn-border-radius);
 
-  min-width: 300px;
-  max-width: 500px;
+  min-width: 500px;
+  max-width: 1000px;
   min-height: 100px;
 
   display: flex;
   flex-direction: column;
+
+  box-sizing: border-box;
+
+  animation: alert-popin forwards 0.3s;
 }
 
 .dawn-alert-content {
@@ -19,4 +23,15 @@
   text-align: center;
   margin-bottom: 20px;
   margin-top: 20px;
+}
+
+@keyframes alert-popin {
+  0% {
+    opacity: 50%;
+    transform: scale(0.7);
+  }
+  100% {
+    opacity: 100%;
+    transform: scale(1);
+  }
 }
