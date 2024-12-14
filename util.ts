@@ -4,6 +4,8 @@ import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 
 export type HTTPMethod = "post" | "get" | "patch" | "put" | "delete";
 
+let a = "test";
+
 export type UtilClassNames =
   | "no-shrink"
   | "flex-grow"
