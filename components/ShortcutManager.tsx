@@ -14,6 +14,13 @@ export interface Shortcut {
 export const shortcuts: { [key: string]: Shortcut } = {};
 
 document.addEventListener("keydown", (e) => {
+  console.log(e);
+  if (
+    e.target instanceof HTMLInputElement ||
+    e.target instanceof HTMLTextAreaElement
+  )
+    return;
+
   for (const s in shortcuts)
     if (shortcuts[s].callback)
       if (_matchesShortcut(e, shortcuts[s])) {
@@ -32,7 +39,7 @@ export function registerShortcut(name: string, shortcut: Shortcut): void {
   else shortcuts[name] = shortcut;
 }
 
-export function setCallback(name: string, callback: () => void) {
+export function setShortcutCallback(name: string, callback: () => void) {
   if (!shortcuts[name]) throw new Error(`No shortcut registered: ${name}`);
   shortcuts[name].callback = callback;
 }
