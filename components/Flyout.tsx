@@ -49,7 +49,6 @@ export default function Flyout({
   ...flyout
 }: FlyoutData & { children: ReactElement }) {
   const child = cloneElement(children, {
-    // @ts-ignore
     onMouseOver: (e: React.MouseEvent<any, MouseEvent>) => {
       setFlyout(flyout, e);
     },
