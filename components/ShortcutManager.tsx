@@ -14,7 +14,6 @@ export interface Shortcut {
 export const shortcuts: { [key: string]: Shortcut } = {};
 
 document.addEventListener("keydown", (e) => {
-  console.log(e);
   if (
     e.target instanceof HTMLInputElement ||
     e.target instanceof HTMLTextAreaElement
