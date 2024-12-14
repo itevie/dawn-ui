@@ -1,6 +1,6 @@
 {
   "name": "@itevie/components",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A varety of React components for use in my projects.",
   "main": "index.js",
   "scripts": {
