@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/react": "^19.0.1",
+    "@types/react": "^18.3.16",
     "axios": "^1.7.9",
     "react": "^19.0.0",
     "react-responsive": "^10.0.0",
