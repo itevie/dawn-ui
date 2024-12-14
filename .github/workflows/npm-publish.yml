@@ -9,6 +9,12 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+    inputs:
+      build_type:
+        description: 'Type of build to run'
+        required: false
+        default: 'production'
 
 jobs:
   build:
