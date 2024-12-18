@@ -7,7 +7,7 @@ export default function Row({
   ...rest
 }: {
   util?: UtilClassNames[];
-  children: ReactNode;
+  children?: ReactNode;
 } & HTMLAttributes<HTMLDivElement>) {
   return (
     <div {...rest} className={combineClasses("dawn-row", util, rest.className)}>
