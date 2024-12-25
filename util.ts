@@ -11,6 +11,7 @@ export type UtilClassNames =
   | "justify-center"
   | "no-select"
   | "no-gap"
+  | "small-gap"
   | "no-min"
   | "clickable"
   | "lift-up"

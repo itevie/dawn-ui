@@ -31,6 +31,10 @@
   gap: 0px;
 }
 
+.small-gap {
+  gap: 3px;
+}
+
 .no-min {
   min-height: 0px;
   min-width: 0px;
