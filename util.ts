@@ -18,6 +18,7 @@ export type UtilClassNames =
   | "selected"
   | "giraffe"
   | "round"
+  | "fit-content"
   | "flex-wrap";
 
 export function combineStyles<T>(

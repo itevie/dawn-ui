@@ -18,6 +18,10 @@
   flex-wrap: wrap;
 }
 
+.fit-content {
+  width: fit-content;
+}
+
 .no-select {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
