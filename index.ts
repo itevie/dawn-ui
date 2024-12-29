@@ -11,6 +11,7 @@ import "./styles/banner.css";
 import "./styles/responsive.css";
 import "./styles/table.css";
 import "./styles/flyout.css";
+import "./styles/tables.css";
 import "./themes/light.css";
 import "./themes/dark-transparent.css";
 import "./themes/light-transparent.css";

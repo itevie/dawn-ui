@@ -34,7 +34,7 @@ export default function Navbar({
           <Link style={{ color: "white" }} noHighlight href={link ?? "/"}>
             <Words type="navbar">{title}</Words>
           </Link>
-          <Row util={["no-gap"]}>
+          <Row util={["no-gap", "align-center"]}>
             {children}
             <ThemeButton style={{ alignItems: "flex-end" }} />
           </Row>

@@ -49,6 +49,11 @@
   color: var(--dawn-accent-text);
 }
 
+.dawn-button-round {
+  border-radius: 100px;
+  min-width: 48px;
+}
+
 .dawn-fab {
   position: fixed;
 

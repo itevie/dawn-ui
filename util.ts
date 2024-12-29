@@ -11,12 +11,14 @@ export type UtilClassNames =
   | "justify-center"
   | "no-select"
   | "no-gap"
+  | "small-gap"
   | "no-min"
   | "clickable"
   | "lift-up"
   | "selected"
   | "giraffe"
   | "round"
+  | "fit-content"
   | "flex-wrap";
 
 export function combineStyles<T>(

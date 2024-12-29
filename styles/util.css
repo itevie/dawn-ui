@@ -18,6 +18,10 @@
   flex-wrap: wrap;
 }
 
+.fit-content {
+  width: fit-content;
+}
+
 .no-select {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -29,6 +33,10 @@
 
 .no-gap {
   gap: 0px;
+}
+
+.small-gap {
+  gap: 3px;
 }
 
 .no-min {

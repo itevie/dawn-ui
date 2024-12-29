@@ -1,6 +1,5 @@
 import { HTMLAttributes, ReactNode } from "react";
 import { combineClasses, UtilClassNames } from "../util";
-import DivUtil from "./DivUtil";
 
 export default function Column({
   util,
