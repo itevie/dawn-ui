@@ -1,12 +1,19 @@
 import { HTMLAttributes, ReactNode } from "react";
 import { combineClasses } from "../util";
 
+/**
+ * navbar = The text used for the navbar
+ * page-title = The title of the page, should only be one
+ * container-title = The title of a container, should only be one per container
+ * heading = A section of a container
+ * normal = Normal text, this is the default
+ */
 export type TextType =
-  | "heading"
+  | "navbar"
   | "page-title"
   | "container-title"
-  | "normal"
-  | "navbar";
+  | "heading"
+  | "normal";
 
 export default function Words({
   type,
@@ -14,7 +21,7 @@ export default function Words({
   ...rest
 }: {
   type?: TextType;
-  children: ReactNode;
+  children?: ReactNode;
 } & HTMLAttributes<HTMLLabelElement>) {
   return (
     <label

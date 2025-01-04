@@ -1,6 +1,11 @@
 import { HTMLAttributes, ReactNode } from "react";
 import DivUtil from "./DivUtil";
 
+/**
+ * Used for margin basically
+ * @param param0
+ * @returns
+ */
 export default function Content({
   children,
   ...rest

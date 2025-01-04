@@ -15,6 +15,7 @@ export type UtilClassNames =
   | "no-min"
   | "clickable"
   | "lift-up"
+  | "hover-grow"
   | "selected"
   | "giraffe"
   | "round"

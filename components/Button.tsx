@@ -1,17 +1,21 @@
 import { forwardRef, HTMLAttributes, ReactNode } from "react";
-import { combineClasses } from "../util";
+import { combineClasses, UtilClassNames } from "../util";
 
 export type ButtonType = "accent" | "inherit" | "danger" | "success" | "normal";
 
+/**
+ * A clickable Button.
+ */
 const Button = forwardRef<
   HTMLButtonElement,
   {
     disabled?: boolean;
     type?: ButtonType;
     big?: boolean;
-    children: ReactNode;
+    util?: UtilClassNames[];
+    children?: ReactNode;
   } & HTMLAttributes<HTMLButtonElement>
->(({ type, children, big, disabled, ...rest }, ref) => {
+>(({ type, children, big, disabled, util, ...rest }, ref) => {
   return (
     <button
       ref={ref}
@@ -19,6 +23,7 @@ const Button = forwardRef<
       {...rest}
       className={combineClasses(
         "dawn-button",
+        util,
         rest.className,
         type && `dawn-${type}`,
         big ? `dawn-big` : ""

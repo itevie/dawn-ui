@@ -49,6 +49,14 @@
   height: 100vh;
 }
 
+.hover-grow {
+  transition: 0.2s;
+}
+
+.hover-grow:hover {
+  transform: scale(1.25)
+}
+
 ::-webkit-scrollbar {
   width: 4px;
 }
