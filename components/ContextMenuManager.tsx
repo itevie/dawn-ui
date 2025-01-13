@@ -3,8 +3,9 @@ import Button, { ButtonType } from "./Button";
 import Column from "./Column";
 
 export interface ContextMenu {
-  event: React.MouseEvent<any, MouseEvent>;
+  event: React.MouseEvent<HTMLElement, MouseEvent>;
   elements: ContextMenuItem[];
+  ignoreClasses?: string[];
 }
 
 export interface ContextMenuItemBase {
@@ -43,8 +44,17 @@ export default function ContextMenuManager() {
     });
 
     showContextMenu = (cm) => {
+      // Check if it should be ignored
+      if (
+        cm.ignoreClasses &&
+        cm.ignoreClasses.some((x) => cm.event.currentTarget.matches(x))
+      )
+        return;
+
       cm.event.preventDefault();
       setContextMenu(cm);
+
+      // Update the position of the context menu
       setTimeout(() => {
         let bounds = ref.current?.getBoundingClientRect();
         if (!bounds) return;

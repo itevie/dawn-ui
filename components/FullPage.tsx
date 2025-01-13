@@ -12,7 +12,7 @@ export default function FullPage({
   return (
     <div
       {...rest}
-      className={combineClasses("full-page", rest.className, util)}
+      className={combineClasses("dawn-full-page", rest.className, util)}
     >
       {children}
     </div>
