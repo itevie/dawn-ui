@@ -22,6 +22,10 @@
   gap: 0px;
 }
 
+.fit-content {
+  width: fit-content;
+}
+
 .no-select {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -35,6 +39,10 @@
   gap: 0px;
 }
 
+.small-gap {
+  gap: 3px;
+}
+
 .no-min {
   min-height: 0px;
   min-width: 0px;
@@ -43,6 +51,14 @@
 .full-page {
   width: 100vw;
   height: 100vh;
+}
+
+.hover-grow {
+  transition: 0.2s;
+}
+
+.hover-grow:hover {
+  transform: scale(1.25)
 }
 
 ::-webkit-scrollbar {
@@ -77,6 +93,10 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.dawn-round {
+  border-radius: 100px;
 }
 
 .clickable:hover {

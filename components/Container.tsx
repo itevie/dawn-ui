@@ -2,6 +2,11 @@ import { HTMLAttributes, ReactNode } from "react";
 import { combineClasses, combineStyles, UtilClassNames } from "../util";
 import Words from "./Words";
 
+/**
+ * Contains elements
+ * @param param0
+ * @returns
+ */
 export default function Container({
   util,
   hover,
@@ -14,7 +19,7 @@ export default function Container({
   util?: UtilClassNames[];
   hover?: boolean;
   small?: boolean;
-  children: ReactNode;
+  children?: ReactNode;
 } & HTMLAttributes<HTMLDivElement>) {
   return (
     <div

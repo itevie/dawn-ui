@@ -4,13 +4,16 @@ import Container from "./Container";
 import Row from "./Row";
 import Loader from "react-spinners/PulseLoader";
 import Column from "./Column";
+import Icon from "./Icon";
+import GoogleMatieralIcon from "./GoogleMaterialIcon";
+import ProgressBar from "./ProgressBar";
 
 interface Model {
   id?: string;
   title?: string;
   body: ReactNode;
   buttons?: ModelButton[];
-  allowOutsideClose?: boolean;
+  noClose?: boolean;
 }
 
 interface ModelButton {
@@ -72,10 +75,23 @@ export default function AlertManager() {
       <div
         className="dawn-fullscreen"
         style={{ top: `${window.scrollY}px` }}
-        onClick={() => current.allowOutsideClose && close()}
+        onClick={(e) => {
+          if ((e.target as HTMLElement).classList.contains("dawn-fullscreen"))
+            !current.noClose && close();
+        }}
       >
         <div className="dawn-page-center">
-          <Container className="dawn-alert">
+          <Container className="dawn-alert" style={{ position: "relative" }}>
+            {!current.noClose ? (
+              <GoogleMatieralIcon
+                util={["clickable", "hover-grow"]}
+                name={"close"}
+                style={{ position: "absolute", right: "15px" }}
+                onClick={close}
+              />
+            ) : (
+              <></>
+            )}
             {current.title && (
               <label className="dawn-text-alert-title">{current.title}</label>
             )}
@@ -99,7 +115,6 @@ export function showErrorAlert(message: string) {
     addAlert({
       title: "Error!",
       body: <label>{message}</label>,
-      allowOutsideClose: true,
       buttons: [
         {
           id: "ok",
@@ -119,7 +134,6 @@ export function showInfoAlert(message: string) {
   return new Promise<void>((resolve) => {
     addAlert({
       title: "Information",
-      allowOutsideClose: true,
       body: <label>{message}</label>,
       buttons: [
         {
@@ -145,6 +159,7 @@ export function showLoadingAlert(): {
   addAlert({
     id,
     body: <Loader color="white" />,
+    noClose: true,
   });
 
   return {
@@ -156,7 +171,7 @@ export function showLoadingAlert(): {
         <Column util={["align-center", "justify-center"]}>
           <Loader color="white" />
           <div>
-            <progress max={100} value={(amount * 100).toFixed(0)}></progress>
+            <ProgressBar max={100} size={5} current={amount * 100} />
             <label>{(amount * 100).toFixed(2)}%</label>
           </div>
         </Column>

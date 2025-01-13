@@ -19,7 +19,10 @@ export interface ContextButtonItem extends ContextMenuItemBase {
   disabled?: boolean;
   scheme?: ButtonType;
 
-  onClick: () => void;
+  onClick: (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    replaceWith: (cm: ContextMenu) => void
+  ) => void;
 }
 
 export interface ContextSeperatorItem extends ContextMenuItemBase {
@@ -87,7 +90,13 @@ export default function ContextMenuManager() {
           {contextMenu.elements.map((e) =>
             e.type === "button" ? (
               <Button
-                onClick={() => e.onClick()}
+                onClick={(ev) =>
+                  e.onClick(ev, (cm) => {
+                    setTimeout(() => {
+                      showContextMenu(cm);
+                    }, 10);
+                  })
+                }
                 type="inherit"
                 className={`dawn-context-menu-button dawn-context-menu-button-${e.scheme}`}
               >

@@ -4,8 +4,6 @@ import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 
 export type HTTPMethod = "post" | "get" | "patch" | "put" | "delete";
 
-let a = "test";
-
 export type UtilClassNames =
   | "no-shrink"
   | "flex-grow"
@@ -13,12 +11,15 @@ export type UtilClassNames =
   | "justify-center"
   | "no-select"
   | "no-gap"
+  | "small-gap"
   | "no-min"
   | "clickable"
   | "lift-up"
+  | "hover-grow"
   | "selected"
   | "giraffe"
   | "round"
+  | "fit-content"
   | "flex-wrap";
 
 export function combineStyles<T>(
