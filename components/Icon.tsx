@@ -24,7 +24,17 @@ export default function Icon({
       className="dawn-icon"
       src={src}
       onError={
-        fallback ? (e) => (e.currentTarget.src = fallback ?? "") : undefined
+        fallback
+          ? (e) => {
+              const s = `${
+                window.location.hostname === "localhost"
+                  ? "http://localhost:3000"
+                  : ""
+              }${fallback}`;
+
+              if (e.currentTarget.src !== s) return (e.currentTarget.src = s);
+            }
+          : undefined
       }
     />
   );

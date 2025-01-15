@@ -130,7 +130,7 @@ export class AxiosWrapper {
 
 export function axiosWrapper<
   T extends "get" | "post" | "patch",
-  D extends any = any
+  D extends any = any,
 >(
   method: T,
   ...args: Parameters<(typeof axios)[T]>
