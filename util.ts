@@ -50,6 +50,7 @@ export class AxiosWrapper {
   public config: AxiosRequestConfig = {};
   public showLoader: boolean = false;
   public noReject: boolean = false;
+  public noErrorMessage: boolean = false;
 
   public get<D extends any = any>(
     url: string,
@@ -113,12 +114,16 @@ export class AxiosWrapper {
       })
         .then((r) => {
           if (!r.status.toString().startsWith("2")) {
-            showErrorAlert(makeErrorResponseMessage(r));
+            console.error(`HTTP Errpr: Fetch ${method} ${url}`, r);
+            if (!this.noErrorMessage)
+              showErrorAlert(makeErrorResponseMessage(r));
             if (!this.noReject) reject();
           } else resolve(r);
         })
         .catch((r) => {
-          showErrorAlert(makeErrorResponseMessage(r.response));
+          console.error(`HTTP Errpr: Fetch ${method} ${url}`, r);
+          if (!this.noErrorMessage)
+            showErrorAlert(makeErrorResponseMessage(r.response));
           if (!this.noReject) reject();
         })
         .finally(() => {
@@ -130,7 +135,7 @@ export class AxiosWrapper {
 
 export function axiosWrapper<
   T extends "get" | "post" | "patch",
-  D extends any = any,
+  D extends any = any
 >(
   method: T,
   ...args: Parameters<(typeof axios)[T]>
