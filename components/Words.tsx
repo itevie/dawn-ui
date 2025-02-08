@@ -1,5 +1,5 @@
 import { HTMLAttributes, ReactNode } from "react";
-import { combineClasses } from "../util";
+import { combineClasses, UtilClassNames } from "../util";
 
 /**
  * navbar = The text used for the navbar
@@ -18,17 +18,20 @@ export type TextType =
 export default function Words({
   type,
   children,
+  util,
   ...rest
 }: {
   type?: TextType;
   children?: ReactNode;
+  util?: UtilClassNames[];
 } & HTMLAttributes<HTMLLabelElement>) {
   return (
     <label
       {...rest}
       className={combineClasses(
         `dawn-text dawn-text-${type ?? "normal"}`,
-        rest.className
+        rest.className,
+        util
       )}
     >
       {children}
