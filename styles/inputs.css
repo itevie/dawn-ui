@@ -18,7 +18,7 @@
 
 .dawn-button:hover,
 .dawn-button.dawn-active {
-  background-color: var(--dawn-control-hover-background);
+  background-color: var(--dawn-control-hover);
 }
 
 .dawn-button.dawn-success {
@@ -88,7 +88,7 @@ textarea {
   width: 100%;
   max-width: 100%;
 
-  background-color: var(--dawn-input);
+  background-color: var(--dawn-control-background);
   color: var(--dawn-root-color);
 
   border-style: solid;
@@ -100,7 +100,7 @@ textarea {
 }
 
 select {
-  background-color: var(--dawn-input);
+  background-color: var(--dawn-control-background);
   color: var(--dawn-root-color);
 
   border-style: solid;
@@ -169,14 +169,14 @@ input:hover,
 input:focus,
 select:hover,
 textarea:hover {
-  background-color: var(--dawn-input-hover);
+  background-color: var(--dawn-control-hover);
 }
 
 input:focus,
 input:focus,
 select:focus,
 textarea:focus {
-  background-color: var(--dawn-input-focus);
+  background-color: var(--dawn-control-focus);
 }
 
 .dawn-button.dawn-big {
@@ -216,7 +216,7 @@ progress::-webkit-progress-bar {
   border-color: var(--dawn-control-border);
   border-radius: var(--dawn-border-radius);
   border-width: 1px;
-  background-color: var(--dawn-input);
+  background-color: var(--dawn-control);
 }
 progress::-webkit-progress-value {
   background-color: var(--dawn-accent);

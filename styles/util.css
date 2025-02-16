@@ -1,65 +1,4 @@
-.no-shrink {
-  flex-shrink: 0;
-}
-
-.flex-grow {
-  flex-grow: 1;
-}
-
-.align-center {
-  align-items: center;
-}
-
-.justify-center {
-  justify-content: center;
-}
-
-.flex-wrap {
-  flex-wrap: wrap;
-}
-
-.no-gap {
-  gap: 0px;
-}
-
-.fit-content {
-  width: fit-content;
-}
-
-.no-select {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.no-gap {
-  gap: 0px;
-}
-
-.small-gap {
-  gap: 3px;
-}
-
-.no-min {
-  min-height: 0px;
-  min-width: 0px;
-}
-
-.full-page {
-  width: 100vw;
-  height: 100vh;
-}
-
-.hover-grow {
-  transition: 0.2s;
-}
-
-.hover-grow:hover {
-  transform: scale(1.25)
-}
+/* ----- From the util function ----- */
 
 ::-webkit-scrollbar {
   width: 4px;
@@ -88,6 +27,17 @@
   z-index: 10;
 }
 
+.dawn-fullscreen-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--dawn-control-background);
+  z-index: 10;
+}
+
 .dawn-page-center {
   position: absolute;
   top: 50%;
@@ -96,14 +46,6 @@
 }
 
 .dawn-round {
-  border-radius: 100px;
-}
-
-.clickable:hover {
-  cursor: pointer;
-}
-
-.round {
   border-radius: 100px;
 }
 
@@ -161,4 +103,14 @@ body:has(#root .dawn-fullscreen) {
 .dawn-selected,
 .selected {
   background-color: var(--dawn-control-hover-background);
+}
+
+.dawn-big {
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 1.2em;
+  padding: 10px;
+  margin: 10px 0px;
+  display: block;
+  text-align: center;
 }

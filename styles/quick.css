@@ -1,0 +1,79 @@
+/* ----- Flex ----- */
+.no-shrink {
+  flex-shrink: 0;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.no-gap {
+  gap: 0px;
+}
+
+.small-gap {
+  gap: 3px;
+}
+
+/* ----- Sizing ----- */
+.fit-content {
+  width: fit-content;
+}
+
+.no-min {
+  min-height: 0px;
+  min-width: 0px;
+}
+
+.full-page {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* ----- Style ----- */
+.round {
+  border-radius: 100px;
+}
+
+.focus {
+  background-color: var(--dawn-control-focus) !important;
+}
+
+/* ----- UX ----- */
+.no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.hover-grow {
+  transition: 0.2s;
+}
+
+.hover-grow:hover {
+  transform: scale(1.25);
+}
+
+.hover:hover {
+  background-color: var(--dawn-control-hover);
+  cursor: pointer;
+}
+
+.clickable:hover {
+  cursor: pointer;
+}

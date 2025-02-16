@@ -90,6 +90,7 @@ export default function Showcase() {
                 </Banner>
                 <Words type="page-title">page-title</Words>
                 <Column>
+                  <Container></Container>
                   <Container>
                     <Words type="container-title">container-title</Words>
                     <label>

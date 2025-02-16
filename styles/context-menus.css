@@ -20,9 +20,13 @@
 .dawn-context-menu-button {
   padding: 10px 30px;
 }
+.dawn-context-menu-button,
+.dawn-context-menu-button > label {
+  cursor: pointer;
+}
 
 .dawn-context-menu-button:hover {
-  background-color: var(--dawn-control-hover-background);
+  background-color: var(--dawn-control-hover);
 }
 
 .dawn-context-menu-button-danger:hover {

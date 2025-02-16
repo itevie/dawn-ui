@@ -1,5 +1,6 @@
 import "./styles/base.css";
 import "./styles/containers.css";
+import "./styles/animations.css";
 import "./styles/text.css";
 import "./styles/flex.css";
 import "./styles/inputs.css";
@@ -9,6 +10,7 @@ import "./styles/alerts.css";
 import "./styles/context-menus.css";
 import "./styles/banner.css";
 import "./styles/icons.css";
+import "./styles/quick.css";
 
 import "./styles/responsive.css";
 import "./styles/table.css";

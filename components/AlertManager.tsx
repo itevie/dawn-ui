@@ -110,10 +110,10 @@ export default function AlertManager() {
   );
 }
 
-export function showErrorAlert(message: string) {
+export function showErrorAlert(message: string, title?: string) {
   return new Promise<void>((resolve) => {
     addAlert({
-      title: "Error!",
+      title: title ?? "Error!",
       body: <label>{message}</label>,
       buttons: [
         {

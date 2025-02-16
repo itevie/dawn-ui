@@ -23,10 +23,10 @@ const Button = forwardRef<
       {...rest}
       className={combineClasses(
         "dawn-button",
-        util,
         rest.className,
         type && `dawn-${type}`,
-        big ? `dawn-big` : ""
+        big ? `dawn-big` : "",
+        util
       )}
     >
       {children}

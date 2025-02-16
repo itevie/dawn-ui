@@ -1,5 +1,5 @@
 import { ReactNode, useState } from "react";
-import { showErrorAlert } from "./AlertManager";
+import uploadFile from "../uploadFile";
 
 export default function UploadFile({
   children,
@@ -14,37 +14,15 @@ export default function UploadFile({
 }) {
   const [fileName, setFileName] = useState<string>("");
 
-  function uploadFile() {
-    const input = document.createElement("input");
-    input.type = "file";
-
-    input.onchange = (_) => {
-      if (input.files?.length !== 1) {
-        return showErrorAlert("Expected only 1 file to be selected");
-      }
-
-      const file = input.files[0];
-      if (filter && !file.type.startsWith(filter)) {
-        return showErrorAlert("Invalid file type! Expected: " + filter);
-      }
-
-      setFileName(file.name);
-
-      const reader = new FileReader();
-
-      reader.onload = (file) => {
-        if (!file.target || !file.target.DONE) return;
-        onChange(file.target.result as string);
-      };
-
-      reader.readAsDataURL(file);
-    };
-
-    input.click();
+  function _uploadFile() {
+    uploadFile(filter).then((res) => {
+      setFileName(res.name);
+      onChange(res.result);
+    });
   }
 
   return (
-    <div onClick={uploadFile}>
+    <div onClick={_uploadFile}>
       {children}
       {!noLabel && <label>{fileName}</label>}
     </div>

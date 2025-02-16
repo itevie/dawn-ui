@@ -2,8 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import Button, { ButtonType } from "./Button";
 import Column from "./Column";
 
+export type ContextMenuEvent = React.MouseEvent<HTMLElement, MouseEvent>;
+
 export interface ContextMenu {
-  event: React.MouseEvent<HTMLElement, MouseEvent>;
+  event: ContextMenuEvent;
   elements: ContextMenuItem[];
   ignoreClasses?: string[];
 }
@@ -50,9 +52,11 @@ export default function ContextMenuManager() {
       // Check if it should be ignored
       if (
         cm.ignoreClasses &&
-        cm.ignoreClasses.some((x) => cm.event.currentTarget.matches(x))
+        cm.ignoreClasses.some((x) => (cm.event.target as Element).matches(x))
       )
         return;
+
+      console.log(cm.ignoreClasses, cm.event.currentTarget);
 
       cm.event.preventDefault();
       setContextMenu(cm);

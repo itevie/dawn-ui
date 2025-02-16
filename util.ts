@@ -17,6 +17,8 @@ export type UtilClassNames =
   | "lift-up"
   | "hover-grow"
   | "selected"
+  | "hover"
+  | "focus"
   | "giraffe"
   | "round"
   | "fit-content"
@@ -117,14 +119,14 @@ export class AxiosWrapper {
             console.error(`HTTP Errpr: Fetch ${method} ${url}`, r);
             if (!this.noErrorMessage)
               showErrorAlert(makeErrorResponseMessage(r));
-            if (!this.noReject) reject();
+            if (!this.noReject) reject(r);
           } else resolve(r);
         })
         .catch((r) => {
           console.error(`HTTP Errpr: Fetch ${method} ${url}`, r);
           if (!this.noErrorMessage)
             showErrorAlert(makeErrorResponseMessage(r.response));
-          if (!this.noReject) reject();
+          if (!this.noReject) reject(r);
         })
         .finally(() => {
           loader?.stop();
@@ -135,7 +137,7 @@ export class AxiosWrapper {
 
 export function axiosWrapper<
   T extends "get" | "post" | "patch",
-  D extends any = any
+  D extends any = any,
 >(
   method: T,
   ...args: Parameters<(typeof axios)[T]>

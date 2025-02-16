@@ -8,22 +8,22 @@ export default function Link({
   forceReload,
   ...rest
 }: {
-  href: string;
+  href?: string;
   forceReload?: boolean;
   noHighlight?: boolean;
   children: ReactNode;
 } & HTMLAttributes<HTMLAnchorElement>) {
   return (
     <a
-      {...rest}
-      href={link}
       onClick={() => {
-        window.location.href = link;
+        if (link) window.location.href = link;
         if (forceReload)
           setTimeout(() => {
             window.location.reload();
           }, 10);
       }}
+      {...rest}
+      href={link}
       className={combineClasses(
         "dawn-link",
         noHighlight ? "dawn-link-no-highlight" : ""

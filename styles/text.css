@@ -76,6 +76,10 @@ small {
   color: var(--dawn-accent);
 }
 
+.dawn-link:hover {
+  cursor: pointer;
+}
+
 .dawn-link:visited {
   color: var(--dawn-accent);
 }

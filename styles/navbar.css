@@ -46,7 +46,7 @@
   box-sizing: border-box;
   overflow-x: hidden;
 
-  background-color: var(--dawn-control-background-2);
+  background-color: var(--dawn-container-secondary-background);
 }
 
 .dawn-sidebar-collapsed {

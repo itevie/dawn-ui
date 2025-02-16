@@ -32,13 +32,13 @@
   background-repeat: no-repeat;
 
   border-radius: var(--dawn-border-radius);
-  background-color: var(--dawn-control-background);
+  background-color: var(--dawn-container-background);
   transition: var(--dawn-hover-transition);
 }
 
 .dawn-container-hover:hover {
   cursor: pointer;
-  background-color: var(--dawn-control-hover-background);
+  background-color: var(--dawn-container-hover);
 }
 
 .dawn-link > .dawn-container {
@@ -53,7 +53,7 @@
 .dawn-tab-contents {
   box-sizing: border-box;
   border-width: 1px;
-  border-color: var(--dawn-control-border);
+  border-color: var(--dawn-container-border);
   border-style: solid;
   padding: 10px;
 }
