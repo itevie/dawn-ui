@@ -12,31 +12,15 @@ export default function Icon({
   src: string;
   fallback?: string;
 } & HTMLAttributes<HTMLImageElement>) {
-  if (_src === undefined) console.log("yep");
-  const [src, setSrc] = useState<string>(
+  const src =
     _src &&
-      (_src?.startsWith("http")
-        ? _src
-        : `${
-            window.location.hostname === "localhost" &&
-            !_src.startsWith("data:")
-              ? "http://localhost:3000"
-              : ""
-          }${_src}`)
-  );
-
-  useEffect(() => {
-    if (!src) return;
-    if (!src.startsWith("data:")) {
-      addLoading();
-    }
-
-    return () => {
-      if (!src.startsWith("data:")) {
-        decLoading();
-      }
-    };
-  }, [src]);
+    (_src?.startsWith("http")
+      ? _src
+      : `${
+          window.location.hostname === "localhost" && !_src.startsWith("data:")
+            ? "http://localhost:3000"
+            : ""
+        }${_src}`);
 
   return (
     <img
@@ -45,9 +29,6 @@ export default function Icon({
       alt=""
       className={combineClasses("dawn-icon", rest.className)}
       src={src}
-      onLoad={() => {
-        if (!src.startsWith("data:")) decLoading();
-      }}
       onError={
         fallback
           ? (e) => {
@@ -59,7 +40,7 @@ export default function Icon({
               }${fallback}`;
 
               if (e.currentTarget.src !== s) {
-                setSrc(s);
+                e.currentTarget.src = s;
               }
             }
           : undefined
