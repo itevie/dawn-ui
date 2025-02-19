@@ -6,9 +6,11 @@ import GoogleMatieralIcon from "./GoogleMaterialIcon";
 export default function Sidebar({
   collapsed,
   children,
+  className,
 }: {
   collapsed?: boolean;
   children: ReactNode;
+  className?: string;
 }) {
   const [mobile, setMobile] = useState<boolean>(false);
   const [toggled, setToggled] = useState<boolean>(false);
@@ -36,7 +38,8 @@ export default function Sidebar({
         className={combineClasses(
           "dawn-sidebar",
           collapsed ? "dawn-sidebar-collapsed" : "",
-          mobile && toggled ? "dawn-sidebar-mobile" : ""
+          mobile && toggled ? "dawn-sidebar-mobile" : "",
+          className
         )}
       >
         {children}

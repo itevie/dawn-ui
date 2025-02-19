@@ -97,12 +97,12 @@ body:has(#root .dawn-fullscreen) {
 }
 
 .dawn-hoverable:hover {
-  background-color: var(--dawn-control-hover-background) !important;
+  background-color: var(--dawn-control-hover) !important;
 }
 
 .dawn-selected,
 .selected {
-  background-color: var(--dawn-control-hover-background);
+  background-color: var(--dawn-control-focus);
 }
 
 .dawn-big {

@@ -16,7 +16,7 @@ body {
 
   --dawn-control-background: hsla(var(--dawn-neutral-base-color), 5%, 30%, 1);
   --dawn-control-hover: hsla(var(--dawn-neutral-base-color), 5%, 25%, 1);
-  --dawn-control-focus: hsla(var(--dawn-neutral-base-color), 5%, 25%, 1);
+  --dawn-control-focus: hsla(var(--dawn-neutral-base-color), 5%, 30%, 1);
   --dawn-control-border: hsla(var(--dawn-neutral-base-color), 5%, 25%, 1);
 
   --dawn-container-secondary-background: hsla(
