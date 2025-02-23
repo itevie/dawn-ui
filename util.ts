@@ -137,7 +137,7 @@ export class AxiosWrapper {
 
 export function axiosWrapper<
   T extends "get" | "post" | "patch",
-  D extends any = any,
+  D extends any = any
 >(
   method: T,
   ...args: Parameters<(typeof axios)[T]>
@@ -203,4 +203,8 @@ export function hexToRGB(hex: string, alpha: number) {
 
 export function randomRange(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+export function randomRangeDecimal(min: number, max: number) {
+  return Math.random() * (max - min) + min;
 }

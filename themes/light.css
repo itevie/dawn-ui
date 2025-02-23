@@ -1,28 +1,30 @@
 body.dawn-theme-light {
   /* ----- Colors ----- */
-  --dawn-root-background: #eee;
+
+  --dawn-root-background: hsla(var(--dawn-neutral-base-color), 5%, 70%, 1);
   --dawn-root-color: #222;
 
-  --dawn-control-background: #ddd;
-  --dawn-control-hover-background: #bbb;
-  --dawn-control-border: #ccc;
+  --dawn-container-background: hsla(var(--dawn-neutral-base-color), 5%, 80%, 1);
+  --dawn-container-hover: hsla(var(--dawn-neutral-base-color), 5%, 85%, 1);
+  --dawn-container-focus: hsla(var(--dawn-neutral-base-color), 5%, 80%, 1);
+  --dawn-container-border: hsla(var(--dawn-neutral-base-color), 5%, 85%, 1);
 
-  --dawn-input: #acacac;
-  --dawn-input-hover: #bbb;
-  --dawn-input-focus: #ccc;
+  --dawn-control-background: hsla(var(--dawn-neutral-base-color), 5%, 90%, 1);
+  --dawn-control-hover: hsla(var(--dawn-neutral-base-color), 5%, 85%, 1);
+  --dawn-control-focus: hsla(var(--dawn-neutral-base-color), 5%, 90%, 1);
+  --dawn-control-border: hsla(var(--dawn-neutral-base-color), 5%, 85%, 1);
 
-  --dawn-control-background-2: #cacaca;
+  --dawn-container-secondary-background: hsla(
+    var(--dawn-neutral-base-color),
+    5%,
+    82%,
+    1
+  );
 
-  --dawn-popup-background: #fff;
+  --dawn-popup-background: hsla(var(--dawn-neutral-base-color), 60%, 75%, 1);
 
-  --dawn-control-danger: #770000;
-  --dawn-control-hover-danger: #cc0000;
-  --dawn-control-success: #00a800;
-  --dawn-control-hover-success: #00ff00;
-  --dawn-control-link: #18e6f5;
-
-  --dawn-accent: #a361b1;
-  --dawn-accent-text: white;
+  --dawn-accent: hsla(var(--dawn-accent-base-color), 45%, 40%, 1);
+  --dawn-accent-text: black;
 
   /* ----- Values ----- */
   --dawn-hover-transition: 0.2s;

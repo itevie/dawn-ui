@@ -1,6 +1,5 @@
 import { HTMLAttributes, useEffect, useState } from "react";
 import { combineClasses, combineStyles } from "../util";
-import { addLoading, decLoading } from "../../App";
 
 export default function Icon({
   src: _src,
