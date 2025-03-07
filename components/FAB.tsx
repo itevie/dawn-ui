@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 import { combineClasses } from "../util";
 import Button, { ButtonType } from "./Button";
 import { setShortcutCallback } from "./ShortcutManager";
@@ -10,7 +10,7 @@ export default function FAB({
   shortcut,
 }: {
   clicked?: () => void;
-  label?: string;
+  label?: ReactNode;
   type?: ButtonType;
   shortcut?: string;
 }) {

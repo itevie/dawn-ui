@@ -41,6 +41,15 @@
   background-color: var(--dawn-container-hover);
 }
 
+.dawn-container-secondary {
+  padding: 10px;
+  box-sizing: border-box;
+
+  background-color: var(--dawn-container-secondary-background);
+  border-radius: 5px;
+  transition: var(--dawn-hover-transition);
+}
+
 .dawn-link > .dawn-container {
   height: 100%;
 }
