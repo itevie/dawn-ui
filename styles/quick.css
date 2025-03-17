@@ -55,6 +55,10 @@
   background-color: var(--dawn-control-focus) !important;
 }
 
+.underline {
+  text-decoration: underline;
+}
+
 /* ----- UX ----- */
 .no-select {
   -webkit-touch-callout: none;

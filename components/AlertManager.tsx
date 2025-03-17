@@ -130,11 +130,11 @@ export function showErrorAlert(message: string, title?: string) {
   });
 }
 
-export function showInfoAlert(message: string) {
+export function showInfoAlert(message: ReactNode) {
   return new Promise<void>((resolve) => {
     addAlert({
       title: "Information",
-      body: <label>{message}</label>,
+      body: message,
       buttons: [
         {
           id: "ok",
