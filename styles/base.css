@@ -27,7 +27,7 @@ body {
     --dawn-container-secondary-background: hsla(
         var(--dawn-neutral-base-color),
         5%,
-        25%,
+        20%,
         1
     );
 
