@@ -1,224 +1,162 @@
 /* ----- Buttons ----- */
-.dawn-button {
-  border-radius: var(--dawn-control-border-radius);
-  border-style: solid;
-  border-width: 1px;
-  border-color: var(--dawn-control-border);
-
-  padding: 5px 7px;
-
-  cursor: pointer;
-
-  color: white;
-  background-color: var(--dawn-control-background);
-  color: var(--dawn-root-color);
-
-  transition: var(--dawn-hover-transition);
-}
-
-.dawn-button:hover,
-.dawn-button.dawn-active {
-  background-color: var(--dawn-control-hover);
-}
-
-.dawn-button.dawn-success {
-  background-color: var(--dawn-control-success);
-  color: var(--dawn-control-text-success);
-}
-
-.dawn-button.dawn-success:hover {
-  background-color: var(--dawn-control-hover-success);
-}
-
-.dawn-button.dawn-danger {
-  background-color: var(--dawn-control-danger);
-  color: var(--dawn-control-text-danger);
-}
-
-.dawn-button.dawn-danger:hover {
-  background-color: var(--dawn-control-hover-danger);
-}
-
-.dawn-button.dawn-inherit {
-  background-color: transparent;
-  border: none;
-}
-
-.dawn-button.dawn-accent {
-  background-color: var(--dawn-accent);
-  color: var(--dawn-accent-text);
-}
-
-.dawn-button-round {
-  border-radius: 100px;
-  min-width: 48px;
-}
-
-.dawn-button-circle {
-  width: 48px;
-  height: 48px;
-  border-radius: 100px;
-
-  font-size: 1.5em;
-}
 
 .dawn-fab {
-  position: fixed;
+    position: fixed;
 
-  bottom: 0;
-  right: 0;
+    bottom: 0;
+    right: 0;
 
-  width: 64px;
-  height: 64px;
-  border-radius: 100px;
+    width: 64px;
+    height: 64px;
+    border-radius: 100px;
 
-  font-size: 1.5em;
+    font-size: 1.5em;
 
-  margin: 32px;
+    margin: 32px;
 }
 
 /* ----- Inputs ----- */
-/* These are on input directly cause 
-  react is a nerd and won't let be put 
+/* These are on input directly cause
+  react is a nerd and won't let be put
   refs on non native elements */
 input,
 textarea {
-  display: block;
+    display: block;
 
-  width: 100%;
-  max-width: 100%;
+    width: 100%;
+    max-width: 100%;
 
-  background-color: var(--dawn-control-background);
-  color: var(--dawn-root-color);
+    background-color: var(--dawn-control-background);
+    color: var(--dawn-root-color);
 
-  border-style: solid;
-  border-color: var(--dawn-control-border);
+    border-style: solid;
+    border-color: var(--dawn-control-border);
 
-  transition: var(--dawn-hover-transition);
+    transition: var(--dawn-hover-transition);
 
-  outline: none;
+    outline: none;
 }
 
 select {
-  background-color: var(--dawn-control-background);
-  color: var(--dawn-root-color);
+    background-color: var(--dawn-control-background);
+    color: var(--dawn-root-color);
 
-  border-style: solid;
-  border-color: var(--dawn-control-border);
+    border-style: solid;
+    border-color: var(--dawn-control-border);
 
-  height: fit-content;
+    height: fit-content;
 
-  outline: none;
+    outline: none;
 }
 
 textarea {
-  min-height: 1em;
-  min-width: 10em;
+    min-height: 1em;
+    min-width: 10em;
 }
 
 input[type="checkbox"] {
-  display: inline;
+    display: inline;
 
-  width: fit-content;
+    width: fit-content;
 
-  accent-color: var(--dawn-accent);
+    accent-color: var(--dawn-accent);
 
-  border-style: solid;
-  border-color: var(--dawn-control-border);
-  background-color: black;
+    border-style: solid;
+    border-color: var(--dawn-control-border);
+    background-color: black;
 }
 
 input[type="range"] {
-  -webkit-appearance: none;
-  appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
 
-  height: 10px;
+    height: 10px;
 
-  border-style: none;
-  border-radius: 10px;
+    border-style: none;
+    border-radius: 10px;
 
-  background-color: var(--dawn-control-hover);
+    background-color: var(--dawn-control-hover);
 }
 
 input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
 
-  width: 20px;
-  height: 20px;
+    width: 20px;
+    height: 20px;
 
-  background: var(--dawn-accent);
+    background: var(--dawn-accent);
 
-  cursor: pointer;
+    cursor: pointer;
 
-  border-radius: 100px;
+    border-radius: 100px;
 }
 
 input[type="range"]::-moz-range-thumb {
-  width: 20px;
-  height: 20px;
+    width: 20px;
+    height: 20px;
 
-  background: var(--dawn-accent);
+    background: var(--dawn-accent);
 
-  cursor: pointer;
+    cursor: pointer;
 
-  border-radius: 100px;
+    border-radius: 100px;
 }
 
 input:hover,
 input:focus,
 select:hover,
 textarea:hover {
-  background-color: var(--dawn-control-hover);
+    background-color: var(--dawn-control-hover);
 }
 
 input:focus,
 input:focus,
 select:focus,
 textarea:focus {
-  background-color: var(--dawn-control-focus);
+    background-color: var(--dawn-control-focus);
 }
 
 .dawn-button.dawn-big {
-  padding: 10px;
+    padding: 10px;
 }
 
 .dawn-page-input {
-  background-color: var(--dawn-control-background);
-  border-radius: var(--dawn-border-radius);
+    background-color: var(--dawn-control-background);
+    border-radius: var(--dawn-border-radius);
 }
 
 input.dawn-big {
-  text-align: left;
-  padding: 10px;
-  margin: 0px;
+    text-align: left;
+    padding: 10px;
+    margin: 0px;
 }
 
 input[type="color"].dawn-big {
-  min-height: 50px;
+    min-height: 50px;
 }
 
 textarea.dawn-big {
-  text-align: left;
-  margin: 0px;
+    text-align: left;
+    margin: 0px;
 }
 
 select.dawn-big {
-  width: fit-content;
-  box-sizing: border-box;
+    width: fit-content;
+    box-sizing: border-box;
 }
 
 progress {
-  border-radius: 7px;
+    border-radius: 7px;
 }
 progress::-webkit-progress-bar {
-  border-style: solid;
-  border-color: var(--dawn-control-border);
-  border-radius: var(--dawn-border-radius);
-  border-width: 1px;
-  background-color: var(--dawn-control);
+    border-style: solid;
+    border-color: var(--dawn-control-border);
+    border-radius: var(--dawn-border-radius);
+    border-width: 1px;
+    background-color: var(--dawn-control);
 }
 progress::-webkit-progress-value {
-  background-color: var(--dawn-accent);
-  border-radius: var(--dawn-border-radius);
+    background-color: var(--dawn-accent);
+    border-radius: var(--dawn-border-radius);
 }

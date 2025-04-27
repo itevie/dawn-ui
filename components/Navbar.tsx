@@ -1,10 +1,14 @@
 import { HTMLAttributes, ReactNode } from "react";
-import Words from "./Words";
+import Words, { TextType } from "./Words";
 import { combineClasses } from "../util";
 import Breadcrumb from "./Breadcrumb";
 import Link from "./Link";
 import ThemeButton from "./ThemeButton";
 import Row from "./Row";
+
+export interface NavbarProps {
+  title?: ReactNode;
+}
 
 export default function Navbar({
   children,
@@ -28,11 +32,11 @@ export default function Navbar({
         <div
           className={combineClasses(
             "dawn-navbar-content",
-            !noPage ? "dawn-navbar-page-align" : ""
+            !noPage ? "dawn-navbar-page-align" : "",
           )}
         >
           <Link style={{ color: "white" }} noHighlight href={link ?? "/"}>
-            <Words type="navbar">{title}</Words>
+            <Words type={TextType.Navbar}>{title}</Words>
           </Link>
           <Row util={["no-gap", "align-center"]}>
             {children}
@@ -44,11 +48,11 @@ export default function Navbar({
         <div
           className={combineClasses(
             "dawn-navbar-below",
-            !noPage ? "dawn-navbar-page-align" : ""
+            !noPage ? "dawn-navbar-page-align" : "",
           )}
         >
           {pageTitle ? (
-            <Words type="page-title">{pageTitle}</Words>
+            <Words type={TextType.PageTitle}>{pageTitle}</Words>
           ) : (
             <div></div>
           )}

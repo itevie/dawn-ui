@@ -1,6 +1,6 @@
 import { HTMLAttributes, ReactNode } from "react";
 import { combineClasses, combineStyles, UtilClassNames } from "../util";
-import Words from "./Words";
+import Words, { TextType } from "./Words";
 
 /**
  * Contains elements
@@ -28,11 +28,11 @@ export default function Container({
         "dawn-container",
         hover ? "dawn-container-hover" : "",
         util,
-        rest.className
+        rest.className,
       )}
       style={combineStyles(rest.style, small ? { width: "300px" } : null)}
     >
-      {title && <Words type="container-title">{title}</Words>}
+      {title && <Words type={TextType.ContainerTitle}>{title}</Words>}
       {children}
     </div>
   );

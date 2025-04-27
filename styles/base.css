@@ -1,101 +1,135 @@
 body {
-  /* ----- Baes Colors ----- */
-  --dawn-neutral-base-color: 200;
-  --dawn-danger-base-color: 0;
-  --dawn-success-base-color: 90;
-  --dawn-accent-base-color: 263;
+    /* ----- Baes Colors ----- */
+    --dawn-neutral-base-color: 200;
+    --dawn-danger-base-color: 0;
+    --dawn-success-base-color: 90;
+    --dawn-accent-base-color: 263;
 
-  /* ----- Background Colors ----- */
-  --dawn-root-background: hsla(var(--dawn-neutral-base-color), 5%, 10%, 1);
-  --dawn-root-color: #fff;
+    /* ----- Background Colors ----- */
+    --dawn-root-base: hsla(var(--dawn-neutral-base-color), 5%, 10%, 1);
+    --dawn-root: #fff;
 
-  --dawn-container-background: hsla(var(--dawn-neutral-base-color), 5%, 20%, 1);
-  --dawn-container-hover: hsla(var(--dawn-neutral-base-color), 5%, 25%, 1);
-  --dawn-container-focus: hsla(var(--dawn-neutral-base-color), 5%, 30%, 1);
-  --dawn-container-border: hsla(var(--dawn-neutral-base-color), 5%, 25%, 1);
+    --dawn-container-background: hsla(
+        var(--dawn-neutral-base-color),
+        5%,
+        20%,
+        1
+    );
+    --dawn-container-hover: hsla(var(--dawn-neutral-base-color), 5%, 25%, 1);
+    --dawn-container-focus: hsla(var(--dawn-neutral-base-color), 5%, 30%, 1);
+    --dawn-container-border: hsla(var(--dawn-neutral-base-color), 5%, 25%, 1);
 
-  --dawn-control-background: hsla(var(--dawn-neutral-base-color), 5%, 30%, 1);
-  --dawn-control-hover: hsla(var(--dawn-neutral-base-color), 5%, 25%, 1);
-  --dawn-control-focus: hsla(var(--dawn-neutral-base-color), 5%, 30%, 1);
-  --dawn-control-border: hsla(var(--dawn-neutral-base-color), 5%, 25%, 1);
+    --dawn-control-background: hsla(var(--dawn-neutral-base-color), 5%, 30%, 1);
+    --dawn-control-hover: hsla(var(--dawn-neutral-base-color), 5%, 25%, 1);
+    --dawn-control-focus: hsla(var(--dawn-neutral-base-color), 5%, 30%, 1);
+    --dawn-control-border: hsla(var(--dawn-neutral-base-color), 5%, 25%, 1);
 
-  --dawn-container-secondary-background: hsla(
-    var(--dawn-neutral-base-color),
-    5%,
-    25%,
-    1
-  );
+    --dawn-container-secondary-background: hsla(
+        var(--dawn-neutral-base-color),
+        5%,
+        25%,
+        1
+    );
 
-  --dawn-popup-background: hsla(var(--dawn-neutral-base-color), 60%, 5%, 1);
+    --dawn-popup-background: hsla(var(--dawn-neutral-base-color), 60%, 5%, 1);
 
-  --dawn-control-danger: hsla(var(--dawn-danger-base-color), 75%, 30%, 1);
-  --dawn-control-text-danger: white;
-  --dawn-control-hover-danger: hsla(var(--dawn-danger-base-color), 90%, 40%, 1);
-  --dawn-text-danger: hsla(var(--dawn-danger-base-color), 100%, 50%, 1);
+    /* ----- Danger Colors ----- */
+    --dawn-danger-base: hsla(var(--dawn-danger-base-color), 75%, 30%, 1);
+    --dawn-danger-base-text: white;
+    --dawn-danger-base-hover: hsla(var(--dawn-danger-base-color), 90%, 40%, 1);
+    --dawn-danger-text: hsla(var(--dawn-danger-base-color), 100%, 50%, 1);
 
-  --dawn-control-success: hsla(var(--dawn-success-base-color), 75%, 30%, 1);
-  --dawn-control-text-success: white;
-  --dawn-control-hover-success: hsla(
-    var(--dawn-success-base-color),
-    90%,
-    40%,
-    1
-  );
-  --dawn-text-success: hsla(var(--dawn-success-base-color), 100%, 50%, 1);
+    /* ----- Sucess Colors ----- */
+    --dawn-success-base: hsla(var(--dawn-success-base-color), 75%, 30%, 1);
+    --dawn-success-base-text: white;
+    --dawn-success-base-hover: hsla(
+        var(--dawn-success-base-color),
+        90%,
+        40%,
+        1
+    );
+    --dawn-success-text: hsla(var(--dawn-success-base-color), 100%, 50%, 1);
 
-  --dawn-accent: hsla(var(--dawn-accent-base-color), 45%, 80%, 1);
-  --dawn-accent-text: black;
+    /* ----- Accent Colors ----- */
+    --dawn-accent-base: hsla(var(--dawn-accent-base-color), 45%, 80%, 1);
+    --dawn-accent-base-text: black;
+    --dawn-accent-text: hsla(var(--dawn-accent-base-color), 45%, 80%, 1);
 
-  /* ----- Colors ----- */
-  /*--dawn-root-background: #222;
-  --dawn-root-color: #fff;
+    /* ----- Values ----- */
+    --dawn-hover-transition: 0.2s;
+    --dawn-border-radius: 20px;
+    --dawn-control-border-radius: 5px;
+    --dawn-flex-gap: 20px;
+    --dawn-page-width: 60%;
+}
 
-  --dawn-control-background: #333;
-  --dawn-control-hover-background: #444;
-  --dawn-control-selected-background: #555;
-  --dawn-control-border: #444;
+/* ----- Apply default styles for elements ----- */
+:is(.dawn-normal-bg, button, input) {
+    background-color: var(--dawn-control-background);
+}
 
-  --dawn-input: #3c3c3c;
-  --dawn-input-hover: #444;
-  --dawn-input-focus: #555;
+:is(.dawn-normal-bg, button, input):hover {
+    background-color: var(--dawn-control-hover);
+}
 
-  --dawn-control-background-2: #2a2a2a;
+:is(.dawn-normal-bg, input):focus {
+    background-color: var(--dawn-control-focus);
+}
 
-  --dawn-popup-background: #111;
+.dawn-danger-bg {
+    background-color: var(--dawn-danger-base);
+    color: var(--dawn-danger-base-texxt);
+}
 
-  --dawn-control-link: #18e6f5;*/
+.dawn-danger-bg:hover {
+    background-color: var(--dawn-danger-base-hover);
+}
 
-  /* ----- Values ----- */
-  --dawn-hover-transition: 0.2s;
-  --dawn-border-radius: 20px;
-  --dawn-control-border-radius: 5px;
-  --dawn-flex-gap: 20px;
-  --dawn-page-width: 60%;
+.dawn-danger-fg {
+    color: var(--dawn-danger-text);
+}
+
+.dawn-success-bg {
+    background-color: var(--dawn-success-base);
+    color: var(--dawn-success-base-texxt);
+}
+
+.dawn-success-bg:hover {
+    background-color: var(--dawn-success-base-hover);
+}
+
+.dawn-success-fg {
+    background-color: var(--dawn-success-text);
+}
+
+.dawn-inherit-bg {
+    background-color: transparent;
+    color: var(--dawn-root);
 }
 
 body {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 
-  font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 
-  margin: 0;
+    margin: 0;
 
-  background-color: var(--dawn-root-background);
-  color: var(--dawn-root-color);
+    background-color: var(--dawn-root-base);
+    color: var(--dawn-root);
 }
 
 hr {
-  width: 90%;
-  border-style: solid;
-  border-color: var(--dawn-control-border);
+    width: 90%;
+    border-style: solid;
+    border-color: var(--dawn-control-border);
 }
 
 label {
-  word-wrap: break-word;
+    word-wrap: break-word;
 }
 
 a {
-  color: var(--dawn-accent);
+    color: var(--dawn-accent-base);
 }

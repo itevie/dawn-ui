@@ -1,8 +1,12 @@
-import { HTMLAttributes } from "react";
+import { HTMLAttributes, ReactNode } from "react";
 import { showErrorAlert, showLoadingAlert } from "./components/AlertManager";
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 
 export type HTTPMethod = "post" | "get" | "patch" | "put" | "delete";
+
+export interface OptionalChildren {
+  children?: ReactNode;
+}
 
 export type UtilClassNames =
   | "no-shrink"
@@ -26,7 +30,7 @@ export type UtilClassNames =
 
 export function combineStyles<T>(
   before: HTMLAttributes<T>["style"] | null,
-  after: HTMLAttributes<T>["style"] | null
+  after: HTMLAttributes<T>["style"] | null,
 ): HTMLAttributes<T>["style"] {
   return {
     ...(before ?? {}),
@@ -56,14 +60,14 @@ export class AxiosWrapper {
 
   public get<D extends any = any>(
     url: string,
-    config?: AxiosRequestConfig
+    config?: AxiosRequestConfig,
   ): Promise<AxiosResponse<D>> {
     return this.wrapper<"get", D>("get", url, undefined, config);
   }
 
   public delete<D extends any = any>(
     url: string,
-    config?: AxiosRequestConfig
+    config?: AxiosRequestConfig,
   ): Promise<AxiosResponse<D>> {
     return this.wrapper<"delete", D>("delete", url, undefined, config);
   }
@@ -71,7 +75,7 @@ export class AxiosWrapper {
   public post<D extends any = any>(
     url: string,
     data: any,
-    config?: AxiosRequestConfig
+    config?: AxiosRequestConfig,
   ): Promise<AxiosResponse<D>> {
     return this.wrapper<"post", D>("post", url, data, config);
   }
@@ -79,7 +83,7 @@ export class AxiosWrapper {
   public patch<D extends any = any>(
     url: string,
     data: any,
-    config?: AxiosRequestConfig
+    config?: AxiosRequestConfig,
   ): Promise<AxiosResponse<D>> {
     return this.wrapper<"patch", D>("patch", url, data, config);
   }
@@ -87,7 +91,7 @@ export class AxiosWrapper {
   public put<D extends any = any>(
     url: string,
     data: any,
-    config?: AxiosRequestConfig
+    config?: AxiosRequestConfig,
   ): Promise<AxiosResponse<D>> {
     return this.wrapper<"put", D>("put", url, data, config);
   }
@@ -96,7 +100,7 @@ export class AxiosWrapper {
     method: T,
     url: string,
     data?: T extends "get" ? never : any,
-    config?: AxiosRequestConfig
+    config?: AxiosRequestConfig,
   ): Promise<AxiosResponse<D>> {
     return new Promise<AxiosResponse<D>>((resolve, reject) => {
       let loader: ReturnType<typeof showLoadingAlert> | null = null;
@@ -137,7 +141,7 @@ export class AxiosWrapper {
 
 export function axiosWrapper<
   T extends "get" | "post" | "patch",
-  D extends any = any
+  D extends any = any,
 >(
   method: T,
   ...args: Parameters<(typeof axios)[T]>

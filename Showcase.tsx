@@ -6,7 +6,7 @@ import Link from "./components/Link";
 import MultiSelect from "./components/MultiSelect";
 import Page from "./components/Page";
 import Row from "./components/Row";
-import Words from "./components/Words";
+import Words, { TextType } from "./components/Words";
 import Navbar from "./components/Navbar";
 import {
   addAlert,
@@ -88,11 +88,10 @@ export default function Showcase() {
                   Vestibulum eget lectus a urna pulvinar placerat. Nulla
                   vulputate diam ante, vel consequat purus facilisis vitae.
                 </Banner>
-                <Words type="page-title">page-title</Words>
+                <Words type={TextType.PageTitle}>page-title</Words>
                 <Column>
                   <Container></Container>
-                  <Container>
-                    <Words type="container-title">container-title</Words>
+                  <Container title="container-title">
                     <label>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       Fusce ac libero eros. Vivamus eget ligula metus. Lorem
@@ -119,20 +118,21 @@ export default function Showcase() {
                   </Container>
                   <Container hover>Hoverable Container</Container>
                   <Link href="#" noHighlight>
-                    <Container hover>
-                      <Words type="container-title">Container in a Link</Words>
+                    <Container hover title="Container in a Link">
                       <label>
                         Lorum ipsum dolar sit amet, consectetur adipiscing elit.
                       </label>
                     </Container>
                   </Link>
                   <Container>
-                    <Words type="container-title">&lt;Words&gt;</Words>
-                    <Words type="page-title">page-title</Words>
-                    <Words type="container-title">container-title</Words>
+                    <Words type={TextType.ContainerTitle}>&lt;Words&gt;</Words>
+                    <Words type={TextType.PageTitle}>page-title</Words>
+                    <Words type={TextType.ContainerTitle}>
+                      container-title
+                    </Words>
                   </Container>
                   <Container>
-                    <Words type="container-title">&lt;Button&gt;</Words>
+                    <Words type={TextType.ContainerTitle}>&lt;Button&gt;</Words>
                     <Button>normal</Button>
                     <Button type="success">success</Button>
                     <Button type="danger">danger</Button>
@@ -160,7 +160,7 @@ export default function Showcase() {
                         Button Big
                       </Button>
                       <Words className={`dawn-${x}`}>Words</Words>
-                      <Words type="page-title" className={`dawn-${x}`}>
+                      <Words type={TextType.PageTitle} className={`dawn-${x}`}>
                         page-title words
                       </Words>
                     </Container>
@@ -174,8 +174,7 @@ export default function Showcase() {
                     </Column>
                   </Container>
 
-                  <Container>
-                    <Words type="container-title">Other Controls</Words>
+                  <Container title="Other Controls">
                     <Link href="#">Link</Link>
                     <table>
                       <tbody>
@@ -280,8 +279,7 @@ export default function Showcase() {
                       }}
                     </Tabbed>
                   </Container>
-                  <Container>
-                    <Words type="container-title">Alerts</Words>
+                  <Container title="Alerts">
                     <Button onClick={() => addAlert({ body: "" })}>
                       Base Alert
                     </Button>
@@ -321,19 +319,19 @@ export default function Showcase() {
                           setTimeout(() => {
                             loader.progress(0.5);
                             resolve(0);
-                          }, 500)
+                          }, 500),
                         );
                         await new Promise((resolve) =>
                           setTimeout(() => {
                             loader.progress(0.75);
                             resolve(0);
-                          }, 500)
+                          }, 500),
                         );
                         await new Promise((resolve) =>
                           setTimeout(() => {
                             loader.stop();
                             resolve(0);
-                          }, 500)
+                          }, 500),
                         );
                       }}
                     >
@@ -342,7 +340,7 @@ export default function Showcase() {
                     <Button
                       onClick={async () => {
                         showConfirmAlert("Confirm", () =>
-                          showInfoAlert("Yay!")
+                          showInfoAlert("Yay!"),
                         );
                       }}
                     >
@@ -425,7 +423,7 @@ export default function Showcase() {
                     {["person", "settings", "search", "menu", "home"].map(
                       (x) => (
                         <GoogleMatieralIcon name={x} />
-                      )
+                      ),
                     )}
                   </Container>
                   <Container title="Breadcrumbs">
@@ -433,7 +431,7 @@ export default function Showcase() {
                       url={new URL("https://dawn.rest/hypno/files/9")}
                     />
                   </Container>
-                  <Words type="page-title">Rows</Words>
+                  <Words type={TextType.PageTitle}>Rows</Words>
                   <Row>
                     <Container>A</Container>
                     <Container>B</Container>
@@ -450,7 +448,7 @@ export default function Showcase() {
                     <Container>D</Container>
                   </Row>
                 </Column>
-                <Words type="page-title">
+                <Words type={TextType.PageTitle}>
                   Container with background (from dawn.rest)
                 </Words>
                 <Row util={["justify-center", "flex-wrap"]}>

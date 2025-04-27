@@ -1,20 +1,28 @@
 import { forwardRef, HTMLAttributes, ReactNode } from "react";
-import { combineClasses, UtilClassNames } from "../util";
+import { combineClasses, OptionalChildren, UtilClassNames } from "../util";
+import "./Button.css";
 
 export type ButtonType = "accent" | "inherit" | "danger" | "success" | "normal";
+
+export interface ButtonProps {
+  /** Whether or not this button should be clickable */
+  disabled?: boolean;
+
+  /** The visual style preset of this button */
+  type?: ButtonType;
+
+  /** Whether or not this button should be bigger and fill all width */
+  big?: boolean;
+
+  util?: UtilClassNames[];
+}
 
 /**
  * A clickable Button.
  */
 const Button = forwardRef<
   HTMLButtonElement,
-  {
-    disabled?: boolean;
-    type?: ButtonType;
-    big?: boolean;
-    util?: UtilClassNames[];
-    children?: ReactNode;
-  } & HTMLAttributes<HTMLButtonElement>
+  ButtonProps & OptionalChildren & HTMLAttributes<HTMLButtonElement>
 >(({ type, children, big, disabled, util, ...rest }, ref) => {
   return (
     <button
@@ -24,9 +32,9 @@ const Button = forwardRef<
       className={combineClasses(
         "dawn-button",
         rest.className,
-        type && `dawn-${type}`,
+        type && `dawn-${type}-bg`,
         big ? `dawn-big` : "",
-        util
+        util,
       )}
     >
       {children}
