@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import Row from "./Row";
 // @ts-ignore
 import dawn from "../images/dawn.png";
+import "./banner.css";
 
 export default function Banner({
   title,

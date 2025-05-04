@@ -1,0 +1,27 @@
+.dawn-link {
+  color: var(--dawn-accent-text);
+  text-decoration: underline;
+}
+
+.dawn-link:hover {
+  cursor: pointer;
+}
+
+.dawn-link:visited {
+  color: var(--dawn-accent-text);
+}
+
+.dawn-link-no-highlight {
+  color: var(--dawn-root-color);
+  text-decoration: none;
+
+  cursor: pointer;
+}
+
+.dawn-link-no-highlight:visited {
+  color: var(--dawn-root-color);
+}
+
+.dawn-link > * {
+  cursor: pointer;
+}

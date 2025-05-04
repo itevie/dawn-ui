@@ -23,7 +23,7 @@ export interface ContextButtonItem extends ContextMenuItemBase {
 
   onClick: (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-    replaceWith: (cm: ContextMenu) => void
+    replaceWith: (cm: ContextMenu) => void,
   ) => void;
 }
 
@@ -55,8 +55,6 @@ export default function ContextMenuManager() {
         cm.ignoreClasses.some((x) => (cm.event.target as Element).matches(x))
       )
         return;
-
-      console.log(cm.ignoreClasses, cm.event.currentTarget);
 
       cm.event.preventDefault();
       setContextMenu(cm);
@@ -110,7 +108,7 @@ export default function ContextMenuManager() {
               </Button>
             ) : (
               <hr />
-            )
+            ),
           )}
         </Column>
       </div>

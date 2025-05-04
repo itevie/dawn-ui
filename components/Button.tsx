@@ -1,6 +1,6 @@
 import { forwardRef, HTMLAttributes, ReactNode } from "react";
 import { combineClasses, OptionalChildren, UtilClassNames } from "../util";
-import "./Button.css";
+import "./button.css";
 
 export type ButtonType = "accent" | "inherit" | "danger" | "success" | "normal";
 

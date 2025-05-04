@@ -27,6 +27,10 @@
   gap: 3px;
 }
 
+.overflow-y-scroll {
+  overflow-y: scroll;
+}
+
 /* ----- Sizing ----- */
 .fit-content {
   width: fit-content;

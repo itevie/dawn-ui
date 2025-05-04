@@ -12,6 +12,10 @@ export default class Logger {
   public error(...logs: any[]): void {
     console.log(...this.createPrefix("#FF0000"), ...logs);
   }
+
+  public warn(...logs: any[]): void {
+    console.log(...this.createPrefix("#FFFF00"), ...logs);
+  }
 }
 
 export const defaultLogger = new Logger("log");

@@ -8,6 +8,9 @@
   min-width: 500px;
   max-width: 1000px;
   min-height: 100px;
+  max-height: 95vh;
+
+  overflow-y: auto;
 
   display: flex;
   flex-direction: column;
@@ -30,7 +33,7 @@
 @keyframes alert-popin {
   0% {
     opacity: 75%;
-    transform: scale(0.8    );
+    transform: scale(0.8);
   }
   100% {
     opacity: 100%;

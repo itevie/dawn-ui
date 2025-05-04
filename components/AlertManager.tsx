@@ -4,9 +4,9 @@ import Container from "./Container";
 import Row from "./Row";
 import Loader from "react-spinners/PulseLoader";
 import Column from "./Column";
-import Icon from "./Icon";
 import GoogleMatieralIcon from "./GoogleMaterialIcon";
 import ProgressBar from "./ProgressBar";
+import "./alerts.css";
 
 interface Model {
   id?: string;
@@ -174,7 +174,7 @@ export function showLoadingAlert(): {
             <ProgressBar max={100} size={5} current={amount * 100} />
             <label>{(amount * 100).toFixed(2)}%</label>
           </div>
-        </Column>
+        </Column>,
       );
     },
   };

@@ -6,15 +6,11 @@ import "./styles/flex.css";
 import "./styles/inputs.css";
 import "./styles/util.css";
 import "./styles/navbar.css";
-import "./styles/alerts.css";
 import "./styles/context-menus.css";
-import "./styles/banner.css";
 import "./styles/icons.css";
 import "./styles/quick.css";
 
 import "./styles/responsive.css";
-import "./styles/table.css";
-import "./styles/flyout.css";
 import "./styles/tables.css";
 import "./themes/light.css";
 import "./themes/dark-transparent.css";
@@ -63,7 +59,7 @@ export const useAutomaticTheme = () => {
     undefined,
     (isSystemDark: boolean) => {
       setTheme(isSystemDark ? "dark" : "light");
-    }
+    },
   );
 
   useEffect(() => {

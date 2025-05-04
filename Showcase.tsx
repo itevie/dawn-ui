@@ -286,6 +286,23 @@ export default function Showcase() {
                     <Button
                       onClick={() =>
                         addAlert({
+                          body: " "
+                            .repeat(30)
+                            .split("")
+                            .map((_, i) => (
+                              <>
+                                <Words type={TextType.Heading}>{i}</Words>
+                                <br />
+                              </>
+                            )),
+                        })
+                      }
+                    >
+                      BIG
+                    </Button>
+                    <Button
+                      onClick={() =>
+                        addAlert({
                           title: "Title",
                           body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae ipsum vulputate enim dictum scelerisque. Aliquam sed facilisis leo, tristique laoreet sem. Praesent sed imperdiet lectus. Fusce vehicula diam dui, in viverra nibh vehicula auctor. Praesent mauris odio, malesuada a arcu ut, fringilla dapibus lacus. Praesent quis iaculis massa. Proin non nisi euismod, aliquam nisi ullamcorper, vulputate purus. Etiam sed porta urna. Morbi sollicitudin ipsum venenatis orci auctor, maximus condimentum ligula consectetur. Fusce varius sagittis tellus, a feugiat libero efficitur in. Etiam eget gravida nisi. Mauris in neque vitae sapien rhoncus aliquam at ac mi. Mauris luctus consequat risus id hendrerit. Etiam et mi facilisis, ultrices lorem et, dictum ex.",
                           buttons: [

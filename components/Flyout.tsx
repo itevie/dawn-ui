@@ -1,4 +1,5 @@
 import { cloneElement, ReactElement, useEffect, useState } from "react";
+import "./flyout.css";
 
 interface FlyoutData {
   direction?: "up" | "down" | "left" | "right";
@@ -8,7 +9,7 @@ interface FlyoutData {
 
 export let setFlyout = (
   flyout: FlyoutData,
-  event: React.MouseEvent<any, MouseEvent>
+  event: React.MouseEvent<any, MouseEvent>,
 ) => {};
 export let hideFlyout = () => {};
 
@@ -83,7 +84,7 @@ function isWithinRange(
   y1: number,
   x2: number,
   y2: number,
-  range = 5
+  range = 5,
 ) {
   return Math.abs(x1 - x2) <= range && Math.abs(y1 - y2) <= range;
 }

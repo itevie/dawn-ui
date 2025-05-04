@@ -1,5 +1,6 @@
 import { HTMLAttributes, ReactNode } from "react";
 import { combineClasses } from "../util";
+import "./link.css";
 
 export default function Link({
   href: link,
@@ -26,7 +27,7 @@ export default function Link({
       href={link}
       className={combineClasses(
         "dawn-link",
-        noHighlight ? "dawn-link-no-highlight" : ""
+        noHighlight ? "dawn-link-no-highlight" : "",
       )}
     >
       {children}
