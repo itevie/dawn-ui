@@ -5,6 +5,7 @@ import Breadcrumb from "./Breadcrumb";
 import Link from "./Link";
 import ThemeButton from "./ThemeButton";
 import Row from "./Row";
+import "./navbar.css";
 
 export interface NavbarProps {
   title?: ReactNode;

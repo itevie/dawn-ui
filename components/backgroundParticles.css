@@ -1,0 +1,27 @@
+.dawn-background-particles-container {
+    z-index: -5;
+    position: fixed;
+    overflow: hidden;
+}
+
+.dawn-background-particle {
+    background-image: url(https://dawn.rest/images/spiral.svg);
+    position: absolute;
+    animation: dawn-particle forwards linear 5s;
+    top: 0;
+    opacity: 25%;
+
+    width: 100px;
+    height: 100px;
+}
+
+@keyframes dawn-particle {
+    0% {
+        top: 0;
+    }
+
+    100% {
+        top: 100vh;
+        transform: rotate(1000deg);
+    }
+}

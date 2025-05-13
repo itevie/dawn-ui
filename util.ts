@@ -27,7 +27,10 @@ export type UtilClassNames =
   | "round"
   | "fit-content"
   | "overflow-y-scroll"
-  | "flex-wrap";
+  | "flex-wrap"
+  | "no-wrap"
+  | "ignore-responsive-center"
+  | "no-gradient";
 
 export function combineStyles<T>(
   before: HTMLAttributes<T>["style"] | null,

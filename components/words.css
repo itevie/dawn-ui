@@ -1,0 +1,75 @@
+.dawn-text-page-title {
+    display: block;
+
+    font-weight: bolder;
+    font-size: 1.5em;
+
+    margin: 10px;
+    margin-left: 0px;
+}
+
+.dawn-text-container-title {
+    display: block;
+
+    font-size: 1.3em;
+    font-weight: bold;
+
+    margin-bottom: 10px;
+}
+
+.dawn-text-navbar {
+    display: block;
+    text-shadow: 3px 3px var(--dawn-extra-shadow);
+
+    max-width: 500px;
+    width: fit-content;
+    word-wrap: normal;
+    white-space: nowrap;
+
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.dawn-text-alert-title {
+    display: block;
+
+    text-align: center;
+
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.dawn-text-banner {
+    font-size: 2.5em;
+    font-weight: bolder;
+    text-shadow: 3px 3px var(--dawn-extra-shadow);
+}
+
+.dawn-text-heading {
+    font-weight: bolder;
+    font-size: 1.2em;
+}
+
+.dawn-text {
+    color: var(--dawn-root-color);
+}
+
+small {
+    color: gray;
+    font-size: 0.8em;
+}
+
+/* ----- Coloring ----- */
+.dawn-text.dawn-danger {
+    color: var(--dawn-text-danger);
+}
+
+.dawn-text.dawn-success {
+    color: var(--dawn-text-success);
+}
+
+.dawn-text.dawn-accent {
+    color: var(--dawn-accent-text);
+}
+
+/* ----- Links ----- */

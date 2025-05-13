@@ -1,5 +1,6 @@
 import { HTMLAttributes, ReactNode } from "react";
 import { combineClasses, OptionalChildren, UtilClassNames } from "../util";
+import "./words.css";
 
 export enum TextType {
   /** The default text */

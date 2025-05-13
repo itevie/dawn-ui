@@ -28,6 +28,7 @@ export default function Link({
       className={combineClasses(
         "dawn-link",
         noHighlight ? "dawn-link-no-highlight" : "",
+        rest.className,
       )}
     >
       {children}

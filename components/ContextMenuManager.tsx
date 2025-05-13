@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Button, { ButtonType } from "./Button";
 import Column from "./Column";
+import "./contextMenu.css";
 
 export type ContextMenuEvent = React.MouseEvent<HTMLElement, MouseEvent>;
 

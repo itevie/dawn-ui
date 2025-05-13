@@ -1,0 +1,98 @@
+.dawn-navbar {
+    position: sticky;
+
+    width: 100%;
+    max-width: 100%;
+    min-height: 32px;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    background-color: var(--dawn-control-background);
+
+    box-shadow: 2px 0px 5px 0px var(--dawn-extra-shadow);
+}
+
+.dawn-navbar-below {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dawn-navbar-content {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+.dawn-navbar-page-align {
+    width: var(--dawn-page-width);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dawn-breadcrumb {
+    margin: 10px;
+}
+
+/* ----- Sidebar ----- */
+.dawn-sidebar {
+    height: 100%;
+    width: 192px;
+
+    padding: 10px;
+
+    box-sizing: border-box;
+    overflow-x: hidden;
+
+    background-color: var(--dawn-container-secondary-background);
+}
+
+.dawn-sidebar-collapsed {
+    width: 64px;
+}
+
+.dawn-sidebar-collapsed > .dawn-hoverable > .dawn-row > .material-icons {
+    margin-left: -3px;
+}
+
+.dawn-sidebar-toggle {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 10px;
+
+    border-radius: 100px;
+}
+
+.dawn-sidebar-mobile {
+    width: 100vw;
+}
+
+.dawn-row:has(.dawn-sidebar-mobile) {
+    overflow: hidden;
+    height: 100vh;
+}
+
+:is(.animated-gradient, .dawn-navbar, .dawn-banner:active):not(.no-gradient) {
+    background: linear-gradient(
+        270deg,
+        var(--dawn-accent-base),
+        var(--dawn-control-background)
+    );
+    background-size: 600% 600%;
+    animation: gradientMove 10s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

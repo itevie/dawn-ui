@@ -1,30 +1,48 @@
 .dawn-banner {
-  background-color: var(--dawn-control-background);
+    background-color: var(--dawn-control-background);
 
-  padding: 50px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+    /* box-shadow: 0px 0px 5px 5px var(--dawn-control-background)   ; */
 
-  min-height: 250px;
-  width: 100%;
+    padding: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 
-  box-sizing: border-box;
+    min-height: 250px;
+    width: 100%;
 
-  border-radius: var(--dawn-border-radius);
+    box-sizing: border-box;
+
+    border-radius: var(--dawn-border-radius);
+
+    border-bottom-style: solid;
+    border-top-style: solid;
+    border-top-color: transparent;
+    border-bottom-color: var(--dawn-accent-base);
+}
+
+.dawn-banner:active {
+    border-bottom-color: var(--dawn-control-background);
+    border-top-style: solid;
+    background-color: var(--dawn-container-background);
+    border-top-color: var(--dawn-accent-base);
 }
 
 .dawn-banner-image {
-  height: 100%;
-  width: 150px;
+    height: 100%;
+    width: 150px;
 
-  margin-top: -30px;
-  margin-right: -40px;
+    margin-top: -30px;
+    margin-right: -40px;
 
-  align-self: center;
+    align-self: center;
 
-  transition: var(--dawn-hover-transition);
+    transition: var(--dawn-hover-transition);
 }
 
 .dawn-banner-image:hover {
-  transform: scale(1.1) rotate(10deg);
+    transform: scale(1.1) rotate(10deg);
+}
+
+.dawn-banner-image:active {
+    transform: scale(1.1) rotate(750deg);
 }

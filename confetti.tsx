@@ -20,10 +20,11 @@ const colors = [
   "lightblue",
 ];
 
-export function spawnConfetti(x: number, y: number) {
+export function spawnConfetti(x: number, y: number, style?: any) {
   const size = 200;
 
   const canvas = document.createElement("canvas");
+  for (const i in style) canvas.style[i as any] = style[i];
   canvas.style.position = "absolute";
   canvas.style.top = `${y - size / 2}px`;
   canvas.style.left = `${x - size / 2}px`;
@@ -31,8 +32,8 @@ export function spawnConfetti(x: number, y: number) {
   canvas.height = size;
 
   const center = { x: canvas.width / 2, y: canvas.height / 2 };
-
   const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
+
   let confetti: (ConfettiFragment | null)[] = [];
 
   let amount = randomRange(50, 100);

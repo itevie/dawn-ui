@@ -1,35 +1,67 @@
 body.dawn-theme-light {
-  /* ----- Colors ----- */
+    /* ----- Background Colors ----- */
+    --dawn-root-base: hsla(var(--dawn-accent-base-color), 20%, 60%, 1);
+    --dawn-root: #000;
 
-  --dawn-root-background: hsla(var(--dawn-neutral-base-color), 5%, 70%, 1);
-  --dawn-root-color: #222;
+    --dawn-container-background: hsla(
+        var(--dawn-neutral-base-color),
+        5%,
+        70%,
+        1
+    );
+    --dawn-container-hover: hsla(var(--dawn-neutral-base-color), 5%, 75%, 1);
+    --dawn-container-focus: hsla(var(--dawn-neutral-base-color), 5%, 80%, 1);
+    --dawn-container-border: hsla(var(--dawn-neutral-base-color), 5%, 75%, 1);
 
-  --dawn-container-background: hsla(var(--dawn-neutral-base-color), 5%, 80%, 1);
-  --dawn-container-hover: hsla(var(--dawn-neutral-base-color), 5%, 85%, 1);
-  --dawn-container-focus: hsla(var(--dawn-neutral-base-color), 5%, 80%, 1);
-  --dawn-container-border: hsla(var(--dawn-neutral-base-color), 5%, 85%, 1);
+    --dawn-control-background: hsla(var(--dawn-neutral-base-color), 5%, 80%, 1);
+    --dawn-control-hover: hsla(var(--dawn-neutral-base-color), 5%, 75%, 1);
+    --dawn-control-focus: hsla(var(--dawn-neutral-base-color), 5%, 80%, 1);
+    --dawn-control-border: hsla(var(--dawn-neutral-base-color), 5%, 75%, 1);
 
-  --dawn-control-background: hsla(var(--dawn-neutral-base-color), 5%, 90%, 1);
-  --dawn-control-hover: hsla(var(--dawn-neutral-base-color), 5%, 85%, 1);
-  --dawn-control-focus: hsla(var(--dawn-neutral-base-color), 5%, 90%, 1);
-  --dawn-control-border: hsla(var(--dawn-neutral-base-color), 5%, 85%, 1);
+    --dawn-container-secondary-background: hsla(
+        var(--dawn-neutral-base-color),
+        5%,
+        70%,
+        1
+    );
 
-  --dawn-container-secondary-background: hsla(
-    var(--dawn-neutral-base-color),
-    5%,
-    82%,
-    1
-  );
+    --dawn-popup-background: hsla(var(--dawn-neutral-base-color), 60%, 55%, 1);
 
-  --dawn-popup-background: hsla(var(--dawn-neutral-base-color), 60%, 75%, 1);
+    /* ----- Danger Colors ----- */
+    --dawn-danger-base: hsla(var(--dawn-danger-base-color), 75%, 80%, 1);
+    --dawn-danger-base-text: white;
+    --dawn-danger-base-hover: hsla(var(--dawn-danger-base-color), 90%, 90%, 1);
+    --dawn-danger-text: hsla(var(--dawn-danger-base-color), 100%, 100%, 1);
 
-  --dawn-accent: hsla(var(--dawn-accent-base-color), 45%, 40%, 1);
-  --dawn-accent-text: black;
+    /* ----- Sucess Colors ----- */
+    --dawn-success-base: hsla(var(--dawn-success-base-color), 75%, 80%, 1);
+    --dawn-success-base-text: white;
+    --dawn-success-base-hover: hsla(
+        var(--dawn-success-base-color),
+        90%,
+        90%,
+        1
+    );
+    --dawn-success-text: hsla(var(--dawn-success-base-color), 100%, 100%, 1);
 
-  /* ----- Values ----- */
-  --dawn-hover-transition: 0.2s;
-  --dawn-border-radius: 20px;
-  --dawn-control-border-radius: 5px;
-  --dawn-flex-gap: 20px;
-  --dawn-page-width: 60%;
+    /* ----- Accent Colors ----- */
+    --dawn-accent-base: hsla(var(--dawn-accent-base-color), 45%, 80%, 1);
+    --dawn-accent-base-text: black;
+    --dawn-accent-base-hover: hsla(var(--dawn-accent-base-color), 45%, 85%, 1);
+    --dawn-accent-text: hsla(var(--dawn-accent-base-color), 45%, 80%, 1);
+
+    /* ---- Special Colors ----- */
+    --dawn-extra-shadow: light;
+
+    /* ----- Values ----- */
+    --dawn-hover-transition: 0.2s;
+    --dawn-border-radius: 20px;
+    --dawn-control-border-radius: 5px;
+    --dawn-flex-gap: 20px;
+    --dawn-page-width: 60%;
+}
+
+body {
+    background-color: var(--dawn-root-base);
+    color: var(--dawn-root);
 }

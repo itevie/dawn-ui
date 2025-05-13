@@ -1,12 +1,9 @@
 import "./styles/base.css";
 import "./styles/containers.css";
 import "./styles/animations.css";
-import "./styles/text.css";
 import "./styles/flex.css";
 import "./styles/inputs.css";
 import "./styles/util.css";
-import "./styles/navbar.css";
-import "./styles/context-menus.css";
 import "./styles/icons.css";
 import "./styles/quick.css";
 

@@ -15,6 +15,9 @@ export default function ProgressBar(props: ProgressBarProps) {
   useEffect(() => {
     const target = ref.current;
     if (!target) return;
+    const fill = getComputedStyle(document.body)
+      .getPropertyValue("--dawn-accent-base")
+      .trim();
 
     const ctx = target.getContext("2d") as CanvasRenderingContext2D;
     ctx.fillStyle = "#000000";
@@ -22,7 +25,7 @@ export default function ProgressBar(props: ProgressBarProps) {
     let x = 0;
 
     for (let i = 0; i != amount; i++) {
-      ctx.fillStyle = "#FFB6C1";
+      ctx.fillStyle = fill;
       ctx.fillRect(x, (i % height) * props.size, props.size, props.size);
       if (i % height === height - 1) x += props.size;
     }
