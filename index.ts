@@ -15,6 +15,8 @@ import "./themes/light-transparent.css";
 import { useMediaQuery } from "react-responsive";
 import { useEffect } from "react";
 
+export let imageFallback = "https://dawn.rest/images/osu.svg";
+
 export const themes = [
   "dark",
   "light",

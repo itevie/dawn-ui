@@ -1,7 +1,7 @@
 import { ReactNode, useEffect, useRef } from "react";
 import { combineClasses } from "../util";
 import Button, { ButtonType } from "./Button";
-import { setShortcutCallback } from "./ShortcutManager";
+import { ShortcutManager } from "./ShortcutManager";
 
 export default function FAB({
   type,
@@ -18,7 +18,7 @@ export default function FAB({
 
   useEffect(() => {
     if (shortcut)
-      setShortcutCallback(shortcut, () => {
+      ShortcutManager.setShortcutCallback(shortcut, () => {
         if (ref.current) ref.current.click();
       });
   }, [shortcut]);

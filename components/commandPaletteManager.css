@@ -1,0 +1,38 @@
+.dawn-command-palette-container {
+  position: absolute;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  padding: 100px;
+  box-sizing: border-box;
+
+  flex-direction: column;
+
+  gap: 10px;
+
+  z-index: 100;
+}
+
+.dawn-command-palette-section-input {
+  height: 50px;
+}
+
+.dawn-command-palette-section {
+  width: 40vw;
+  max-height: 50vh;
+  font-size: 2em;
+  overflow-y: auto;
+
+  display: flex;
+  align-items: center;
+
+  padding: 10px;
+
+  background-color: var(--dawn-container-background);
+  border-radius: var(--dawn-border-radius);
+}
+
+.dawn-command-palette-item {
+  width: 100%;
+  font-size: 0.7em !important;
+}

@@ -3,6 +3,7 @@ import { showErrorAlert, showLoadingAlert } from "./components/AlertManager";
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 
 export type HTTPMethod = "post" | "get" | "patch" | "put" | "delete";
+export type MaybePromise<T> = T | Promise<T>;
 
 export interface OptionalChildren {
   children?: ReactNode;

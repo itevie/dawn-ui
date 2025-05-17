@@ -5,10 +5,15 @@ import Row from "./Row";
 
 type Modifier = "ctrl" | "shift" | "alt" | "meta";
 
-export interface Shortcut {
-  key: string;
-  modifiers?: Modifier[];
+export interface Action {
+  icon?: string;
+  name?: string;
   callback?: () => void;
+}
+
+export interface Shortcut extends Action {
+  key?: string;
+  modifiers?: Modifier[];
 }
 
 export const shortcuts: { [key: string]: Shortcut } = {};
@@ -21,42 +26,46 @@ document.addEventListener("keydown", (e) => {
     return;
 
   for (const s in shortcuts)
-    if (shortcuts[s].callback)
+    if (shortcuts[s].callback && shortcuts[s].key) {
       if (_matchesShortcut(e, shortcuts[s])) {
         if (!(e.target instanceof HTMLInputElement)) {
           e.preventDefault();
           (shortcuts[s].callback as () => void)();
         }
       }
+    }
 });
 
-export function registerShortcut(name: string, shortcut: Shortcut): void {
-  let override = JSON.parse(
-    localStorage.getItem("dawn_ui-shortcut-override") ?? "{}"
-  );
-  if (override[name]) shortcuts[name] = { ...shortcut, ...override[name] };
-  else shortcuts[name] = shortcut;
-}
+export class ShortcutManager {
+  public static registerShortcut(name: string, shortcut: Shortcut): void {
+    let override = JSON.parse(
+      localStorage.getItem("dawn_ui-shortcut-override") ?? "{}",
+    );
+    if (override[name]) shortcuts[name] = { ...shortcut, ...override[name] };
+    else shortcuts[name] = shortcut;
+  }
 
-export function setShortcutCallback(name: string, callback: () => void) {
-  if (!shortcuts[name]) throw new Error(`No shortcut registered: ${name}`);
-  shortcuts[name].callback = callback;
-}
+  public static setShortcutCallback(name: string, callback: () => void) {
+    if (!shortcuts[name]) throw new Error(`No shortcut registered: ${name}`);
+    shortcuts[name].callback = callback;
+  }
 
-export function updateShortcut(name: string, details: Partial<Shortcut>): void {
-  if (!shortcuts[name]) throw new Error(`No shortcut registered: ${name}`);
-  shortcuts[name] = { ...shortcuts[name], ...details };
-}
+  public static updateShortcut(name: string, details: Partial<Shortcut>): void {
+    if (!shortcuts[name]) throw new Error(`No shortcut registered: ${name}`);
+    shortcuts[name] = { ...shortcuts[name], ...details };
+  }
 
-export function matchesShortcut(e: KeyboardEvent, name: string): boolean {
-  if (!shortcuts[name]) throw new Error(`No shortcut registered: ${name}`);
-  return _matchesShortcut(e, shortcuts[name]);
+  public static matchesShortcut(e: KeyboardEvent, name: string): boolean {
+    if (!shortcuts[name]) throw new Error(`No shortcut registered: ${name}`);
+    return _matchesShortcut(e, shortcuts[name]);
+  }
 }
 
 export function _matchesShortcut(
   e: KeyboardEvent,
-  shortcut: Shortcut
+  shortcut: Shortcut,
 ): boolean {
+  if (!shortcut.key) return false;
   if (e.key.toLowerCase() !== shortcut.key.toLowerCase()) return false;
   if (!shortcut.modifiers) return true;
 
@@ -201,18 +210,18 @@ export function ShortcutList() {
                           )
                             localStorage.setItem(
                               "dawn_ui-shortcut-override",
-                              "{}"
+                              "{}",
                             );
                           let cur = JSON.parse(
                             localStorage.getItem("dawn_ui-shortcut-override") ??
-                              "{}"
+                              "{}",
                           );
                           cur[k] = { key, modifiers };
                           localStorage.setItem(
                             "dawn_ui-shortcut-override",
-                            JSON.stringify(cur)
+                            JSON.stringify(cur),
                           );
-                          updateShortcut(k, { key, modifiers });
+                          ShortcutManager.updateShortcut(k, { key, modifiers });
                           close();
                         },
                       },
@@ -224,12 +233,12 @@ export function ShortcutList() {
                 name="restart_alt"
                 onClick={() => {
                   let cur = JSON.parse(
-                    localStorage.getItem("dawn_ui-shortcut-override") ?? "{}"
+                    localStorage.getItem("dawn_ui-shortcut-override") ?? "{}",
                   );
                   if (cur[k]) delete cur[k];
                   localStorage.setItem(
                     "dawn_ui-shortcut-override",
-                    JSON.stringify(cur)
+                    JSON.stringify(cur),
                   );
                   window.location.reload();
                 }}

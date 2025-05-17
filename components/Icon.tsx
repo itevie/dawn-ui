@@ -1,5 +1,7 @@
 import { HTMLAttributes, useEffect, useState } from "react";
 import { combineClasses, combineStyles } from "../util";
+import GoogleMatieralIcon from "./GoogleMaterialIcon";
+import { fallbackImage } from "../../config";
 
 export default function Icon({
   src: _src,
@@ -11,6 +13,12 @@ export default function Icon({
   src: string;
   fallback?: string;
 } & HTMLAttributes<HTMLImageElement>) {
+  if (_src?.startsWith("gm://")) {
+    return <GoogleMatieralIcon size={size} name={_src.replace("gm://", "")} />;
+  }
+
+  if (!fallback) fallback = fallbackImage;
+
   const src =
     _src &&
     (_src?.startsWith("http")
@@ -33,7 +41,7 @@ export default function Icon({
           ? (e) => {
               const s = `${
                 window.location.hostname === "localhost" &&
-                !fallback.startsWith("data:")
+                !fallback!.startsWith("data:")
                   ? "http://localhost:3000"
                   : ""
               }${fallback}`;
