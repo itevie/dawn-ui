@@ -1,7 +1,6 @@
 import { HTMLAttributes, useEffect, useState } from "react";
 import { combineClasses, combineStyles } from "../util";
 import GoogleMatieralIcon from "./GoogleMaterialIcon";
-import { fallbackImage } from "../../config";
 
 export default function Icon({
   src: _src,
@@ -17,7 +16,7 @@ export default function Icon({
     return <GoogleMatieralIcon size={size} name={_src.replace("gm://", "")} />;
   }
 
-  if (!fallback) fallback = fallbackImage;
+  // if (!fallback) fallback = fallbackImage;
 
   const src =
     _src &&

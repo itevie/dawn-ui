@@ -1,5 +1,9 @@
 import { HTMLAttributes, ReactNode } from "react";
-import { showErrorAlert, showLoadingAlert } from "./components/AlertManager";
+import {
+  showErrorAlert,
+  showInfoAlert,
+  showLoadingAlert,
+} from "./components/AlertManager";
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 
 export type HTTPMethod = "post" | "get" | "patch" | "put" | "delete";
@@ -216,4 +220,8 @@ export function randomRange(min: number, max: number): number {
 
 export function randomRangeDecimal(min: number, max: number) {
   return Math.random() * (max - min) + min;
+}
+
+export function todo() {
+  showInfoAlert("This is a future feature!");
 }
