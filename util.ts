@@ -259,6 +259,8 @@ export function guessFileNameFromUrl(urlStr: string): string {
   } catch {
     return "downloaded_file";
   }
+}
+
 export function todo() {
   showInfoAlert("This is a future feature!");
 }

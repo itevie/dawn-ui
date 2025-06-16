@@ -103,7 +103,7 @@ export default function ContextMenuManager() {
                 type="inherit"
                 className={`dawn-context-menu-button dawn-context-menu-button-${e.scheme}`}
               >
-                <label className={e.scheme && `dawn-color-${e.scheme}`}>
+                <label className={e.scheme && `dawn-${e.scheme}-fg`}>
                   {e.label}
                 </label>
               </Button>
