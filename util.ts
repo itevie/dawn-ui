@@ -1,5 +1,9 @@
 import { HTMLAttributes, ReactNode } from "react";
-import { showErrorAlert, showLoadingAlert } from "./components/AlertManager";
+import {
+  showErrorAlert,
+  showInfoAlert,
+  showLoadingAlert,
+} from "./components/AlertManager";
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 import { EventEmitter } from "ws";
 
@@ -255,4 +259,6 @@ export function guessFileNameFromUrl(urlStr: string): string {
   } catch {
     return "downloaded_file";
   }
+export function todo() {
+  showInfoAlert("This is a future feature!");
 }

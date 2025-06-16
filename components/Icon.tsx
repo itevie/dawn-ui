@@ -22,6 +22,7 @@ export default function Icon({ src, size, fallback, ...rest }: IconProps) {
     const prefix = isLocal && needsPrefix ? "http://localhost:3000" : "";
     return `${prefix}${url}`;
   };
+  // if (!fallback) fallback = fallbackImage;
 
   const resolvedSrc = resolveUrl(src ?? fallback ?? fallbackImage);
   const resolvedFallback = resolveUrl(fallback ?? fallbackImage);

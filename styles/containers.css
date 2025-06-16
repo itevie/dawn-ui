@@ -56,13 +56,13 @@
 
 /* ----- Custom ----- */
 .dawn-container.dawn-danger {
-  box-shadow: 0px 0px 5px 0px var(--dawn-control-hover-danger);
+    box-shadow: 0px 0px 5px 0px var(--dawn-danger-base);
 }
 
 .dawn-container.dawn-success {
-  box-shadow: 0px 0px 5px 0px var(--dawn-control-success);
+    box-shadow: 0px 0px 5px 0px var(--dawn-success-base);
 }
 
 .dawn-container.dawn-accent {
-  box-shadow: 0px 0px 5px 0px var(--dawn-accent);
+    box-shadow: 0px 0px 5px 0px var(--dawn-accent-base);
 }
