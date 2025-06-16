@@ -1,0 +1,12 @@
+.dawn-tab-tabs > button {
+  margin-bottom: 0px !important;
+  border-radius: 0px;
+}
+
+.dawn-tab-contents {
+  box-sizing: border-box;
+  border-width: 1px;
+  border-color: var(--dawn-container-border);
+  border-style: solid;
+  padding: 10px;
+}

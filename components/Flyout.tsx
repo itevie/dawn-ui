@@ -21,8 +21,13 @@ export function FlyoutManager() {
     let timeout: any = undefined;
     setFlyout = (f, e) => {
       _setFlyout(f);
-      let pos = [e.clientX, e.clientY + 15];
-      setXy(pos as [number, number]);
+      const target = e.currentTarget as HTMLElement;
+      const rect = target.getBoundingClientRect();
+
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+
+      setXy([centerX, centerY + 20]);
       clearTimeout(timeout);
       timeout = setTimeout(() => {
         hideFlyout();

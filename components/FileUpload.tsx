@@ -16,6 +16,7 @@ export default function UploadFile({
 
   function _uploadFile() {
     uploadFile(filter).then((res) => {
+      if (!res) return;
       setFileName(res.name);
       onChange(res.result);
     });

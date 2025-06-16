@@ -1,81 +1,68 @@
 /* ----- Contents ----- */
 .dawn-content {
-    margin-left: 50px;
-    margin-right: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 .dawn-page {
-    width: 100%;
-    margin-bottom: 25px;
+  width: 100%;
+  margin-bottom: 25px;
 }
 
 .dawn-page-content {
-    width: var(--dawn-page-width);
-    margin-left: auto;
-    margin-right: auto;
+  width: var(--dawn-page-width);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .dawn-content {
-    margin: 15px;
+  margin: 15px;
 }
 
 /* ----- Containers ----- */
 .dawn-container {
-    width: 100%;
-    min-height: 150px;
-    padding: 30px;
+  width: 100%;
+  min-height: 150px;
+  padding: 30px;
 
-    box-sizing: border-box;
+  box-sizing: border-box;
 
-    background-position: calc(100% + 40px) calc(100% + 40px);
-    background-size: 150px;
-    background-repeat: no-repeat;
+  background-position: calc(100% + 40px) calc(100% + 40px);
+  background-size: 150px;
+  background-repeat: no-repeat;
 
-    border-radius: var(--dawn-border-radius);
-    background-color: var(--dawn-container-background);
-    transition: var(--dawn-hover-transition);
+  border-radius: var(--dawn-border-radius);
+  background-color: var(--dawn-container-background);
+  transition: var(--dawn-hover-transition);
 }
 
 .dawn-container-hover:hover {
-    cursor: pointer;
-    background-color: var(--dawn-container-hover);
+  cursor: pointer;
+  background-color: var(--dawn-container-hover);
 }
 
 .dawn-container-secondary {
-    padding: 10px;
-    box-sizing: border-box;
+  padding: 10px;
+  box-sizing: border-box;
 
-    background-color: var(--dawn-container-secondary-background);
-    border-radius: 5px;
-    transition: var(--dawn-hover-transition);
+  background-color: var(--dawn-container-secondary-background);
+  border-radius: 5px;
+  transition: var(--dawn-hover-transition);
 }
 
 .dawn-link > .dawn-container {
-    height: 100%;
-}
-
-.dawn-tab-tabs > button {
-    margin-bottom: 0px !important;
-    border-radius: 0px;
-}
-
-.dawn-tab-contents {
-    box-sizing: border-box;
-    border-width: 1px;
-    border-color: var(--dawn-container-border);
-    border-style: solid;
-    padding: 10px;
+  height: 100%;
 }
 
 /* ----- Custom ----- */
 .dawn-container.dawn-danger {
-    box-shadow: 0px 0px 5px 0px var(--dawn-control-hover-danger);
+  box-shadow: 0px 0px 5px 0px var(--dawn-control-hover-danger);
 }
 
 .dawn-container.dawn-success {
-    box-shadow: 0px 0px 5px 0px var(--dawn-control-success);
+  box-shadow: 0px 0px 5px 0px var(--dawn-control-success);
 }
 
 .dawn-container.dawn-accent {
-    box-shadow: 0px 0px 5px 0px var(--dawn-accent);
+  box-shadow: 0px 0px 5px 0px var(--dawn-accent);
 }

@@ -2,6 +2,7 @@ import { ReactNode, useState } from "react";
 import Button from "./Button";
 import Row from "./Row";
 import Column from "./Column";
+import "./tabbed.css";
 
 export default function Tabbed({
   children,
@@ -9,7 +10,7 @@ export default function Tabbed({
   children: { [key: string]: ReactNode };
 }) {
   const [selectedTab, setSelectedTab] = useState<string>(
-    Object.keys(children)[0]
+    Object.keys(children)[0],
   );
 
   return (
@@ -20,7 +21,6 @@ export default function Tabbed({
             className={x === selectedTab ? "dawn-active" : ""}
             key={x}
             onClick={() => setSelectedTab(x)}
-            big
           >
             {x}
           </Button>

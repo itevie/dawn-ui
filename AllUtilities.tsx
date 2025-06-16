@@ -1,4 +1,3 @@
-import UserViewer from "../components/UserViewer";
 import AlertManager from "./components/AlertManager";
 import CommandPaletteManager from "./components/CommandPaletteManager";
 import ContextMenuManager from "./components/ContextMenuManager";
@@ -10,7 +9,6 @@ export default function AllUtilities() {
       <ContextMenuManager />
       <AlertManager />
       <FlyoutManager />
-      <UserViewer />
       <CommandPaletteManager />
     </>
   );

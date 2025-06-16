@@ -1,6 +1,7 @@
 import { HTMLAttributes, ReactNode } from "react";
 import { showErrorAlert, showLoadingAlert } from "./components/AlertManager";
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
+import { EventEmitter } from "ws";
 
 export type HTTPMethod = "post" | "get" | "patch" | "put" | "delete";
 export type MaybePromise<T> = T | Promise<T>;
@@ -216,4 +217,42 @@ export function randomRange(min: number, max: number): number {
 
 export function randomRangeDecimal(min: number, max: number) {
   return Math.random() * (max - min) + min;
+}
+
+export function exprLog(...what: any): true {
+  console.log(...what);
+  return true;
+}
+
+export function makeListener<T extends EventEmitter>(
+  obj: T,
+  on: Parameters<T["on"]>[0],
+  caller: (...args: any) => any,
+): (...args: any) => any {
+  obj.on(on, caller);
+  return caller;
+}
+
+export function measureText(text: string, font = "16px Arial") {
+  const canvas = document.createElement("canvas");
+  const context = canvas.getContext("2d")!;
+  context.font = font;
+  const metrics = context.measureText(text);
+  return {
+    width: metrics.width,
+    actualBoundingBoxAscent: metrics.actualBoundingBoxAscent,
+    actualBoundingBoxDescent: metrics.actualBoundingBoxDescent,
+    height: metrics.actualBoundingBoxAscent + metrics.actualBoundingBoxDescent,
+  };
+}
+
+export function guessFileNameFromUrl(urlStr: string): string {
+  try {
+    const url = new URL(urlStr);
+    const segments = url.pathname.split("/");
+    const last = segments.pop() || "";
+    return last || "downloaded_file";
+  } catch {
+    return "downloaded_file";
+  }
 }

@@ -1,57 +1,45 @@
-import { HTMLAttributes, useEffect, useState } from "react";
+import { HTMLAttributes } from "react";
 import { combineClasses, combineStyles } from "../util";
-import GoogleMatieralIcon from "./GoogleMaterialIcon";
+import GoogleMaterialIcon from "./GoogleMaterialIcon";
 import { fallbackImage } from "../../config";
 
-export default function Icon({
-  src: _src,
-  size,
-  fallback,
-  ...rest
-}: {
-  size: string;
+type IconProps = {
   src: string;
+  size: string;
   fallback?: string;
-} & HTMLAttributes<HTMLImageElement>) {
-  if (_src?.startsWith("gm://")) {
-    return <GoogleMatieralIcon size={size} name={_src.replace("gm://", "")} />;
+} & HTMLAttributes<HTMLImageElement>;
+
+export default function Icon({ src, size, fallback, ...rest }: IconProps) {
+  const isMaterialIcon = src?.startsWith("gm://");
+  if (isMaterialIcon) {
+    const name = src.slice(5);
+    return <GoogleMaterialIcon size={size} name={name} />;
   }
 
-  if (!fallback) fallback = fallbackImage;
+  const resolveUrl = (url: string) => {
+    const isLocal = window.location.hostname === "localhost";
+    const needsPrefix = !url.startsWith("http") && !url.startsWith("data:");
+    const prefix = isLocal && needsPrefix ? "http://localhost:3000" : "";
+    return `${prefix}${url}`;
+  };
 
-  const src =
-    _src &&
-    (_src?.startsWith("http")
-      ? _src
-      : `${
-          window.location.hostname === "localhost" && !_src.startsWith("data:")
-            ? "http://localhost:3000"
-            : ""
-        }${_src}`);
+  const resolvedSrc = resolveUrl(src ?? fallback ?? fallbackImage);
+  const resolvedFallback = resolveUrl(fallback ?? fallbackImage);
+
+  const handleError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    if (e.currentTarget.src !== resolvedFallback) {
+      e.currentTarget.src = resolvedFallback;
+    }
+  };
 
   return (
     <img
       {...rest}
-      style={combineStyles(rest.style, { width: size, height: size })}
+      src={resolvedSrc}
       alt=""
       className={combineClasses("dawn-icon", rest.className)}
-      src={src}
-      onError={
-        fallback
-          ? (e) => {
-              const s = `${
-                window.location.hostname === "localhost" &&
-                !fallback!.startsWith("data:")
-                  ? "http://localhost:3000"
-                  : ""
-              }${fallback}`;
-
-              if (e.currentTarget.src !== s) {
-                e.currentTarget.src = s;
-              }
-            }
-          : undefined
-      }
+      style={combineStyles(rest.style, { width: size, height: size })}
+      onError={fallback ? handleError : undefined}
     />
   );
 }

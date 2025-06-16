@@ -30,3 +30,13 @@
 .dawn-button {
   border: none;
 }
+
+.dawn-button.dawn-active {
+  background-color: var(--dawn-control-focus);
+}
+
+:is(.dawn-button:disabled):is(.dawn-button:disabled, .dawn-button:hover) {
+  background-color: var(--dawn-control-disabled);
+  color: #555;
+  cursor: not-allowed;
+}

@@ -1,16 +1,18 @@
 import { showErrorAlert } from "./components/AlertManager";
 
 export default async function uploadFile(
-  filter?: string
-): Promise<{ name: string; result: string }> {
-  return new Promise<{ name: string; result: string }>((res, rej) => {
+  filter?: string,
+): Promise<{ name: string; result: string } | null> {
+  return new Promise((res, rej) => {
     const input = document.createElement("input");
     input.type = "file";
     if (filter) input.accept = filter;
 
     input.onchange = (_) => {
       if (input.files?.length !== 1) {
-        return showErrorAlert("Expected only 1 file to be selected");
+        showErrorAlert("Expected only 1 file to be selected");
+        res(null);
+        return;
       }
 
       const file = input.files[0];

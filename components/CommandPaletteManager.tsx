@@ -144,6 +144,7 @@ export default function CommandPaletteManager() {
       <Column className="dawn-command-palette-section">
         {results.map((x) => (
           <Button
+            key={x.name + (x.icon || "") + x.callback?.toString()}
             type="inherit"
             className="dawn-command-palette-item"
             onClick={() => {

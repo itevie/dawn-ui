@@ -41,7 +41,7 @@ export default function AlertManager() {
     closeAlert = (id) => {
       if (id) {
         const index = alertStack.findIndex((x) => x.id === id);
-        if (index < 0) return;
+        if (index < 0) return reload();
         alertStack.splice(index, 1);
         reload();
       } else {
