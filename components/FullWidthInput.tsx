@@ -10,7 +10,7 @@ export default function FullWidthInput(props: {
   children: ReactNode;
 }) {
   return (
-    <Row className="dawn-container-secondary">
+    <Row className="dawn-container-secondary" util={["align-center"]}>
       <Column util={["flex-grow"]}>
         <Words>{props.name}</Words>
         <>{props.description && <small>{props.description}</small>}</>
