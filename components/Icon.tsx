@@ -1,7 +1,6 @@
 import { HTMLAttributes } from "react";
 import { combineClasses, combineStyles } from "../util";
 import GoogleMaterialIcon from "./GoogleMaterialIcon";
-import { fallbackImage } from "../../config";
 
 type IconProps = {
   src: string;
@@ -24,8 +23,9 @@ export default function Icon({ src, size, fallback, ...rest }: IconProps) {
   };
   // if (!fallback) fallback = fallbackImage;
 
-  const resolvedSrc = resolveUrl(src ?? fallback ?? fallbackImage);
-  const resolvedFallback = resolveUrl(fallback ?? fallbackImage);
+  // TODO: fix later
+  const resolvedSrc = resolveUrl(src ?? fallback ?? null);
+  const resolvedFallback = resolveUrl(fallback ?? "fallbackImage");
 
   const handleError = (e: React.SyntheticEvent<HTMLImageElement>) => {
     if (e.currentTarget.src !== resolvedFallback) {

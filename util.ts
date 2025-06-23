@@ -5,7 +5,7 @@ import {
   showLoadingAlert,
 } from "./components/AlertManager";
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
-import { EventEmitter } from "ws";
+import EventEmitter from "events";
 
 export type HTTPMethod = "post" | "get" | "patch" | "put" | "delete";
 export type MaybePromise<T> = T | Promise<T>;
