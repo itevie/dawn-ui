@@ -8,11 +8,13 @@ export default function FAB({
   label,
   clicked,
   shortcut,
+  position,
 }: {
   clicked?: () => void;
   label?: ReactNode;
   type?: ButtonType;
   shortcut?: string;
+  position?: "left" | "right";
 }) {
   const ref = useRef<HTMLButtonElement>(null);
 
@@ -27,7 +29,11 @@ export default function FAB({
     <Button
       ref={ref}
       onClick={() => clicked && clicked()}
-      className={combineClasses("dawn-fab", type ? `dawn-${type}` : "")}
+      className={combineClasses(
+        "dawn-fab",
+        type ? `dawn-${type}` : "",
+        position ? `dawn-fab-position-${position}` : "",
+      )}
     >
       {label || "+"}
     </Button>

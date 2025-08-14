@@ -15,6 +15,10 @@
     margin: 32px;
 }
 
+.dawn-fab-position-left {
+    left: 0;
+}
+
 /* ----- Inputs ----- */
 /* These are on input directly cause
   react is a nerd and won't let be put
