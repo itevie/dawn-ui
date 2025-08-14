@@ -10,6 +10,18 @@ body {
   --dawn-root: #fff;
 
   --dawn-container-background: hsla(var(--dawn-neutral-base-color), 5%, 20%, 1);
+  --dawn-container-background-trans: hsla(
+    var(--dawn-neutral-base-color),
+    90%,
+    60%,
+    0.75
+  );
+  --dawn-container-background-highlight: hsla(
+    var(--dawn-neutral-base-color),
+    40%,
+    30%,
+    0.25
+  );
   --dawn-container-hover: hsla(var(--dawn-neutral-base-color), 5%, 25%, 1);
   --dawn-container-focus: hsla(var(--dawn-neutral-base-color), 5%, 30%, 1);
   --dawn-container-border: hsla(var(--dawn-neutral-base-color), 5%, 25%, 1);
@@ -46,6 +58,7 @@ body {
   --dawn-accent-base-text: black;
   --dawn-accent-base-hover: hsla(var(--dawn-accent-base-color), 45%, 85%, 1);
   --dawn-accent-text: hsla(var(--dawn-accent-base-color), 45%, 80%, 1);
+  --dawn-accent-base-trans: hsla(var(--dawn-accent-base-color), 45%, 80%, 0.75);
 
   /* ---- Special Colors ----- */
   --dawn-extra-shadow: hsla(var(--dawn-accent-base-color), 80%, 20%, 1);

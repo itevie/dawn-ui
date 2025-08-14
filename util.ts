@@ -36,6 +36,7 @@ export type UtilClassNames =
   | "flex-wrap"
   | "no-wrap"
   | "ignore-responsive-center"
+  | "ignore-responsive-mobile"
   | "no-gradient";
 
 export function combineStyles<T>(
@@ -62,6 +63,10 @@ export const client = axios.create({
   baseURL: window.location.host === "localhost" ? "http://localhost:3000" : "",
 });
 
+type CombinedConfig = AxiosRequestConfig & {
+  showLoader?: boolean;
+};
+
 export class AxiosWrapper {
   public config: AxiosRequestConfig = {};
   public showLoader: boolean = false;
@@ -70,14 +75,14 @@ export class AxiosWrapper {
 
   public get<D extends any = any>(
     url: string,
-    config?: AxiosRequestConfig,
+    config?: CombinedConfig,
   ): Promise<AxiosResponse<D>> {
     return this.wrapper<"get", D>("get", url, undefined, config);
   }
 
   public delete<D extends any = any>(
     url: string,
-    config?: AxiosRequestConfig,
+    config?: CombinedConfig,
   ): Promise<AxiosResponse<D>> {
     return this.wrapper<"delete", D>("delete", url, undefined, config);
   }
@@ -85,7 +90,7 @@ export class AxiosWrapper {
   public post<D extends any = any>(
     url: string,
     data: any,
-    config?: AxiosRequestConfig,
+    config?: CombinedConfig,
   ): Promise<AxiosResponse<D>> {
     return this.wrapper<"post", D>("post", url, data, config);
   }
@@ -93,7 +98,7 @@ export class AxiosWrapper {
   public patch<D extends any = any>(
     url: string,
     data: any,
-    config?: AxiosRequestConfig,
+    config?: CombinedConfig,
   ): Promise<AxiosResponse<D>> {
     return this.wrapper<"patch", D>("patch", url, data, config);
   }
@@ -101,7 +106,7 @@ export class AxiosWrapper {
   public put<D extends any = any>(
     url: string,
     data: any,
-    config?: AxiosRequestConfig,
+    config?: CombinedConfig,
   ): Promise<AxiosResponse<D>> {
     return this.wrapper<"put", D>("put", url, data, config);
   }
@@ -110,11 +115,11 @@ export class AxiosWrapper {
     method: T,
     url: string,
     data?: T extends "get" ? never : any,
-    config?: AxiosRequestConfig,
+    config?: CombinedConfig,
   ): Promise<AxiosResponse<D>> {
     return new Promise<AxiosResponse<D>>((resolve, reject) => {
       let loader: ReturnType<typeof showLoadingAlert> | null = null;
-      if (this.showLoader) loader = showLoadingAlert();
+      if (this.showLoader || config?.showLoader) loader = showLoadingAlert();
 
       const sendingConfig: AxiosRequestConfig = {
         ...this.config,

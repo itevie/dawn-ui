@@ -1,56 +1,56 @@
 @media only screen and (max-width: 700px) {
-    :is(
-            .dawn-page-content,
-            .dawn-content,
-            .dawn-row,
-            .dawn-row > a,
-            .dawn-container,
-            .dawn-navbar-page-align
-        ):not(.ignore-responsive-center) {
-        margin-left: 0px;
-        margin-right: 0px;
-        width: 100% !important;
-        flex-wrap: wrap;
-    }
+  :is(
+      .dawn-page-content,
+      .dawn-content,
+      .dawn-row,
+      .dawn-row > a,
+      .dawn-container,
+      .dawn-navbar-page-align
+    ):not(.ignore-responsive-center):not(.ignore-responsive-mobile) {
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 100% !important;
+    flex-wrap: wrap;
+  }
 
-    .dawn-banner-image {
-        display: none;
-    }
+  .dawn-banner-image {
+    display: none;
+  }
 
-    .dawn-row > a {
-        display: block;
-    }
+  :is(.dawn-row > a):not(.ignore-responsive-mobile) {
+    display: block;
+  }
 
-    .dawn-navbar-content {
-        flex-direction: column;
-    }
+  .dawn-navbar-content {
+    flex-direction: column;
+  }
 
-    .dawn-navbar-content > .dawn-row {
-        display: block;
-        text-align: center;
-    }
+  .dawn-navbar-content > .dawn-row {
+    display: block;
+    text-align: center;
+  }
 
-    .dawn-navbar-content > .dawn-row > a {
-        display: inline;
-        width: fit-content;
-        margin: 5px;
-    }
+  .dawn-navbar-content > .dawn-row > a {
+    display: inline;
+    width: fit-content;
+    margin: 5px;
+  }
 
-    .dawn-page-center {
-        width: 100vw;
-    }
+  .dawn-page-center {
+    width: 100vw;
+  }
 
-    .dawn-alert {
-        width: 100vw !important;
-        height: 100vh;
-        max-width: 100vw;
-        min-width: 0;
-        max-height: 100vh;
+  .dawn-alert {
+    width: 100vw !important;
+    height: 100vh;
+    max-width: 100vw;
+    min-width: 0;
+    max-height: 100vh;
 
-        box-shadow: none;
-    }
+    box-shadow: none;
+  }
 
-    /* .dawn-alert,
+  /* .dawn-alert,
   .dawn-row {
     flex-wrap: nowrap;
   } */

@@ -81,7 +81,11 @@ export default function AlertManager() {
         }}
       >
         <div className="dawn-page-center">
-          <Container className="dawn-alert" style={{ position: "relative" }}>
+          <Container
+            className="dawn-alert"
+            util={["ignore-responsive-mobile"]}
+            style={{ position: "relative" }}
+          >
             {!current.noClose ? (
               <GoogleMatieralIcon
                 util={["clickable", "hover-grow"]}
