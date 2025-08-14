@@ -1,6 +1,7 @@
 import { HTMLAttributes } from "react";
-import { combineClasses, combineStyles } from "../util";
+import { combineClasses, combineStyles, resolveImageUrl } from "../util";
 import GoogleMaterialIcon from "./GoogleMaterialIcon";
+import { dawnUIConfig } from "..";
 
 type IconProps = {
   src: string;
@@ -14,18 +15,11 @@ export default function Icon({ src, size, fallback, ...rest }: IconProps) {
     const name = src.slice(5);
     return <GoogleMaterialIcon size={size} name={name} />;
   }
-
-  const resolveUrl = (url: string) => {
-    const isLocal = window.location.hostname === "localhost";
-    const needsPrefix = !url.startsWith("http") && !url.startsWith("data:");
-    const prefix = isLocal && needsPrefix ? "http://localhost:3000" : "";
-    return `${prefix}${url}`;
-  };
-  // if (!fallback) fallback = fallbackImage;
-
   // TODO: fix later
-  const resolvedSrc = resolveUrl(src ?? fallback ?? null);
-  const resolvedFallback = resolveUrl(fallback ?? "fallbackImage");
+  const resolvedSrc = resolveImageUrl(src ?? fallback ?? null);
+  const resolvedFallback = resolveImageUrl(
+    fallback ?? dawnUIConfig.imageFallback ?? "fallbackImage",
+  );
 
   const handleError = (e: React.SyntheticEvent<HTMLImageElement>) => {
     if (e.currentTarget.src !== resolvedFallback) {

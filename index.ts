@@ -15,7 +15,10 @@ import "./themes/light-transparent.css";
 import { useMediaQuery } from "react-responsive";
 import { useEffect } from "react";
 
-export let imageFallback = "https://dawn.rest/images/osu.svg";
+export const dawnUIConfig = {
+  imageFallback: "https://dawn.rest/images/osu.svg",
+  baseLocalhostUrl: "http://localhost:3000",
+} as const;
 
 export const themes = [
   "dark",
