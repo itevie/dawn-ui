@@ -1,7 +1,13 @@
 export default class Logger {
+  public static baseConfig: { baseColor: string | null } = {
+    baseColor: "#FFB6C1",
+  };
+  public baseColor: string | null = null;
+
   constructor(public name: string) {}
 
-  private createPrefix(color: string = "#FFB6C1"): [string, string] {
+  private createPrefix(c?: string | null): [string, string] {
+    let color = c || this.baseColor || Logger.baseConfig.baseColor;
     return [`%c[${this.name}] =>`, `font-weight: bold; color: ${color}`];
   }
 

@@ -36,3 +36,11 @@
   width: 100%;
   font-size: 0.7em !important;
 }
+
+.dawn-command-palette-main-row {
+  align-content: center;
+}
+
+.dawn-command-palette-main-row > label {
+  align-self: center;
+}

@@ -4,7 +4,7 @@ import "./commandPaletteManager.css";
 import Button from "./Button";
 import { addAlert, showInfoAlert } from "./AlertManager";
 import Column from "./Column";
-import { MaybePromise } from "../util";
+import { exprLog, MaybePromise } from "../util";
 import Row from "./Row";
 import Icon from "./Icon";
 
@@ -77,61 +77,83 @@ export default function CommandPaletteManager() {
   const [visible, setVisible] = useState<boolean>(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const [results, setResults] = useState<Action[]>([]);
+  const [currentIndex, setCurrentIndex] = useState<number | null>();
 
   useEffect(() => {
     showCommandPalette = () => {
+      setCurrentIndex(null);
       setVisible(true);
+
+      (async () => {
+        setResults(await generate(""));
+      })();
     };
 
     if (!inputRef.current) return;
     console.log(inputRef.current);
+  }, [visible]);
 
-    async function generate(value: string): Promise<Action[]> {
-      let query = fuzzy(value);
-      let results: Action[] = [];
+  async function generate(value: string): Promise<Action[]> {
+    let query = fuzzy(value);
+    let results: Action[] = [];
 
-      const runnerFactory = (f: (() => void) | undefined) => {
-        return () => {
-          setVisible(false);
-          if (!f) return;
-          f();
-        };
+    const runnerFactory = (f: (() => void) | undefined) => {
+      return () => {
+        setVisible(false);
+        if (!f) return;
+        f();
       };
+    };
 
-      results.push(
-        ...Object.entries(shortcuts)
-          .filter((x) => fuzzy(x[0]).match(query))
-          .map((x) => ({
-            name: x[0],
-            callback: runnerFactory(x[1].callback),
-          })),
-      );
+    results.push(
+      ...Object.entries(shortcuts)
+        .filter((x) => fuzzy(x[0]).match(query))
+        .map((x) => ({
+          name: x[0],
+          callback: runnerFactory(x[1].callback),
+        })),
+    );
 
-      for await (const provider of CommandPaletteProviderManager.providers) {
-        results.push(...(await provider.exec(query)));
-      }
-
-      setResults(results);
-      return results;
+    for await (const provider of CommandPaletteProviderManager.providers) {
+      results.push(...(await provider.exec(query)));
     }
 
-    inputRef.current!.addEventListener("keyup", async (e) => {
-      if (e.key === "Escape") {
-        setVisible(false);
-        return;
-      }
-      if (inputRef.current === null) return;
+    setResults(results);
+    return results;
+  }
 
-      const result = await generate(inputRef.current.value);
-      if (e.key === "Enter") {
-        if (result.length === 1) {
-          setVisible(false);
-          result[0].callback?.();
-        }
+  async function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
+    if (e.key === "Escape") {
+      setVisible(false);
+      return;
+    }
+
+    if (inputRef.current === null) return;
+
+    const result = await generate(inputRef.current.value);
+
+    if (e.key === "ArrowDown") {
+      setCurrentIndex((old) =>
+        (old ?? -1) >= result.length - 1 ? 0 : (old ?? -1) + 1,
+      );
+      e.preventDefault();
+    } else if (e.key === "ArrowUp") {
+      setCurrentIndex((old) =>
+        (old ?? 0) <= 0 ? result.length - 1 : (old ?? 0) - 1,
+      );
+      e.preventDefault();
+    } else if (e.key === "Enter") {
+      if (result.length === 1) {
+        setVisible(false);
+        result[0].callback?.();
+      } else if (currentIndex) {
+        setVisible(false);
+        result[currentIndex].callback?.();
       }
-    });
-    inputRef.current!.focus();
-  }, [visible]);
+    } else {
+      setCurrentIndex(null);
+    }
+  }
 
   return !visible ? (
     <></>
@@ -140,19 +162,21 @@ export default function CommandPaletteManager() {
       <input
         ref={inputRef}
         className="dawn-command-palette-section dawn-command-palette-section-input"
+        onKeyUp={handleKeyDown}
+        autoFocus
       ></input>
       <Column className="dawn-command-palette-section">
-        {results.map((x) => (
+        {results.map((x, i) => (
           <Button
             key={x.name + (x.icon || "") + x.callback?.toString()}
             type="inherit"
-            className="dawn-command-palette-item"
+            className={`dawn-command-palette-item ${i == currentIndex ? "dawn-active" : ""}`}
             onClick={() => {
               setVisible(false);
               if (x.callback) x.callback();
             }}
           >
-            <Row>
+            <Row className="dawn-command-palette-main-row">
               {x.icon ? (
                 <Icon
                   size="64px"

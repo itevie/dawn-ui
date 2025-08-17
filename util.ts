@@ -1,7 +1,7 @@
 import { HTMLAttributes, ReactNode } from "react";
 import { showInfoAlert } from "./components/AlertManager";
 import EventEmitter from "events";
-import { dawnUIConfig } from ".";
+import { dawnUIConfig } from "./config";
 
 export type HTTPMethod = "post" | "get" | "patch" | "put" | "delete";
 export type MaybePromise<T> = T | Promise<T>;
@@ -125,8 +125,12 @@ export function todo() {
 }
 
 export function resolveImageUrl(url: string): string {
-  const isLocal = window.location.hostname === "localhost";
-  const needsPrefix = !url.startsWith("http") && !url.startsWith("data:");
-  const prefix = isLocal && needsPrefix ? dawnUIConfig.baseLocalhostUrl : "";
-  return `${prefix}${url}`;
+  try {
+    const isLocal = window.location.hostname === "localhost";
+    const needsPrefix = !url.startsWith("http") && !url.startsWith("data:");
+    const prefix = isLocal && needsPrefix ? dawnUIConfig.baseLocalhostUrl : "";
+    return `${prefix}${url}`;
+  } catch {
+    return dawnUIConfig.imageFallback;
+  }
 }

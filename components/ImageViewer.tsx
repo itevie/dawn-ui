@@ -15,45 +15,42 @@ export let setFullscreenImage: (
 ) => void = () => {};
 
 export default function ImageViewer() {
-  const [images, setImages] = useState<string[]>([]);
-  const [config, setConfig] = useState<FullscreenImageConfig>({} as any);
+  const [config, setConfig] = useState<FullscreenImageConfig | null>(null);
   const [index, setIndex] = useState<number>(0);
 
   useEffect(() => {
-    setFullscreenImage = (config) => {
-      if (!config.images) {
-        setImages([config.image]);
-        setIndex(0);
-      } else {
-        setImages(images);
-        setIndex(images.indexOf(config.image));
-      }
+    setFullscreenImage = (c) => {
+      if (!c.images) c.images = [c.image];
+      setConfig(c);
+      setIndex(c.images.indexOf(c.image));
     };
   }, []);
 
-  return images.length > 0 ? (
+  return config && config.images!.length > 0 ? (
     <div
       className="dawn-fullscreen"
-      onClick={(e) => !(e.target instanceof HTMLButtonElement) && setImages([])}
+      onClick={(e) => !(e.target instanceof HTMLDivElement) && setConfig(null)}
     >
       <div
         className="dawn-page-center"
         onClick={(e) =>
-          !(e.target instanceof HTMLButtonElement) && setImages([])
+          !(e.target instanceof HTMLDivElement) && setConfig(null)
         }
       >
         <Column util={["justify-center", "align-center"]}>
           <img
             className="sy-image-fullscreen"
-            src={images[index] ?? ""}
-            onContextMenu={(e) => config.onContextMenu?.(e, images[index])}
+            src={config.images![index] ?? ""}
+            onContextMenu={(e) =>
+              config.onContextMenu?.(e, config.images![index])
+            }
           />
-          {images.length > 1 && (
+          {config.images!.length > 1 && (
             <Row util={["justify-center"]}>
               <Button
                 style={{ fontSize: "2em" }}
                 onClick={() =>
-                  setIndex(index === 0 ? images.length - 1 : index - 1)
+                  setIndex(index === 0 ? config.images!.length - 1 : index - 1)
                 }
               >
                 ←
@@ -61,7 +58,7 @@ export default function ImageViewer() {
               <Button
                 style={{ fontSize: "2em" }}
                 onClick={() =>
-                  setIndex(index === images.length - 1 ? 0 : index + 1)
+                  setIndex(index === config.images!.length - 1 ? 0 : index + 1)
                 }
               >
                 →

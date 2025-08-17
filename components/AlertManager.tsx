@@ -7,17 +7,18 @@ import Column from "./Column";
 import GoogleMatieralIcon from "./GoogleMaterialIcon";
 import ProgressBar from "./ProgressBar";
 import "./alerts.css";
+import { dawnUIConfig } from "../config";
 
 interface Model {
   id?: string;
-  title?: string;
+  title?: ReactNode;
   body: ReactNode;
   buttons?: ModelButton[];
   noClose?: boolean;
 }
 
 interface ModelButton {
-  text: string;
+  text: ReactNode;
   id: string;
   type?: ButtonType;
   click: (close: () => void) => void;
@@ -114,15 +115,15 @@ export default function AlertManager() {
   );
 }
 
-export function showErrorAlert(message: string, title?: string) {
+export function showErrorAlert(message: ReactNode, title?: ReactNode) {
   return new Promise<void>((resolve) => {
     addAlert({
-      title: title ?? "Error!",
+      title: title ?? dawnUIConfig.strings.errorTitle,
       body: <label>{message}</label>,
       buttons: [
         {
           id: "ok",
-          text: "OK!",
+          text: dawnUIConfig.strings.ok,
           enterKey: true,
           click: (close) => {
             close();
@@ -137,12 +138,12 @@ export function showErrorAlert(message: string, title?: string) {
 export function showInfoAlert(message: ReactNode) {
   return new Promise<void>((resolve) => {
     addAlert({
-      title: "Information",
+      title: dawnUIConfig.strings.informationTitle,
       body: message,
       buttons: [
         {
           id: "ok",
-          text: "OK!",
+          text: dawnUIConfig.strings.ok,
           enterKey: true,
           click: (close) => {
             close();
@@ -184,19 +185,19 @@ export function showLoadingAlert(): {
   };
 }
 
-export function showConfirmModel(title: string, yesCb: () => void): void {
+export function showConfirmModel(title: ReactNode, yesCb: () => void): void {
   addAlert({
-    title: "Confirm",
+    title: dawnUIConfig.strings.confirmTitle,
     body: <label>{title}</label>,
     buttons: [
       {
         id: "no",
-        text: "No",
+        text: dawnUIConfig.strings.no,
         click: (c) => c(),
       },
       {
         id: "yes",
-        text: "Yes",
+        text: dawnUIConfig.strings.yes,
         enterKey: true,
         click: (c) => {
           c();
@@ -207,7 +208,7 @@ export function showConfirmModel(title: string, yesCb: () => void): void {
   });
 }
 
-export function showInputAlert(title: string): Promise<string | null> {
+export function showInputAlert(title: ReactNode): Promise<string | null> {
   return new Promise<string | null>((resolve) => {
     let current: string | null = null;
 
@@ -227,7 +228,7 @@ export function showInputAlert(title: string): Promise<string | null> {
             close();
             resolve(null);
           },
-          text: "Cancel",
+          text: dawnUIConfig.strings.cancel,
         },
         {
           id: "ok",
@@ -236,7 +237,7 @@ export function showInputAlert(title: string): Promise<string | null> {
             close();
             resolve(current);
           },
-          text: "OK!",
+          text: dawnUIConfig.strings.ok,
         },
       ],
     });

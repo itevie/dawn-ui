@@ -45,7 +45,7 @@ export class ShortcutManager {
     else shortcuts[name] = shortcut;
   }
 
-  public static setShortcutCallback(name: string, callback: () => void) {
+  public static setShortcutCallback(name: string, callback: () => any) {
     if (!shortcuts[name]) throw new Error(`No shortcut registered: ${name}`);
     shortcuts[name].callback = callback;
   }

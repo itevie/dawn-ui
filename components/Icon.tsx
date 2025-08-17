@@ -1,7 +1,7 @@
 import { HTMLAttributes } from "react";
 import { combineClasses, combineStyles, resolveImageUrl } from "../util";
 import GoogleMaterialIcon from "./GoogleMaterialIcon";
-import { dawnUIConfig } from "..";
+import { dawnUIConfig } from "../config";
 
 type IconProps = {
   src: string;
