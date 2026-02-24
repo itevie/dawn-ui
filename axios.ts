@@ -57,7 +57,7 @@ export class AxiosWrapper {
   public wrapper<T extends HTTPMethod, D extends any = any>(
     method: T,
     url: string,
-    data?: T extends "get" ? never : any,
+    data?: T extends "get" ? never | undefined : any,
     config?: CombinedConfig,
   ): Promise<AxiosResponse<D>> {
     return new Promise<AxiosResponse<D>>((resolve, reject) => {

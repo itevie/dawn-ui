@@ -59,6 +59,7 @@ export default function Flyout({
   const [shown, setShown] = useState<boolean>(false);
 
   const child = cloneElement(children, {
+    // @ts-ignore
     onMouseMove: (e: React.MouseEvent<any, MouseEvent>) => {
       if (!flyout.timeout) return setFlyout(flyout, e);
 

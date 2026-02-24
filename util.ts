@@ -1,6 +1,6 @@
 import { HTMLAttributes, ReactNode } from "react";
 import { showInfoAlert } from "./components/AlertManager";
-import EventEmitter from "events";
+import EventEmitter from "eventemitter3";
 import { dawnUIConfig } from "./config";
 
 export type HTTPMethod = "post" | "get" | "patch" | "put" | "delete";
